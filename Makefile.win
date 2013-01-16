@@ -1,0 +1,84 @@
+# Project: greven
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o src/C3Dmodel.o src/Canimation.o src/Cbmp.o src/Ccircle.o src/Ccore.o src/CgameObject.o src/Cgraphic.o src/Cgreven.o src/Cphysics.o src/Ctexture.o src/Ctga.o src/Cvector.o src/Ctime.o src/Clevel.o src/Cgeo.o src/Cpoint.o src/C3DmodelLoader.o src/Ccamera.o $(RES)
+LINKOBJ  = main.o src/C3Dmodel.o src/Canimation.o src/Cbmp.o src/Ccircle.o src/Ccore.o src/CgameObject.o src/Cgraphic.o src/Cgreven.o src/Cphysics.o src/Ctexture.o src/Ctga.o src/Cvector.o src/Ctime.o src/Clevel.o src/Cgeo.o src/Cpoint.o src/C3DmodelLoader.o src/Ccamera.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lopengl32 -lglut32  -lglu32  -lwinmm  -lgdi32 -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 C:/Dev-Cpp/lib/Box2D.lib  -g3 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = greven.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before greven.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "greven.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+src/C3Dmodel.o: src/C3Dmodel.cpp
+	$(CPP) -c src/C3Dmodel.cpp -o src/C3Dmodel.o $(CXXFLAGS)
+
+src/Canimation.o: src/Canimation.cpp
+	$(CPP) -c src/Canimation.cpp -o src/Canimation.o $(CXXFLAGS)
+
+src/Cbmp.o: src/Cbmp.cpp
+	$(CPP) -c src/Cbmp.cpp -o src/Cbmp.o $(CXXFLAGS)
+
+src/Ccircle.o: src/Ccircle.cpp
+	$(CPP) -c src/Ccircle.cpp -o src/Ccircle.o $(CXXFLAGS)
+
+src/Ccore.o: src/Ccore.cpp
+	$(CPP) -c src/Ccore.cpp -o src/Ccore.o $(CXXFLAGS)
+
+src/CgameObject.o: src/CgameObject.cpp
+	$(CPP) -c src/CgameObject.cpp -o src/CgameObject.o $(CXXFLAGS)
+
+src/Cgraphic.o: src/Cgraphic.cpp
+	$(CPP) -c src/Cgraphic.cpp -o src/Cgraphic.o $(CXXFLAGS)
+
+src/Cgreven.o: src/Cgreven.cpp
+	$(CPP) -c src/Cgreven.cpp -o src/Cgreven.o $(CXXFLAGS)
+
+src/Cphysics.o: src/Cphysics.cpp
+	$(CPP) -c src/Cphysics.cpp -o src/Cphysics.o $(CXXFLAGS)
+
+src/Ctexture.o: src/Ctexture.cpp
+	$(CPP) -c src/Ctexture.cpp -o src/Ctexture.o $(CXXFLAGS)
+
+src/Ctga.o: src/Ctga.cpp
+	$(CPP) -c src/Ctga.cpp -o src/Ctga.o $(CXXFLAGS)
+
+src/Cvector.o: src/Cvector.cpp
+	$(CPP) -c src/Cvector.cpp -o src/Cvector.o $(CXXFLAGS)
+
+src/Ctime.o: src/Ctime.cpp
+	$(CPP) -c src/Ctime.cpp -o src/Ctime.o $(CXXFLAGS)
+
+src/Clevel.o: src/Clevel.cpp
+	$(CPP) -c src/Clevel.cpp -o src/Clevel.o $(CXXFLAGS)
+
+src/Cgeo.o: src/Cgeo.cpp
+	$(CPP) -c src/Cgeo.cpp -o src/Cgeo.o $(CXXFLAGS)
+
+src/Cpoint.o: src/Cpoint.cpp
+	$(CPP) -c src/Cpoint.cpp -o src/Cpoint.o $(CXXFLAGS)
+
+src/C3DmodelLoader.o: src/C3DmodelLoader.cpp
+	$(CPP) -c src/C3DmodelLoader.cpp -o src/C3DmodelLoader.o $(CXXFLAGS)
+
+src/Ccamera.o: src/Ccamera.cpp
+	$(CPP) -c src/Ccamera.cpp -o src/Ccamera.o $(CXXFLAGS)

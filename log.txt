@@ -1,0 +1,4 @@
+16:04 30.05.2012
+
+Sistemde kullanılan dış kodlar
+	http://www.omegadb.net/simplexml/  (SimpleXML Copyright 2002 By Brian Ecker)
