@@ -1,13 +1,13 @@
-#include "Craziel.h"
+#include "Cplayer.h"
 
-Craziel::Craziel()
+Cplayer::Cplayer()
 {
     this->setState(P1_STOP);
     this->inAir=false;
     iTime=NULL;
     lastTime=0;
     maxSpeed=5;
-    acc=1;//1 saniye içinde max hıza ulaş
+    acc=1;/**< bir saniye içinde max hıza ulaş */
     jumpForce=7;
     isPlaying=false;
     doubleJump=1;
@@ -15,18 +15,18 @@ Craziel::Craziel()
 
 }
 
-Craziel::~Craziel()
+Cplayer::~Cplayer()
 {
     //dtor
 }
 
-void Craziel::setState(short state)
+void Cplayer::setState(short state)
 {
 
 
 }
 
-void Craziel::moveLeft()
+void Cplayer::moveLeft()
 {
     float deltaTime;
     startAccTime();
@@ -40,7 +40,7 @@ void Craziel::moveLeft()
     this->invert=0;
 
 }
-void Craziel::moveRight()
+void Cplayer::moveRight()
 {
     float deltaTime;
     startAccTime();
@@ -54,7 +54,7 @@ void Craziel::moveRight()
     this->invert=1;
 }
 
-void Craziel::jump()
+void Cplayer::jump()
 {
 
     if(this->doubleJump>0)
@@ -72,11 +72,11 @@ void Craziel::jump()
         this->doubleJump--;
     }
 }
-void Craziel::linkTime(Ctime *time)
+void Cplayer::linkTime(Ctime *time)
 {
     this->iTime=time;
 }
-void Craziel::startAccTime()
+void Cplayer::startAccTime()
 {
     if(!this->timerStarted)
     {
@@ -84,7 +84,7 @@ void Craziel::startAccTime()
         lastTime=iTime->getCurrTime();
     }
 }
-void Craziel::resetAccTime()
+void Cplayer::resetAccTime()
 {
     if(this->timerStarted)
     {
@@ -92,12 +92,12 @@ void Craziel::resetAccTime()
         lastTime=iTime->getCurrTime();
     }
 }
-void Craziel::playerInAir()
+void Cplayer::playerInAir()
 {
     this->inAir=true;
     this->setFPS(2);
 }
-void Craziel::playerOnGround()
+void Cplayer::playerOnGround()
 {
     this->doubleJump=1;
     this->inAir=false;

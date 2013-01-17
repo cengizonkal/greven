@@ -36,13 +36,10 @@
 
 
 
-///100 pixel 1 metre
+/**< 100 metre 1 pixel */
 
 #define METERTOPIXEL 100
 
-
-///Backpack size
-#define BACKPACK_SIZE 4
 
 
 

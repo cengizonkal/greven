@@ -1,26 +1,26 @@
-#ifndef Craziel_H
-#define Craziel_H
+#ifndef Cplayer_H
+#define Cplayer_H
 
 #include "../graphics/Csprite.h"
 
-#include "../def.h"
-#include "../tools.h"
+#include "../../def.h"
+#include "../../tools.h"
 #include "../time/Ctime.h"
 
 
-class Craziel : public Csprite
+class Cplayer : public Csprite
 {
     public:
         int id;
-        Craziel();
+        Cplayer();
         float lastTime;
-        virtual ~Craziel();
+        virtual ~Cplayer();
         bool inAir;
         bool timerStarted;
         short doubleJump;
-        float maxSpeed;
-        float jumpForce;
-        float acc; //time to gain full speed, 1 second
+        float maxSpeed;/**< Max hız */
+        float jumpForce;/**< Zıplama kuvveti */
+        float acc;/**< bu saniye süresince tam hızına ulaş */
         Ctime *iTime;
         void setState(short state);
         void moveLeft(void);
@@ -40,4 +40,4 @@ class Craziel : public Csprite
 
 };
 
-#endif // Craziel_H
+#endif // Cplayer_H

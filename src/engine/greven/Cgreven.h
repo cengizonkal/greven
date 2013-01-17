@@ -5,13 +5,13 @@
 #include <gl/gl.h>
 #include <stdio.h>
 
-#include "../def.h"
+#include "../../def.h"
 #include "../graphics/Ctexture.h"
 #include "../graphics/Cbmp.h"
 #include "../graphics/Ctga.h"
 #include "../time/Ctime.h"
 #include "../geometrics/Cvector.h"
-#include "Ccamera.h"
+#include "../camera/Ccamera.h"
 
 inline LRESULT CALLBACK   WndProc (HWND hWnd, UINT message,WPARAM wParam, LPARAM lParam)
     {
@@ -59,14 +59,14 @@ class Cgreven {
     ///opengl handler
     HGLRC hRC;
 
-    ///Pencere Ã–zellikleri
+    ///Pencere Özellikleri
     int height;
     int width;
     bool fullScreen;
 
     DWORD dwExStyle;
     DWORD dwStyle;
-    ///Senkronize olmak iÃ§in Zaman
+    ///Senkronize olmak için Zaman
     Ctime iTime;
 
     ///Aktif Kamera

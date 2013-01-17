@@ -1,5 +1,5 @@
 #include "Cphysics.h"
-#include "../def.h"
+#include "../../def.h"
 Cphysics::Cphysics()
 {
     init();

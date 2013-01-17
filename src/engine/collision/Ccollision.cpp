@@ -23,7 +23,7 @@ void Ccollision::registerLevel(Clevel *level)
 {
     this->level=level;
 }
-void Ccollision::registerPlayer(Craziel *player)
+void Ccollision::registerPlayer(Cplayer *player)
 {
     this->player=player;
 }

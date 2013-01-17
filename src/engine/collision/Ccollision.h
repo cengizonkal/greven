@@ -1,9 +1,9 @@
 #ifndef CCOLLISION_H
 #define CCOLLISION_H
 #include "../level/Clevel.h"
-#include "../controller/Craziel.h"
+#include "../player/Cplayer.h"
 #include "../time/Ctime.h"
-#include "../tools.h"
+#include "../../tools.h"
 
 class Ccollision
 {
@@ -12,13 +12,13 @@ class Ccollision
         Ccollision();
         ~Ccollision();
         Clevel *level;
-        Craziel *player;
+        Cplayer *player;
         Ctime *iTime;
         double lastTime;
         float stepTime;
         void init();
         void registerLevel(Clevel *level);
-        void registerPlayer(Craziel *player);
+        void registerPlayer(Cplayer *player);
         void linkTime(Ctime *time);
         void step();
         bool circleGround(Ccore c,Cground g);

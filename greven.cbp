@@ -19,69 +19,81 @@
 			<Add library="gdi32" />
 		</Linker>
 		<Unit filename="main.cpp" />
-		<Unit filename="src\collision\Ccollision.cpp" />
-		<Unit filename="src\collision\Ccollision.h" />
-		<Unit filename="src\controller\CbackPack.cpp" />
-		<Unit filename="src\controller\CbackPack.h" />
-		<Unit filename="src\controller\Ccamera.cpp" />
-		<Unit filename="src\controller\Ccamera.h" />
-		<Unit filename="src\controller\CgameObject.h" />
-		<Unit filename="src\controller\Cgreven.cpp" />
-		<Unit filename="src\controller\Cgreven.h" />
-		<Unit filename="src\controller\Cguard.cpp" />
-		<Unit filename="src\controller\Cguard.h" />
-		<Unit filename="src\controller\Craziel.cpp" />
-		<Unit filename="src\controller\Craziel.h" />
-		<Unit filename="src\def.h" />
-		<Unit filename="src\geometrics\Ccircle.cpp" />
-		<Unit filename="src\geometrics\Ccircle.h" />
-		<Unit filename="src\geometrics\Cgeo.cpp" />
-		<Unit filename="src\geometrics\Cgeo.h" />
-		<Unit filename="src\geometrics\Cpoint.cpp" />
-		<Unit filename="src\geometrics\Cpoint.h" />
-		<Unit filename="src\geometrics\Cvector.h" />
-		<Unit filename="src\glm.h" />
-		<Unit filename="src\graphics\C3Dmodel.cpp" />
-		<Unit filename="src\graphics\C3Dmodel.h" />
-		<Unit filename="src\graphics\C3DmodelLoader.cpp" />
-		<Unit filename="src\graphics\C3DmodelLoader.h" />
-		<Unit filename="src\graphics\Canimation.cpp" />
-		<Unit filename="src\graphics\Canimation.h" />
-		<Unit filename="src\graphics\Cbmp.cpp" />
-		<Unit filename="src\graphics\Cbmp.h" />
-		<Unit filename="src\graphics\Cgraphic.cpp" />
-		<Unit filename="src\graphics\Cgraphic.h" />
-		<Unit filename="src\graphics\Csprite.cpp" />
-		<Unit filename="src\graphics\Csprite.h" />
-		<Unit filename="src\graphics\Ctexture.cpp" />
-		<Unit filename="src\graphics\Ctexture.h" />
-		<Unit filename="src\graphics\Ctga.cpp" />
-		<Unit filename="src\graphics\Ctga.h" />
-		<Unit filename="src\ground\Cground.cpp" />
-		<Unit filename="src\ground\Cground.h" />
-		<Unit filename="src\level\Clevel.cpp" />
-		<Unit filename="src\level\Clevel.h" />
-		<Unit filename="src\physics\Ccore.cpp" />
-		<Unit filename="src\physics\Ccore.h" />
-		<Unit filename="src\physics\Cphysics.cpp" />
-		<Unit filename="src\physics\Cphysics.h" />
-		<Unit filename="src\time\Ctime.cpp" />
-		<Unit filename="src\time\Ctime.h" />
-		<Unit filename="src\tools.h" />
-		<Unit filename="src\wall\Cwall.cpp" />
-		<Unit filename="src\wall\Cwall.h" />
-		<Unit filename="src\xml\simplexml.cc" />
-		<Unit filename="src\xml\simplexml.h" />
+		<Unit filename="src/def.h" />
+		<Unit filename="src/engine/camera/Ccamera.cpp" />
+		<Unit filename="src/engine/camera/Ccamera.h" />
+		<Unit filename="src/engine/collision/Ccollision.cpp" />
+		<Unit filename="src/engine/collision/Ccollision.h" />
+		<Unit filename="src/engine/engine.h" />
+		<Unit filename="src/engine/geometrics/Ccircle.cpp" />
+		<Unit filename="src/engine/geometrics/Ccircle.h" />
+		<Unit filename="src/engine/geometrics/Cgeo.cpp" />
+		<Unit filename="src/engine/geometrics/Cgeo.h" />
+		<Unit filename="src/engine/geometrics/Cpoint.cpp" />
+		<Unit filename="src/engine/geometrics/Cpoint.h" />
+		<Unit filename="src/engine/geometrics/Cvector.cpp" />
+		<Unit filename="src/engine/geometrics/Cvector.h" />
+		<Unit filename="src/engine/graphics/C3Dmodel.cpp" />
+		<Unit filename="src/engine/graphics/C3Dmodel.h" />
+		<Unit filename="src/engine/graphics/C3DmodelLoader.cpp" />
+		<Unit filename="src/engine/graphics/C3DmodelLoader.h" />
+		<Unit filename="src/engine/graphics/Canimation.cpp" />
+		<Unit filename="src/engine/graphics/Canimation.h" />
+		<Unit filename="src/engine/graphics/Cbmp.cpp" />
+		<Unit filename="src/engine/graphics/Cbmp.h" />
+		<Unit filename="src/engine/graphics/Cgraphic.cpp" />
+		<Unit filename="src/engine/graphics/Cgraphic.h" />
+		<Unit filename="src/engine/graphics/Csprite.cpp" />
+		<Unit filename="src/engine/graphics/Csprite.h" />
+		<Unit filename="src/engine/graphics/Ctexture.cpp" />
+		<Unit filename="src/engine/graphics/Ctexture.h" />
+		<Unit filename="src/engine/graphics/Ctga.cpp" />
+		<Unit filename="src/engine/graphics/Ctga.h" />
+		<Unit filename="src/engine/greven/Cgreven.cpp" />
+		<Unit filename="src/engine/greven/Cgreven.h" />
+		<Unit filename="src/engine/ground/Cground.cpp" />
+		<Unit filename="src/engine/ground/Cground.h" />
+		<Unit filename="src/engine/level/Clevel.cpp" />
+		<Unit filename="src/engine/level/Clevel.h" />
+		<Unit filename="src/engine/physics/Ccore.cpp" />
+		<Unit filename="src/engine/physics/Ccore.h" />
+		<Unit filename="src/engine/physics/Cphysics.cpp" />
+		<Unit filename="src/engine/physics/Cphysics.h" />
+		<Unit filename="src/engine/player/Cplayer.cpp" />
+		<Unit filename="src/engine/player/Cplayer.h" />
+		<Unit filename="src/engine/time/Ctime.cpp" />
+		<Unit filename="src/engine/time/Ctime.h" />
+		<Unit filename="src/engine/wall/Cwall.cpp" />
+		<Unit filename="src/engine/wall/Cwall.h" />
+		<Unit filename="src/engine/xml/simplexml.cc" />
+		<Unit filename="src/engine/xml/simplexml.h" />
+		<Unit filename="src/game/CbackPack.cpp" />
+		<Unit filename="src/game/CbackPack.h" />
+		<Unit filename="src/game/Cguard.cpp" />
+		<Unit filename="src/game/Cguard.h" />
+		<Unit filename="src/game/Craziel.cpp" />
+		<Unit filename="src/game/Craziel.h" />
+		<Unit filename="src/tools.h" />
 		<Unit filename="version.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
 			<AutoVersioning>
 				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
-				<Settings autoincrement="1" date_declarations="1" do_auto_increment="0" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
+				<Settings autoincrement="1" date_declarations="1" update_manifest="1" do_auto_increment="0" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
 				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
 				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="" />
 			</AutoVersioning>
+			<envvars />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot class_diagrams="1" />
+				<general />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

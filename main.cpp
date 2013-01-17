@@ -2,17 +2,8 @@
 #include <gl/gl.h>
 #include <gl/glu.h>
 
-#include "src/controller/Cgreven.h"
-#include "src/graphics/Cgraphic.h"
-# include "src/graphics/Canimation.h"
-# include "src/graphics/Csprite.h"
-# include "src/physics/Cphysics.h"
-# include "src/physics/Ccore.h"
-# include "src/controller/CgameObject.h"
-# include "src/controller/Ccamera.h"
-# include "src/controller/Craziel.h"
-# include "src/level/Clevel.h"
-# include "src/collision/Ccollision.h"
+#include "src/engine/engine.h"
+#include "src/game/Craziel.h"
 
 
 int WINAPI WinMain (HINSTANCE hInstance,
@@ -22,10 +13,11 @@ int WINAPI WinMain (HINSTANCE hInstance,
 {
 
 
-    Cgreven greven; /// eventleri dinleyen
-    Cgraphic gr; ///grafik işlemleri için, sprite çiz vs
+
+    Cgreven greven; /**< Graphics and events listener */
+    Cgraphic gr;
     gr.debug=false;
-    Cphysics ph; /// fizikçi
+    Cphysics ph;
     Ccamera camera;
     Clevel level;
     Ccollision collision;

@@ -19,7 +19,7 @@ inline void writeError(const char *fmt,...)
     struct tm *ptr;
     lt=time(NULL);
     ptr=localtime(&lt);
-    fp=fopen("errorlog.txt","a+");
+    fp=fopen("logs/errorlog.txt","a+");
     fprintf(fp,"\n%s",asctime(ptr));
 
     va_list vl;
@@ -39,7 +39,7 @@ inline void trace(const char *fmt,...)
     struct tm *ptr;
     lt=time(NULL);
     ptr=localtime(&lt);
-    fp=fopen("trace.txt","a+");
+    fp=fopen("logs/trace.txt","a+");
     fprintf(fp,"\n%s",asctime(ptr));
 
     va_list vl;

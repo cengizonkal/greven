@@ -7,6 +7,7 @@ public:
     CbackPack(void );
     ~CbackPack(void );
 
+
     /**
     * for adding item to backpack
     * @param item

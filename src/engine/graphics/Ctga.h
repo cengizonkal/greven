@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <string>
-#include "../tools.h"
+#include "../../tools.h"
 
 class Ctga
 {

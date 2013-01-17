@@ -11,9 +11,9 @@
 #include "Csprite.h"
 #include "../geometrics/Cgeo.h"
 #include "../geometrics/Cpoint.h"
-#include "../controller/Ccamera.h"
+#include "../camera/Ccamera.h"
 #include "../level/Clevel.h"
-#include "../def.h"
+#include "../../def.h"
 
 
 

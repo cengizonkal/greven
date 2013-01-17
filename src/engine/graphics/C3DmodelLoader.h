@@ -1,7 +1,7 @@
 #ifndef _C3DMODELLOADER_H
 #define _C3DMODELLOADER_H
 # include "C3Dmodel.h"
-# include "../tools.h"
+# include "../../tools.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -5,9 +5,9 @@
 
 #include "../graphics/Csprite.h"
 #include "../geometrics/Cvector.h"
-#include "../def.h"
+#include "../../def.h"
 
-#include "CgameObject.h"
+
 
 
 class Ccamera
