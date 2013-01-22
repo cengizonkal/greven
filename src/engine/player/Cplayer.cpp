@@ -31,10 +31,10 @@ void Cplayer::moveLeft()
     float deltaTime;
     startAccTime();
     deltaTime=iTime->getCurrTime()-lastTime;
-    this->core.velocity.x=maxSpeed*(deltaTime/acc)*-1;
-    if(abs(this->core.velocity.x)>abs(this->maxSpeed))
+    this->velocity.x=maxSpeed*(deltaTime/acc)*-1;
+    if(abs(this->velocity.x)>abs(this->maxSpeed))
     {
-        this->core.velocity.x=(this->maxSpeed)*-1;
+        this->velocity.x=(this->maxSpeed)*-1;
     }
     this->isPlaying=true;
     this->invert=0;

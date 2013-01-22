@@ -8,21 +8,20 @@
 #include "Ctexture.h"
 #include "Cbmp.h"
 #include "Ctga.h"
-#include "Csprite.h"
 #include "../geometrics/Cgeo.h"
 #include "../geometrics/Cpoint.h"
 #include "../camera/Ccamera.h"
 #include "../level/Clevel.h"
+#include "../gameObject/CgameObject.h"
 #include "../../def.h"
 
 
 
 class Cgraphic {
     public:
-        int NoS; ///< Number Of sprites, kaçtane kayıtlı sprite var?
+
         int NoA;
         Canimation * * animations;
-        Csprite * * sprites;
         bool debug;
 
         int No3D;
@@ -43,9 +42,9 @@ class Cgraphic {
         ~Cgraphic(void );
         void init(void );
 
-        void registerSprite(Csprite * s);
+
         //draw functions
-        void drawSprites(void );
+        void drawAnimations(void );
         void draw3DModels();
         void drawLevel();
 
@@ -57,6 +56,7 @@ class Cgraphic {
         void loadTextures(void );
         void setCamera(Ccamera *c);
         void setLevel(Clevel *level);
+        void registerAnimation(Canimation *a);
 
     private:
         Ctime * iTime;

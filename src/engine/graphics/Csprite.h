@@ -17,30 +17,30 @@ class Csprite {
     b2FixtureDef fixtureDef;*/
     Ccore core;
     Ccircle circle;
-    bool debug;///<çizgileri göster
-    int id; ///< Hangi Sprite ?
-    int textId; ///< texture bağlamak için gereken id
-    double fps; ///< animasyon hızı
+    bool debug;/**< Çizgileri göster */
+    int id; /**< Hangi Sprite ? */
+    int textId; /**< texture bağlamak için gereken id*/
+    double fps; /**< animasyon hızı */
 
 
-    float w; ///< Genişlik
-    float h; ///< Yükseklik
+    float w; /**<  Genişlik*/
+    float h; /**< Yükseklik */
 
 
-    float fh;///< texture üzerindeki frame boyutu
-    float fw;///< texture üzerindeki frame boyutu
+    float fh;/**< texture üzerindeki frame boyutu */
+    float fw;/**< texture üzerindeki frame boyutu */
 
 
-    double fc;/// şuan hangi frame de
+    double fc;/**< şuan hangi frame de */
 
-    bool isPlaying; ///aktif mi
+    bool isPlaying; /**< aktif mi */
 
 
-    char invert; /// 0,1 dikey,2 yatay
+    char invert; /**< 0,1 dikey,2 yatay */
 
-    /*! Hangi Frameler Arasında*/
-    int fromFrame;
-    int toFrame;
+
+    int fromFrame;/**< Animasyonun hangi frameler arasında olduğunu gösterir */
+    int toFrame;/**< Animasyonun hangi frameler arasında olduğunu gösterir */
 
 
 

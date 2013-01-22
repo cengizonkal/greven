@@ -6,6 +6,7 @@
 
 # include "../geometrics/Cgeo.h"
 # include "../graphics/Csprite.h"
+#include "../../tools.h"
 # include <math.h>
 
 
@@ -14,17 +15,17 @@
 class Cphysics
 {
     public:
-    //comon time
-    Ctime * iTime;
-    Ccore **cores;
 
-    //number of cores
-    int NoC;
+    Ctime * iTime;/**< Common time */
+    Ccore **cores;/**< Objeler */
 
-    //world gravity
-    Cvector gravity;
+
+    int NoC;/**< obje sayısı */
+
+
+    Cvector gravity;/**< Bu dünyadaki yerçekimi */
     double lastTime;
-    float freeMove; //free slide time 1 second
+    float freeMove; /**< 1 saniye kay */
 
 
     public:
@@ -32,7 +33,7 @@ class Cphysics
     Cphysics();
     ~Cphysics();
 
-    void registerSprite(Csprite *s);
+    void registerCore(Ccore *c);
     void linkTime(Ctime * t);
     void step(void);
     void init(void);

@@ -1,14 +1,12 @@
 #ifndef Cplayer_H
 #define Cplayer_H
 
-#include "../graphics/Csprite.h"
-
 #include "../../def.h"
 #include "../../tools.h"
 #include "../time/Ctime.h"
+#include "../gameObject/CgameObject.h"
 
-
-class Cplayer : public Csprite
+class Cplayer : public CgameObject
 {
     public:
         int id;
@@ -21,7 +19,7 @@ class Cplayer : public Csprite
         float maxSpeed;/**< Max hız */
         float jumpForce;/**< Zıplama kuvveti */
         float acc;/**< bu saniye süresince tam hızına ulaş */
-        Ctime *iTime;
+        Ctime *iTime;/**< Genel zaman sınıfına bağlamak için gereken pointer */
         void setState(short state);
         void moveLeft(void);
         void moveRight(void);

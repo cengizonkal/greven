@@ -5,7 +5,6 @@
 #include "src/engine/engine.h"
 #include "src/game/Craziel.h"
 
-
 int WINAPI WinMain (HINSTANCE hInstance,
                     HINSTANCE hPrevInstance,
                     LPSTR lpCmdLine,
@@ -13,8 +12,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
 {
 
 
-
-    Cgreven greven; /**< Graphics and events listener */
+    /*Cgreven greven;
     Cgraphic gr;
     gr.debug=false;
     Cphysics ph;
@@ -43,7 +41,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     player.setFrameSize(156,128);
     player.linkTime(&greven.iTime);
 
-    ///! zamanları bağla ki tüm işlemlerdeki zamanlama doğru olsun
+   //zamanları bağla ki tüm işlemlerdeki zamanlama doğru olsun
     gr.linkTime(&greven.iTime);
     ph.linkTime(&greven.iTime);
 
@@ -53,24 +51,18 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
     //collision
     collision.linkTime(&greven.iTime);
-    collision.registerLevel(&level);
-    collision.registerPlayer(&player);
 
 
 
 
 
 
-    /*
-        Sprite sadece, bilgi içerir gerekli çizim ve fizik işlemleri
-        diğer sınıflar tarafında yapılır.
-    */
-
-    gr.registerSprite(&player);
 
 
 
-    ph.registerSprite(&player);
+    gr.registerAnimation(&player);
+    ph.registerCore(&player);
+    collision.registerGameObject(&player);
 
 
 
@@ -121,7 +113,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
     }
     greven.destroy();
-
+*/
 
 
 }

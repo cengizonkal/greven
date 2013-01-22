@@ -6,10 +6,8 @@ Cgraphic::Cgraphic(void )
 };
 void Cgraphic::init(void )
 {
-    NoA=0;
-    NoS=0;
+    NoA=0; /**< Animasyon sayısı */
     animations=(Canimation**)malloc(1*(sizeof(Canimation*)));
-    sprites=(Csprite**)malloc(1*(sizeof(Csprite*)));
     NoT=0;
     textures=NULL;
     iTime=NULL;
@@ -25,7 +23,6 @@ Cgraphic::~Cgraphic(void )
 {
 
     animations=NULL;
-    sprites=NULL;
     textures=NULL;
     iTime=NULL;
     models=NULL;
@@ -39,45 +36,45 @@ Cgraphic::~Cgraphic(void )
 
 
 
-void Cgraphic::registerSprite(Csprite * s)
+void Cgraphic::registerAnimation(Canimation * a)
 {
-    NoS++;
-    sprites=(Csprite**)realloc(sprites,NoS*(sizeof(Csprite*)));
-    sprites[NoS-1]=s;
-    s->id=NoS;
-    if(s->toFrame==0)
-        s->toFrame=(int)((textures[s->textId].w*textures[s->textId].h)/(s->fw*s->fh));
+    this->NoA++;
+    this->animations=(Canimation**)realloc(animations,NoA*(sizeof(Canimation*)));
+    animations[NoA-1]=a;
+
+    if(a->toFrame==0)
+        a->toFrame=(int)((textures[a->textId].w*textures[a->textId].h)/(a->fw*a->fh));
 
 };
+
+
 void Cgraphic::setLevel(Clevel *level)
 {
   this->level=level;
 };
 
-void Cgraphic::drawSprites(void )
+void Cgraphic::drawAnimations(void )
 {
     Cvector pos;
     float angle;
 
-
-
-    for(int i=0;i<NoS;i++)
+    for(int i=0;i<NoA;i++)
     {
         int frameCount=0;
-        frameCount=(int)sprites[i]->fc;
+        frameCount=(int)animations[i]->fc;
         float x1,y1,x2,y2;
-        x1=frameCount*sprites[i]->fw;
-        x1=(int)x1 % (int)textures[sprites[i]->textId].w;
-        x2=x1+sprites[i]->fw;
-        y1=(int)((frameCount*sprites[i]->fw)/textures[sprites[i]->textId].w);
-        y1*=sprites[i]->fh;
-        y2=y1+sprites[i]->fh;
-        x1/=textures[sprites[i]->textId].w;
-        x2/=textures[sprites[i]->textId].w;
-        y1/=textures[sprites[i]->textId].h;
-        y2/=textures[sprites[i]->textId].h;
+        x1=frameCount*animations[i]->fw;
+        x1=(int)x1 % (int)textures[animations[i]->textId].w;
+        x2=x1+animations[i]->fw;
+        y1=(int)((frameCount*animations[i]->fw)/textures[animations[i]->textId].w);
+        y1*=animations[i]->fh;
+        y2=y1+animations[i]->fh;
+        x1/=textures[animations[i]->textId].w;
+        x2/=textures[animations[i]->textId].w;
+        y1/=textures[animations[i]->textId].h;
+        y2/=textures[animations[i]->textId].h;
 
-        pos=sprites[i]->getPosition();
+        pos=animations[i]->getPosition();
 
         //pos*=10;
 
@@ -88,17 +85,17 @@ void Cgraphic::drawSprites(void )
             glColor3f(1,1,1);
             glPushMatrix();
             glTranslatef( pos.x, pos.y, 0 );
-            if(sprites[i]->invert==1)
+            if(animations[i]->invert==1)
             {
                 glRotatef( 180, 0, 1, 0 );
             }
             //glRotatef( angle * RADTODEG, 0, 0, 1 );//OpenGL uses degrees here
 
             glBegin (GL_QUADS);
-                glVertex3f (-(sprites[i]->w/2),-(sprites[i]->h/2),0);
-                glVertex3f (-(sprites[i]->w/2),(sprites[i]->h/2),0);
-                glVertex3f ((sprites[i]->w/2),(sprites[i]->h/2),0);
-                glVertex3f ((sprites[i]->w/2),-(sprites[i]->h/2),0);
+                glVertex3f (-(animations[i]->w/2),-(animations[i]->h/2),0);
+                glVertex3f (-(animations[i]->w/2),(animations[i]->h/2),0);
+                glVertex3f ((animations[i]->w/2),(animations[i]->h/2),0);
+                glVertex3f ((animations[i]->w/2),-(animations[i]->h/2),0);
             glEnd ();
             glPopMatrix();
 
@@ -107,11 +104,11 @@ void Cgraphic::drawSprites(void )
         }
         else
         {
-            glBindTexture(GL_TEXTURE_2D,textures[sprites[i]->textId].id);
+            glBindTexture(GL_TEXTURE_2D,textures[animations[i]->textId].id);
             glEnable(GL_TEXTURE_2D);
             glPushMatrix();
             glTranslatef( pos.x, pos.y, 0 );
-            if(sprites[i]->invert==1)
+            if(animations[i]->invert==1)
             {
                 glRotatef( 180, 0, 1, 0 );
             }
@@ -119,13 +116,13 @@ void Cgraphic::drawSprites(void )
 
             glBegin (GL_QUADS);
                 glTexCoord2f(x1,y1);
-                glVertex3f (-(sprites[i]->w/2),-(sprites[i]->h/2),0);
+                glVertex3f (-(animations[i]->w/2),-(animations[i]->h/2),0);
                 glTexCoord2f(x1,y2);
-                glVertex3f (-(sprites[i]->w/2),(sprites[i]->h/2),0);
+                glVertex3f (-(animations[i]->w/2),(animations[i]->h/2),0);
                 glTexCoord2f(x2,y2);
-                glVertex3f ((sprites[i]->w/2),(sprites[i]->h/2),0);
+                glVertex3f ((animations[i]->w/2),(animations[i]->h/2),0);
                 glTexCoord2f(x2,y1);
-                glVertex3f ((sprites[i]->w/2),-(sprites[i]->h/2),0);
+                glVertex3f ((animations[i]->w/2),-(animations[i]->h/2),0);
             glEnd ();
             glPopMatrix();
             glDisable(GL_TEXTURE_2D);
@@ -239,44 +236,10 @@ void Cgraphic::linkTime(Ctime * t)
 
 void Cgraphic::animate(void )
 {
-//    double deltaTime=0;
-//
-//    for(int i=0;i<NoA;i++)
-//    {
-//        deltaTime=iTime->getCurrTime()-lastTime;
-//        //eðer animasyon aktif ise
-//        if(animations[i]->isPlaying)
-//        {
-//            animations[i]->fc+=deltaTime*animations[i]->fps;
-//            //eðer sona ulaþtýysa baþa dön loop
-//            //if((animations[i]->fc+1)*animations[i]->fw*animations[i]->fh>textures[animations[i]->textId].w*textures[animations[i]->textId].h)
-//                //animations[i]->fc=0;
-//            if(animations[i]->fc>animations[i]->toFrame)
-//             animations[i]->fc=animations[i]->fromFrame;
-//        }
-//
-//    }
-//    lastTime=iTime->getCurrTime();
+
 };
 
-void Cgraphic::animateSprites(void )
-{
-    double deltaTime=0;
 
-    for(int i=0;i<NoS;i++)
-    {
-        deltaTime=iTime->getCurrTime()-lastTime;
-        ///eğer animasyon aktif ise
-        if(sprites[i]->isPlaying)
-        {
-            sprites[i]->fc+=deltaTime*sprites[i]->fps;
-            if(sprites[i]->fc>sprites[i]->toFrame)
-             sprites[i]->fc=sprites[i]->fromFrame;
-        }
-
-    }
-    lastTime=iTime->getCurrTime();
-};
 
 //load models3D
 void Cgraphic::load3DModels(void )
@@ -419,7 +382,6 @@ void Cgraphic::loadTexture(char * fileName)
 void Cgraphic::setCamera(Ccamera *c)
 {
      this->camera=c;
-
 };
 
 

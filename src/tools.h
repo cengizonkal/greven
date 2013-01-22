@@ -97,5 +97,12 @@ inline void extractFileExtension(char fileName[255],char ext[10])
     }
 
 }
-
+inline bool inArray(int *arr, short sz, int needle) {
+    for(int i = 0; i<sz; i++) {
+        if(needle == arr[i]) {
+            return true;
+        }
+    }
+    return false;
+}
 #endif

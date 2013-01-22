@@ -1,100 +1,81 @@
 #include "Ccollision.h"
 
-Ccollision::Ccollision()
-{
-    init();
+Ccollision::Ccollision() {
+	init();
+}
+
+Ccollision::~Ccollision() {
+	//dtor
+}
+
+void Ccollision::init() {
+	this->gameObjects = NULL;
+	this->iTime = NULL;
+	lastTime = 0;
+	stepTime = 0.0001; /**< Birim saniye, Çalışma frekansı  */
 }
 
 
-Ccollision::~Ccollision()
-{
-    //dtor
+void Ccollision::registerGameObject(CgameObject *gameObject) {
+	this->NoO++;
+    this->gameObjects=(CgameObject**)realloc(gameObjects, NoO*(sizeof(CgameObject*)));
+	this->gameObjects[NoO-1] = gameObject;
 }
 
-void Ccollision::init()
-{
-    this->level=NULL;
-    this->player=NULL;
-    lastTime=0;
-    stepTime=0.0001; //1 second
+void Ccollision::linkTime(Ctime *time) {
+	this->iTime = time;
 }
-
-void Ccollision::registerLevel(Clevel *level)
-{
-    this->level=level;
-}
-void Ccollision::registerPlayer(Cplayer *player)
-{
-    this->player=player;
-}
-void Ccollision::linkTime(Ctime *time)
-{
-    this->iTime=time;
-}
-void Ccollision::step(void)
-{
-    double deltaTime=0;
-    deltaTime=iTime->getCurrTime()-lastTime;
-    if(deltaTime>stepTime)
-    {
-        //check if player collides with grounds and walls
-        for(int i=0;i<this->level->NoG;i++)
-        {
-            if(circleGround(player->core,level->grounds[i]))
-            {
-                //trace("\n%s","collide");
-                player->core.force.y=0;
-                player->core.velocity.y=0;
-                player->playerOnGround();
-
-                break;
-
+void Ccollision::step(void) {
+	double deltaTime = 0;
+	deltaTime = iTime->getCurrTime() - lastTime;
+	if(deltaTime > stepTime) {
+		for(int i = 0; i < this->NoO-1; i++) {
+            for(int j=i; j < this->NoO; j++) {
+                if(inArray(gameObjects[i]->collideWith, gameObjects[i]->NoC, gameObjects[i]->groupId)) {
+                    if((gameObjects[i]->type == LINE) && (gameObjects[j]->type == CIRCLE)) {
+                        if(this->circleLine(gameObjects[j]->circle, gameObjects[i]->line)) {
+                            gameObjects[i]->collide(gameObjects[j]->id, gameObjects[j]->groupId);
+                            gameObjects[j]->collide(gameObjects[i]->id, gameObjects[i]->groupId);
+                        }
+                    }else if((gameObjects[j]->type == LINE) && (gameObjects[i]->type == CIRCLE)) {
+                        if(this->circleLine(gameObjects[i]->circle, gameObjects[j]->line)) {
+                            gameObjects[i]->collide(gameObjects[j]->id, gameObjects[j]->groupId);
+                            gameObjects[j]->collide(gameObjects[i]->id, gameObjects[i]->groupId);
+                        }
+                    }
+                }
             }
-            else
-            {
-
-                player->core.force.y=(GRAVITY);
-                player->playerInAir();
-
-
-            }
-
         }
-        lastTime=iTime->getCurrTime();
-    }
-
+	}
+    lastTime = iTime->getCurrTime();
 }
 
-bool Ccollision::circleGround(Ccore c,Cground g)
-{
-    float x1;
-    float x2;
-    float y;
+bool Ccollision::circleLine(Ccircle c, Cline l) {
+	float x1;
+	float x2;
+	float y;
 
 
-    if(g.pointA.x>g.pointB.x)
-    {
-        x1=g.pointA.x;
-        x2=g.pointB.x;
+	if(l.x > l.w) {
+		x1 = l.x;
+		x2 = l.w;
 
-    }
-    else
-    {
-        x1=g.pointB.x;
-        x2=g.pointA.x;
+	} else {
+		x1 = l.w;
+		x2 = l.x;
 
-    }
-    //y all the same
-    y=g.pointA.y;
+	}
 
-    if(((c.position.x+c.radius)>x2) && ((c.position.x-c.radius)<x1) && ((c.position.y-c.radius)<=y &&(c.position.y+c.radius)>y))
-    {
-        return true;
-    }
-    else
-        return false;
+	//y all the same
+	y = l.y;
 
-
+	if(((c.x + c.r) > x2)
+        && ((c.x - c.r) < x1)
+        && ((c.y - c.r) <= y
+        && (c.y + c.r) > y)) {
+		return true;
+	} else
+		return false;
 
 
 }

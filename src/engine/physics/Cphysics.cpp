@@ -13,13 +13,12 @@ Cphysics::~Cphysics()
 
 
 
-void Cphysics::registerSprite(Csprite * s)
+void Cphysics::registerCore(Ccore *c)
 {
     NoC++;
     cores=(Ccore**)realloc(cores,NoC*(sizeof(Ccore*)));
-    cores[NoC-1]=&(s->core);
-    s->core.id=NoC;
-    if(s->core.hasGravity)
+    cores[NoC-1]=c;
+    if(c->hasGravity)
     {
         cores[NoC-1]->addForce(gravity);
     }

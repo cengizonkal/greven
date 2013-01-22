@@ -12,11 +12,9 @@
 class Ccore {
   public:
 
-    int id;
     Cvector velocity;
     Cvector force;
     Cvector position;
-    float radius;
     double mass;
     bool hasGravity;
     bool movable;
@@ -25,7 +23,6 @@ class Ccore {
     Ccore(void );
     void init(void);
     void addForce(Cvector force);
-    void setRadius(float r);
 
 };
 #endif
