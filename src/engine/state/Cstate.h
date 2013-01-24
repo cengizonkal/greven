@@ -7,7 +7,7 @@ public:
 	Cstate();
 	~Cstate();
 	static int currentID;
-	static int sateOfProgram;
+	static int stateOfProgram;
 	static int getId(void);
 
 };

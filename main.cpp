@@ -12,9 +12,15 @@ int WINAPI WinMain (HINSTANCE hInstance,
 {
 
 
-    /*Cgreven greven;
+    //Cgreven greven;
     Cgraphic gr;
-    gr.debug=false;
+    gr.dump();
+    Canimation a;
+    a.init();
+    trace("%d",a.toFrame);
+    gr.registerAnimation(&a);
+
+    /*gr.debug=false;
     Cphysics ph;
     Ccamera camera;
     Clevel level;
@@ -115,7 +121,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     greven.destroy();
 */
 
-
+    return 0;
 }
 
 

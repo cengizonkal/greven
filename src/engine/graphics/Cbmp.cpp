@@ -4,7 +4,7 @@
 void Cbmp::Dump() {
 
 	FILE *fp;
-	fp = fopen("logs\dumpBMP.txt", "w");
+	fp = fopen("logs/dumpBMP.txt", "w");
 	fprintf(fp, "\nh=%d", h);
 	fprintf(fp, "\nw=%d", w);
 	fprintf(fp, "\nbit=%d", bit);

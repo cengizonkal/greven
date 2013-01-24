@@ -7,7 +7,7 @@ Cgraphic::Cgraphic(void )
 void Cgraphic::init(void )
 {
     NoA=0; /**< Animasyon sayısı */
-    animations=(Canimation**)malloc(1*(sizeof(Canimation*)));
+    animations=NULL;
     NoT=0;
     textures=NULL;
     iTime=NULL;
@@ -36,22 +36,21 @@ Cgraphic::~Cgraphic(void )
 
 
 
-void Cgraphic::registerAnimation(Canimation * a)
+void Cgraphic::registerAnimation(Canimation *a)
 {
     this->NoA++;
-    this->animations=(Canimation**)realloc(animations,NoA*(sizeof(Canimation*)));
-    animations[NoA-1]=a;
+    this->animations=(Canimation**)realloc(animations, NoA*(sizeof(Canimation*)));
+    animations[NoA-1] = a;
 
-    if(a->toFrame==0)
+    if(a->toFrame == 0) {
         a->toFrame=(int)((textures[a->textId].w*textures[a->textId].h)/(a->fw*a->fh));
+    }
+
 
 };
 
 
-void Cgraphic::setLevel(Clevel *level)
-{
-  this->level=level;
-};
+
 
 void Cgraphic::drawAnimations(void )
 {
@@ -382,6 +381,16 @@ void Cgraphic::loadTexture(char * fileName)
 void Cgraphic::setCamera(Ccamera *c)
 {
      this->camera=c;
+};
+
+void Cgraphic::dump(void) {
+  trace("Grafik sınıfı dökümü alınıyor...");
+  trace("Animasyon sayısı %d",this->NoA);
+  trace("Texture sayısı %d",this->NoT);
+  trace("Texture sayısı %d",this->NoT);
+
+
+
 };
 
 

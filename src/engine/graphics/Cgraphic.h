@@ -14,54 +14,56 @@
 #include "../level/Clevel.h"
 #include "../gameObject/CgameObject.h"
 #include "../../def.h"
+#include "../../tools.h"
 
 
 
 class Cgraphic {
-    public:
+public:
 
-        int NoA;
-        Canimation * * animations;
-        bool debug;
+	int NoA;
+	Canimation **animations;
+	bool debug;
 
-        int No3D;
-        C3Dmodel * models;
-        Ctexture * textures;
-        int NoT;
-        //geometrik iþlemler için
-        Cgeo geo;
-        C3DmodelLoader modelLoader;
-        //kamera
-        Ccamera *camera;
+	int No3D;
+	C3Dmodel * models;
+	Ctexture * textures;
+	int NoT;
+	//geometrik iþlemler için
+	Cgeo geo;
+	C3DmodelLoader modelLoader;
+	//kamera
+	Ccamera *camera;
 
-        //level register
-        Clevel *level;
-
-
-        Cgraphic(void );
-        ~Cgraphic(void );
-        void init(void );
+	//level register
+	Clevel *level;
 
 
-        //draw functions
-        void drawAnimations(void );
-        void draw3DModels();
-        void drawLevel();
+	Cgraphic(void );
+	~Cgraphic(void );
+	void init(void );
 
 
-        void linkTime(Ctime * t);
-        void animate(void );
-        void animateSprites(void );
-        void load3DModels(void );
-        void loadTextures(void );
-        void setCamera(Ccamera *c);
-        void setLevel(Clevel *level);
-        void registerAnimation(Canimation *a);
+	//draw functions
+	void drawAnimations(void );
+	void draw3DModels();
+	void drawLevel();
 
-    private:
-        Ctime * iTime;
-        double lastTime;
-        void loadTexture(char * fileName);
+
+	void linkTime(Ctime * t);
+	void animate(void );
+	void animateSprites(void );
+	void load3DModels(void );
+	void loadTextures(void );
+	void setCamera(Ccamera *c);
+	void registerAnimation(Canimation *a);
+	void dump(void);
+
+
+private:
+	Ctime * iTime;
+	double lastTime;
+	void loadTexture(char * fileName);
 
 };
 #endif

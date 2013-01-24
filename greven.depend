@@ -1610,7 +1610,7 @@
 
 1344434384 d:\dev\c++\greven\src\controller\cguard.h
 
-1358881883 source:d:\projects\c++\greven\main.cpp
+1359068959 source:d:\projects\c++\greven\main.cpp
 	<windows.h>
 	<gl/gl.h>
 	<gl/glu.h>
@@ -1863,7 +1863,7 @@
 	"collision/Ccollision.h"
 	"greven/Cgreven.h"
 
-1358882778 d:\projects\c++\greven\src\engine\graphics\cgraphic.h
+1359068503 d:\projects\c++\greven\src\engine\graphics\cgraphic.h
 	"Canimation.h"
 	"../time/Ctime.h"
 	"C3Dmodel.h"
@@ -1877,6 +1877,7 @@
 	"../level/Clevel.h"
 	"../gameObject/CgameObject.h"
 	"../../def.h"
+	"../../tools.h"
 
 1358801468 d:\projects\c++\greven\src\engine\graphics\canimation.h
 	<stdio.h>
@@ -1953,7 +1954,7 @@
 	"../geometrics/Cvector.h"
 	"../../def.h"
 
-1358791454 d:\projects\c++\greven\src\engine\gameobject\cgameobject.h
+1359067307 d:\projects\c++\greven\src\engine\gameobject\cgameobject.h
 	"../geometrics/Cline.h"
 	"../geometrics/Ccircle.h"
 	"../state/Cstate.h"
@@ -2007,7 +2008,7 @@
 1358882647 source:d:\projects\c++\greven\src\engine\collision\ccollision.cpp
 	"Ccollision.h"
 
-1358713129 source:d:\projects\c++\greven\src\engine\gameobject\cgameobject.cpp
+1359067272 source:d:\projects\c++\greven\src\engine\gameobject\cgameobject.cpp
 	"CgameObject.h"
 
 1304238792 source:d:\projects\c++\greven\src\engine\geometrics\ccircle.cpp
@@ -2027,13 +2028,13 @@
 1338380825 source:d:\projects\c++\greven\src\engine\graphics\c3dmodelloader.cpp
 	"C3DmodelLoader.h"
 
-1358881449 source:d:\projects\c++\greven\src\engine\graphics\canimation.cpp
+1359068717 source:d:\projects\c++\greven\src\engine\graphics\canimation.cpp
 	"Canimation.h"
 
-1358698809 source:d:\projects\c++\greven\src\engine\graphics\cbmp.cpp
+1359066381 source:d:\projects\c++\greven\src\engine\graphics\cbmp.cpp
 	"Cbmp.h"
 
-1358883730 source:d:\projects\c++\greven\src\engine\graphics\cgraphic.cpp
+1359068865 source:d:\projects\c++\greven\src\engine\graphics\cgraphic.cpp
 	"Cgraphic.h"
 
 1338140731 source:d:\projects\c++\greven\src\engine\graphics\csprite.cpp
@@ -2092,13 +2093,13 @@
 1358451749 source:d:\projects\c++\greven\src\game\craziel.cpp
 	"Craziel.h"
 
-1358796989 d:\projects\c++\greven\src\engine\player\cplayer.h
+1359068170 d:\projects\c++\greven\src\engine\player\cplayer.h
 	"../../def.h"
 	"../../tools.h"
 	"../time/Ctime.h"
 	"../gameObject/CgameObject.h"
 
-1358451558 source:d:\projects\c++\greven\src\engine\player\cplayer.cpp
+1359068083 source:d:\projects\c++\greven\src\engine\player\cplayer.cpp
 	"Cplayer.h"
 
 1358694282 d:\projects\c++\greven\src\engine\geometrics\cline.h
@@ -2107,8 +2108,11 @@
 	<math.h>
 	"Cpoint.h"
 
-1358803287 d:\projects\c++\greven\src\engine\state\cstate.h
+1359066336 d:\projects\c++\greven\src\engine\state\cstate.h
 
 1358694264 source:d:\projects\c++\greven\src\engine\geometrics\cline.cpp
 	"Cline.h"
+
+1359066328 source:d:\projects\c++\greven\src\engine\state\cstate.cpp
+	"Cstate.h"
 

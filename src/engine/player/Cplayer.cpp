@@ -45,10 +45,10 @@ void Cplayer::moveRight()
     float deltaTime;
     startAccTime();
     deltaTime=iTime->getCurrTime()-lastTime;
-    this->core.velocity.x=maxSpeed*(deltaTime/acc);
-    if(abs(this->core.velocity.x)>abs(this->maxSpeed))
+    this->velocity.x=maxSpeed*(deltaTime/acc);
+    if(abs(this->velocity.x)>abs(this->maxSpeed))
     {
-        this->core.velocity.x=this->maxSpeed;
+        this->velocity.x=this->maxSpeed;
     }
     this->isPlaying=true;
     this->invert=1;
@@ -65,8 +65,8 @@ void Cplayer::jump()
         velocity.Set(0,jumpForce);
         gravity.Set(0,GRAVITY);
 
-        this->core.velocity+=velocity;
-        this->core.addForce(gravity);
+        this->velocity+=velocity;
+        this->addForce(gravity);
         this->inAir=true;
         this->setFPS(2);
         this->doubleJump--;
@@ -102,4 +102,7 @@ void Cplayer::playerOnGround()
     this->doubleJump=1;
     this->inAir=false;
     this->setFPS(15);
+}
+void Cplayer::collide(int id, int type){
+
 }

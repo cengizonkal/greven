@@ -31,8 +31,8 @@ public:
      * \return void
      *
      */
-	virtual void collide(int id, int type);
 
+    virtual void collide(int id, int type) = 0;
 	void addCollideGroup(int groupId);
 	void setID(int ID);
 	int getID(void);

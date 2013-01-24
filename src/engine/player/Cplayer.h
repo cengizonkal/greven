@@ -29,6 +29,7 @@ class Cplayer : public CgameObject
         void resetAccTime();
         void playerInAir();
         void playerOnGround();
+        void collide(int id, int type);
 
 
     protected:

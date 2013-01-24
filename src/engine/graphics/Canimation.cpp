@@ -43,18 +43,18 @@ Cvector Canimation::getPosition()
 }
 
 void Canimation::init() {
-	textId = 0;
-	fps = 25;
-	w = 0;
-	h = 0;
-	fh = 0;
-	fw = 0;
-	fc = 0;
-	isPlaying = true;
-	invert = 0;
-	fromFrame = 0;
-	toFrame = 0;
-	debug = true;
+	this->textId = 0;
+	this->fps = 25;
+	this->w = 0;
+	this->h = 0;
+	this->fh = 0;
+	this->fw = 0;
+	this->fc = 0;
+	this->isPlaying = true;
+	this->invert = 0;
+	this->fromFrame = 0;
+	this->toFrame = 0;
+	this->debug = true;
 
 }
 
