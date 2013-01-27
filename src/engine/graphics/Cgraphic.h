@@ -13,6 +13,7 @@
 #include "../camera/Ccamera.h"
 #include "../level/Clevel.h"
 #include "../gameObject/CgameObject.h"
+#include "../xml/simplexml.h"
 #include "../../def.h"
 #include "../../tools.h"
 
@@ -53,10 +54,11 @@ public:
 	void linkTime(Ctime * t);
 	void animate(void );
 	void animateSprites(void );
-	void load3DModels(void );
-	void loadTextures(void );
+	//void load3DModels(void );
+	//void loadTextures(void );
 	void setCamera(Ccamera *c);
 	void registerAnimation(Canimation *a);
+	void loadResources(char *fileName);
 	void dump(void);
 
 
@@ -64,6 +66,8 @@ private:
 	Ctime * iTime;
 	double lastTime;
 	void loadTexture(char * fileName);
+	void loadBMP(char *fileName);
+	void loadTGA(char *fileName);
 
 };
 #endif

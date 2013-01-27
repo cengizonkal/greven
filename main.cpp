@@ -11,14 +11,15 @@ int WINAPI WinMain (HINSTANCE hInstance,
                     int iCmdShow)
 {
 
-
+    trace("\nProgram Başı.");
     //Cgreven greven;
     Cgraphic gr;
+    gr.loadResources("res/resources.xml");
     gr.dump();
     Canimation a;
+
     a.init();
-    trace("%d",a.toFrame);
-    gr.registerAnimation(&a);
+    //gr.registerAnimation(&a);
 
     /*gr.debug=false;
     Cphysics ph;
@@ -120,7 +121,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     }
     greven.destroy();
 */
-
+    trace("\nProgram sonu.");
     return 0;
 }
 

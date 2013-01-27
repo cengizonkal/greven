@@ -241,6 +241,7 @@ void Cgraphic::animate(void )
 
 
 //load models3D
+/*
 void Cgraphic::load3DModels(void )
 {
     FILE *fp; //textures.gr
@@ -279,10 +280,10 @@ void Cgraphic::load3DModels(void )
 
 };
 
-
+*/
 
 //textures
-void Cgraphic::loadTextures(void )
+/*void Cgraphic::loadTextures(void )
 {
     FILE *fp; //textures.gr
     fp=fopen("textures.gr","r");
@@ -313,21 +314,58 @@ void Cgraphic::loadTextures(void )
         }
     }
 
+};*/
+
+/** \brief Kaynakları yükle
+ *  Tüm kaynaklar tek bir xml dosyası içinde olacak, ve tüm sınıflara gönderilebilecek
+ *  Dosya ismini gönderip gerekli öğeleri çağıaracak
+ * \param char *fileName
+ * \return void
+ *
+ */
+void Cgraphic::loadResources(char *fileName) {
+    FILE *fp;
+	char xmlFile[4096];
+	simplexml *root;
+	simplexml *ptr;
+	char fName[255];
+	int NoT = 0; /**< Number of texturex */
+
+	fp = fopen(fileName, "r"); /**< Dosyayı okumak için aç */
+
+	if(!fp) {
+		writeError("Dosya bulunamadı: %s", fileName);
+	} else {
+		fread(xmlFile, 1, 4000, fp);
+		root = new simplexml(xmlFile);
+		NoT = root->child("textures")->number_of_children();
+		for(int i = 0; i < NoT; i++) {
+			ptr = root->child("textures")->child("texture", i);
+			strcpy(fName, ptr->value());
+			//trace("\nTexture file :%s", fName);
+			this->loadTexture(fName);
+		}
+	}
+
 };
 
 void Cgraphic::loadTexture(char * fileName)
 {
-
-    Cbmp bmp;
     Ctga tga;
     char ext[10];
     extractFileExtension(fileName,ext);
-
-
     if(strcmp(ext,"bmp")==0)
+        this->loadBMP(fileName);
+    if(strcmp(ext,"tga")==0)
+        this->loadTGA(fileName);
+
+};
+
+void Cgraphic::loadBMP(char *fileName) {
+    Cbmp bmp;
     if(bmp.LoadBmp(fileName))
     {
-        bmp.Dump();
+        //bmp.Dump();
         //MessageBox(hWnd,fileName,fileName,0);
         NoT++;
         textures = (Ctexture*) realloc (textures, NoT * sizeof(Ctexture));
@@ -345,15 +383,15 @@ void Cgraphic::loadTexture(char * fileName)
             glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,bmp.w,bmp.h,0,GL_BGR,GL_UNSIGNED_BYTE,bmp.pixel);
         if(bmp.bit==32)
             glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,bmp.w,bmp.h,0,GL_BGRA,GL_UNSIGNED_BYTE,bmp.pixel);
-
-
         bmp.Free();
     }
+}
 
-    if(strcmp(ext,"tga")==0)
+void Cgraphic::loadTGA(char *fileName) {
+    Ctga tga;
     if(tga.LoadTga(fileName))
     {
-        tga.Dump();
+        //tga.Dump();
         //MessageBox(hWnd,fileName,fileName,0);
         NoT++;
         textures = (Ctexture*) realloc (textures, NoT * sizeof(Ctexture));
@@ -371,12 +409,9 @@ void Cgraphic::loadTexture(char * fileName)
             glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,tga.w,tga.h,0,GL_BGR,GL_UNSIGNED_BYTE,tga.pixel);
         if(tga.bit==32)
             glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,tga.w,tga.h,0,GL_BGRA,GL_UNSIGNED_BYTE,tga.pixel);
-
-
         tga.Free();
     }
-
-};
+}
 
 void Cgraphic::setCamera(Ccamera *c)
 {
@@ -384,12 +419,9 @@ void Cgraphic::setCamera(Ccamera *c)
 };
 
 void Cgraphic::dump(void) {
-  trace("Grafik sınıfı dökümü alınıyor...");
-  trace("Animasyon sayısı %d",this->NoA);
-  trace("Texture sayısı %d",this->NoT);
-  trace("Texture sayısı %d",this->NoT);
-
-
+  trace("\nGrafik sınıfı dökümü alınıyor...");
+  trace("\nAnimasyon sayısı %d",this->NoA);
+  trace("\nTexture sayısı %d",this->NoT);
 
 };
 

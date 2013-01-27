@@ -33,14 +33,10 @@ inline void writeError(const char *fmt,...)
 inline void trace(const char *fmt,...)
 {
     FILE *fp;
-    time_t lt;
     char *t;
 
-    struct tm *ptr;
-    lt=time(NULL);
-    ptr=localtime(&lt);
     fp=fopen("logs/trace.txt","a+");
-    fprintf(fp,"\n%s",asctime(ptr));
+
 
     va_list vl;
     va_start (vl, fmt);
