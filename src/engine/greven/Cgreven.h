@@ -43,7 +43,7 @@ inline LRESULT CALLBACK   WndProc (HWND hWnd, UINT message,WPARAM wParam, LPARAM
 class Cgreven {
   public:
     //keys
-    bool keys[500];
+    static bool keys[500];
     float mouseX;
     float mouseY;
     ///til end

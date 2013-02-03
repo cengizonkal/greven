@@ -21,8 +21,12 @@ int WINAPI WinMain (HINSTANCE hInstance,
     gr.loadResources("res/resources.xml");
 
     Canimation a;
+
     a.setTextureMap(1); /**< Bu kısmın level dosyasından alınması gerekiyor */
-    a.setFrameSize(128,128);
+    a.setFrameSize(100,100);
+    a.setFPS(15);
+    a.setSize(128,128);
+    a.setPassive();
 
 
 
@@ -68,11 +72,12 @@ int WINAPI WinMain (HINSTANCE hInstance,
     gr.loadResources("res/resources.xml");
     while (!greven.end)
     {
-        greven.peekMessage(); //check for input events
-        greven.clearCanvas();
+        greven.peekMessage(); /**< Tuşları oku */
+        greven.clearCanvas();/**< Ekranı temizle */
         gr.drawAnimations();
+        gr.animate();
         //gr.test();
-        greven.drawCanvas();
+        greven.drawCanvas();/**<  */
     }
     greven.destroy();
 

@@ -74,7 +74,7 @@ void Cgraphic::drawAnimations(void )
         y2/=textures[animations[i]->textId].h;
 
         pos=animations[i]->getPosition();
-        if(debug)
+        if(animations[i]->debug)
         {
 
             glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
@@ -226,8 +226,21 @@ void Cgraphic::linkTime(Ctime * t)
     lastTime=iTime-> getCurrTime();
 };
 
-void Cgraphic::animate(void )
-{
+void Cgraphic::animate(void ){
+    double deltaTime=0;
+    for(int i=0;i<NoA;i++)
+    {
+        deltaTime=iTime->getCurrTime()-lastTime;
+        ///eğer animasyon aktif ise
+        if(animations[i]->isPlaying)
+        {
+            animations[i]->fc+=deltaTime*animations[i]->fps;
+            if(animations[i]->fc>animations[i]->toFrame)
+             animations[i]->fc=animations[i]->fromFrame;
+        }
+
+    }
+    lastTime=iTime->getCurrTime();
 
 };
 

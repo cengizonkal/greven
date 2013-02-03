@@ -1,5 +1,7 @@
 #include "Cgreven.h"
 
+bool Cgreven::keys[500] = {NULL};
+
 Cgreven::Cgreven()
 {
     height=600;
@@ -56,8 +58,6 @@ void Cgreven::createWindow()
         dwExStyle=WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
         dwStyle=WS_VISIBLE | WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN;
     }
-
-
 
 
 

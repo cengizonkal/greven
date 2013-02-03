@@ -22,6 +22,7 @@ void Canimation::setFrameSize(float w, float h) {
 	if(this->w == 0) this->w = w;
 
 }
+
 /** \brief Ekran üzerindeki Boyutu belirler
  *
  * \param int weight
@@ -29,7 +30,6 @@ void Canimation::setFrameSize(float w, float h) {
  * \return
  *
  */
-
 void Canimation::setSize(float w, float h) {
 
 	this->h = h;
