@@ -11,37 +11,24 @@ int WINAPI WinMain (HINSTANCE hInstance,
                     int iCmdShow)
 {
 
-    trace("\nProgram Başı.");
-    //Cgreven greven;
+    trace("\n\nProgram Başı.");
+    Cgreven greven;
     Cgraphic gr;
+
+    greven.createWindow(); /**< GL burda aktivite ediliyor bu yüzden grafik işlemlerinden önce olmalı */
+
+    gr.linkTime(&greven.iTime);
     gr.loadResources("res/resources.xml");
-    gr.dump();
+
     Canimation a;
-
-    a.init();
-    //gr.registerAnimation(&a);
-
-    /*gr.debug=false;
-    Cphysics ph;
-    Ccamera camera;
-    Clevel level;
-    Ccollision collision;
-
-    Cground bottom;
-    level.loadLevel();
-    gr.setLevel(&level);
-
-    Craziel player;
+    a.setTextureMap(1); /**< Bu kısmın level dosyasından alınması gerekiyor */
+    a.setFrameSize(128,128);
 
 
 
-
-
-
-
-    greven.createWindow(); ///greven pencere oluşturdu
-
-
+    gr.registerAnimation(&a);
+    gr.dump();
+    /*
 
     player.setTextureMap(0);
     player.setFPS(15);
@@ -69,58 +56,26 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
     gr.registerAnimation(&player);
     ph.registerCore(&player);
-    collision.registerGameObject(&player);
+    collision.registerGameObject(&player);*/
 
 
 
-    ///Kamera Bağlama işlemi
-    camera.setLink(&player);
 
+
+    Ccamera camera;
     greven.setCamera(&camera);
 
+    gr.loadResources("res/resources.xml");
     while (!greven.end)
     {
-
-
         greven.peekMessage(); //check for input events
-
         greven.clearCanvas();
-        ph.step();
-        collision.step();
-
-        if(greven.keys['A'])
-        {
-
-            player.moveLeft();
-        }
-        if(greven.keys['D'])
-        {
-            player.moveRight();
-
-        }
-        if(greven.keys['W'])
-        {
-            greven.keys['W']=false;
-            player.jump();
-
-        }
-
-        if((!greven.keys['A']) && !(greven.keys['D']))
-        {
-            player.resetAccTime();
-            player.isPlaying=false;
-        }
-
-        gr.draw3DModels();
-        gr.drawSprites();
-        gr.animateSprites();
-        gr.drawLevel();
+        gr.drawAnimations();
+        //gr.test();
         greven.drawCanvas();
-
-
     }
     greven.destroy();
-*/
+
     trace("\nProgram sonu.");
     return 0;
 }

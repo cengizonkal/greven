@@ -2,17 +2,15 @@
 #include "Cbmp.h"
 
 void Cbmp::Dump() {
-
-	FILE *fp;
-	fp = fopen("logs/dumpBMP.txt", "w");
-	fprintf(fp, "\nh=%d", h);
-	fprintf(fp, "\nw=%d", w);
-	fprintf(fp, "\nbit=%d", bit);
-	fclose(fp);
+    trace("\nFile name:%s",fileName);
+	trace("\nHeight:%d",h);
+	trace("\nWidth:%d",w);
+	trace("\nBit:%d",bit);
 }
 
 bool Cbmp::LoadBmp(char fileName[255]) {
 
+	strcpy(this->fileName, fileName);
 	FILE *fp;
 	fp = fopen(fileName, "rb");
 

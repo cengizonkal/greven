@@ -3,7 +3,7 @@
 
 
 
-#include "../graphics/Csprite.h"
+#include "../gameObject/CgameObject.h"
 #include "../geometrics/Cvector.h"
 #include "../../def.h"
 
@@ -17,7 +17,7 @@ class Ccamera
     float zoom;
     float radius;
     int mode;
-    Csprite *sprite; ///<Link to sprite
+    CgameObject *gameObject; ///<Link to sprite
     float seekTime;
     float deadZone;
 
@@ -27,7 +27,7 @@ class Ccamera
     Ccamera(void );
     ~Ccamera(void );
     void init(void );
-    void setLink(Csprite *s);
+    void setLink(CgameObject *go);
     Cvector getPosition();
 
 

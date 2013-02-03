@@ -149,32 +149,8 @@ void Cgreven::DisableOpenGL()
  void Cgreven::drawCanvas()
     {
         double deltaTime=0;
-
-
-
         deltaTime=iTime.getCurrTime()-lastTime;
-
-
-        // kullanılabilir PIXELRATIO
-        Cvector cameraPos=camera->getPosition();
-        Cvector spritePos=camera->sprite->getPosition();
-        Cvector deltaPos;
-        Cvector cameraSpeed;
-        deltaPos=spritePos-cameraPos;
-
-        if(deltaPos.Length()>camera->deadZone)
-        {
-
-            cameraSpeed.x=deltaPos.x/camera->seekTime;
-            cameraSpeed.y=deltaPos.y/camera->seekTime;
-            camera->position+=deltaTime*cameraSpeed;
-
-
-
-        }
-
-
-
+        // TODO (Cengiz#1#): Camera getPosition a zaman gönderilecek ve camera moduna ve bağlı olduğu noktaya göre kendi posizyonunu hesaplayıp döndürecek
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();

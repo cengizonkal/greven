@@ -1,32 +1,28 @@
 #include "Ccamera.h"
 
-Ccamera::Ccamera(void )
-{
- init();
+Ccamera::Ccamera(void ) {
+	init();
 
 }
-Ccamera::~Ccamera(void )
-{
+Ccamera::~Ccamera(void ) {
 
 
 }
-void Ccamera::init(void)
-{
-     this->position.Set(0,0);
-     this->zoom=1;
-     mode=CAM_FOLLOW;
-     seekTime=0.5; //bir saniye içinde
-     deadZone=5; //5 pxelden küçükse hareket etme
+void Ccamera::init(void) {
+	this->position.Set(0, 0);
+	this->zoom = 1;
+	this->mode = CAM_FREE; /**< Kamera öncelik olarak serbest halde */
+	this->seekTime = 0.5; //bir saniye içinde
+	this->deadZone = 5; //5 pxelden küçükse hareket etme
+	this->gameObject = NULL;
 }
-void Ccamera::setLink(Csprite *s)
-{
-     sprite=s;
-     mode=CAM_FOLLOW;
+void Ccamera::setLink(CgameObject *gj) {
+	this->gameObject = gj; /**< Bir obejeye bağla */
+	this->mode = CAM_FOLLOW; /**< Camera modunu değiştir */
 
 }
-Cvector  Ccamera::getPosition()
-{
+Cvector  Ccamera::getPosition() {
 
-   return this->position;
+	return this->position;
 
 }

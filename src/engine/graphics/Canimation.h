@@ -30,6 +30,7 @@ class Canimation : public Ccore {
     Canimation(void );
     ~Canimation(void );
     void setFrameSize(float w, float h);
+    void setSize(float w, float h);
     void setTextureMap(int textureId);
     void setActive();
     void setPassive();

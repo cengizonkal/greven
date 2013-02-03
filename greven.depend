@@ -1610,7 +1610,7 @@
 
 1344434384 d:\dev\c++\greven\src\controller\cguard.h
 
-1359308699 source:d:\projects\c++\greven\main.cpp
+1359912449 source:d:\projects\c++\greven\main.cpp
 	<windows.h>
 	<gl/gl.h>
 	<gl/glu.h>
@@ -1863,7 +1863,7 @@
 	"collision/Ccollision.h"
 	"greven/Cgreven.h"
 
-1359308245 d:\projects\c++\greven\src\engine\graphics\cgraphic.h
+1359907387 d:\projects\c++\greven\src\engine\graphics\cgraphic.h
 	"Canimation.h"
 	"../time/Ctime.h"
 	"C3Dmodel.h"
@@ -1880,7 +1880,7 @@
 	"../../def.h"
 	"../../tools.h"
 
-1358801468 d:\projects\c++\greven\src\engine\graphics\canimation.h
+1359911662 d:\projects\c++\greven\src\engine\graphics\canimation.h
 	<stdio.h>
 	<stdlib.h>
 	<gl/gl.h>
@@ -1913,9 +1913,10 @@
 	<gl/gl.h>
 	<gl/glu.h>
 
-1297708736 d:\projects\c++\greven\src\engine\graphics\cbmp.h
+1359905143 d:\projects\c++\greven\src\engine\graphics\cbmp.h
 	<stdio.h>
 	<stdlib.h>
+	"../../tools.h"
 
 1358449721 d:\projects\c++\greven\src\engine\graphics\ctga.h
 	<stdio.h>
@@ -1950,8 +1951,8 @@
 	"Cpoint.h"
 	"Ccircle.h"
 
-1358451778 d:\projects\c++\greven\src\engine\camera\ccamera.h
-	"../graphics/Csprite.h"
+1359900017 d:\projects\c++\greven\src\engine\camera\ccamera.h
+	"../gameObject/CgameObject.h"
 	"../geometrics/Cvector.h"
 	"../../def.h"
 
@@ -2003,7 +2004,7 @@
 	"../geometrics/Cvector.h"
 	"../camera/Ccamera.h"
 
-1338732138 source:d:\projects\c++\greven\src\engine\camera\ccamera.cpp
+1359900080 source:d:\projects\c++\greven\src\engine\camera\ccamera.cpp
 	"Ccamera.h"
 
 1358882647 source:d:\projects\c++\greven\src\engine\collision\ccollision.cpp
@@ -2029,13 +2030,13 @@
 1338380825 source:d:\projects\c++\greven\src\engine\graphics\c3dmodelloader.cpp
 	"C3DmodelLoader.h"
 
-1359068717 source:d:\projects\c++\greven\src\engine\graphics\canimation.cpp
+1359911640 source:d:\projects\c++\greven\src\engine\graphics\canimation.cpp
 	"Canimation.h"
 
-1359066381 source:d:\projects\c++\greven\src\engine\graphics\cbmp.cpp
+1359905192 source:d:\projects\c++\greven\src\engine\graphics\cbmp.cpp
 	"Cbmp.h"
 
-1359307524 source:d:\projects\c++\greven\src\engine\graphics\cgraphic.cpp
+1359910563 source:d:\projects\c++\greven\src\engine\graphics\cgraphic.cpp
 	"Cgraphic.h"
 
 1338140731 source:d:\projects\c++\greven\src\engine\graphics\csprite.cpp
@@ -2047,7 +2048,7 @@
 1338380825 source:d:\projects\c++\greven\src\engine\graphics\ctga.cpp
 	"Ctga.h"
 
-1338732150 source:d:\projects\c++\greven\src\engine\greven\cgreven.cpp
+1359904486 source:d:\projects\c++\greven\src\engine\greven\cgreven.cpp
 	"Cgreven.h"
 
 1338305731 source:d:\projects\c++\greven\src\engine\ground\cground.cpp

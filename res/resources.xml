@@ -1,5 +1,6 @@
 <xml>
 <textures>
-	<texture>res/kostga.tga</texture>
+	<texture>res/red.bmp</texture>
+	<texture>res/black.bmp</texture>
 </textures>
 </xml>

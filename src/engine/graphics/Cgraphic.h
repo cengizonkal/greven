@@ -60,6 +60,8 @@ public:
 	void registerAnimation(Canimation *a);
 	void loadResources(char *fileName);
 	void dump(void);
+	void test(void);
+	void testLoadTexture(void);
 
 
 private:

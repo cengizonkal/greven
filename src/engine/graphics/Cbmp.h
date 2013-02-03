@@ -2,26 +2,19 @@
 #define _CBMP_H
 #include <stdio.h>
 #include <stdlib.h>
- 
+#include "../../tools.h"
+
 //#include "tools.h"
 class Cbmp {
   public:
-    //yükseklik
-    int h;
 
-    //geniþlik
-    int w;
-
-    //pixel renk kaç bit
-    char bit;
-
-    // yükseklik ve gemiþlik belirlenince hafýzada yer ayrýlacak
-    char * pixel;
-
-    void Dump();
-
+    int h;/**< YÃ¼kseklik */
+    int w;/**< GeniÅŸlik */
+    char bit; /**< Bit */
+    char *pixel;/**< Data pixel */
+    char fileName[255];
+    void Dump(); /**< DÃ¶kÃ¼m */
     bool LoadBmp(char fileName[255]);
-
     void Free();
 
 };

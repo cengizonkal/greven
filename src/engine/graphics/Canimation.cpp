@@ -7,6 +7,12 @@ Canimation::Canimation(void ) {
 Canimation::~Canimation(void ) {
 
 }
+/** \brief Yüklenen resim üzerindeki boyutu belirler
+ *
+ * \param int weight
+ * \param int height
+ * \return void
+ */
 void Canimation::setFrameSize(float w, float h) {
 
 	this->fh = h;
@@ -14,6 +20,20 @@ void Canimation::setFrameSize(float w, float h) {
 	/**< Eğer boyut belirlenmedi ise frame boyutu ile resim boyutu aynı  */
 	if(this->h == 0) this->h = h;
 	if(this->w == 0) this->w = w;
+
+}
+/** \brief Ekran üzerindeki Boyutu belirler
+ *
+ * \param int weight
+ * \param int height
+ * \return
+ *
+ */
+
+void Canimation::setSize(float w, float h) {
+
+	this->h = h;
+	this->w = w;
 
 }
 void Canimation::setActive()
@@ -54,7 +74,7 @@ void Canimation::init() {
 	this->invert = 0;
 	this->fromFrame = 0;
 	this->toFrame = 0;
-	this->debug = true;
+	this->debug = false;
 
 }
 
