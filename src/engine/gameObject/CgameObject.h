@@ -23,6 +23,7 @@ public:
 	Ccircle circle;/**< ´Daire bilgisi */
 	int *collideWith;/**< Hangi grouplar ile çarpışma testi yapılması gerektiğini belirler */
     int NoC; /**< Kaç grup ile çarpışma testi yapılacak  */
+    bool isInScreen; /**< Ekranda olup olmadığını gösterecek böylece performas artışı sağlanabilir */
 
     /** \brief çarpışma sonrasında child sınıfına collide methodunu çağırmasını söyleyecek
      *
@@ -31,8 +32,9 @@ public:
      * \return void
      *
      */
-
     virtual void collide(int id, int type) = 0;
+    virtual void cycle(void) = 0;
+
 	void addCollideGroup(int groupId);
 	void setID(int ID);
 	int getID(void);

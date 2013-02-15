@@ -14,6 +14,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     trace("\n\nProgram Başı.");
     Cgreven greven;
     Cgraphic gr;
+    Ccollision collision;
 
     greven.createWindow(); /**< GL burda aktivite ediliyor bu yüzden grafik işlemlerinden önce olmalı */
 
@@ -22,11 +23,16 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
     Canimation a;
 
-    a.setTextureMap(1); /**< Bu kısmın level dosyasından alınması gerekiyor */
-    a.setFrameSize(100,100);
+    a.setTextureMap(2); /**< Bu kısmın level dosyasından alınması gerekiyor */
+    a.setFrameSize(156,128);
     a.setFPS(15);
-    a.setSize(128,128);
-    a.setPassive();
+    a.setSize(156,128);
+    a.setActive();
+
+    Craziel raziel;
+    collision.registerGameObject(&raziel);
+    collision.testSignal();
+
 
 
 
@@ -72,7 +78,9 @@ int WINAPI WinMain (HINSTANCE hInstance,
     gr.loadResources("res/resources.xml");
     while (!greven.end)
     {
+
         greven.peekMessage(); /**< Tuşları oku */
+        //if(greven.keys['W']) trace("\n W");
         greven.clearCanvas();/**< Ekranı temizle */
         gr.drawAnimations();
         gr.animate();

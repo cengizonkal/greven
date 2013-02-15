@@ -42,35 +42,36 @@ inline LRESULT CALLBACK   WndProc (HWND hWnd, UINT message,WPARAM wParam, LPARAM
     }
 class Cgreven {
   public:
-    //keys
-    static bool keys[500];
-    float mouseX;
-    float mouseY;
-    ///til end
-    bool end;
-    ///status report 1-loading texures,2-loading sounds,3-making some stuff
-    int status;
-    ///window class
-    WNDCLASS wc;
-    ///window handler
-    HWND hWnd;
-    ///handler device
-    HDC hDC;
-    ///opengl handler
-    HGLRC hRC;
+// TODO (Cengiz#1#): Burdaki değişkenler globals.cpp ye aktarılacak
 
-    ///Pencere �zellikleri
-    int height;
-    int width;
-    bool fullScreen;
+    bool keys[500]; /**< Tuşlar */
+    float mouseX;/**< Mouse X */
+    float mouseY;/**< Mouse Y */
+
+    bool end; /**< Oyun bitti */
+
+    int status; /**< Durum */
+
+    WNDCLASS wc; /**< Pencere Sınıfı */
+
+    HWND hWnd; /**< Pencere Handler */
+
+    HDC hDC; /**< Device Handler */
+
+    HGLRC hRC; /**< OpenGl Handler */
+
+
+    int height;/**< Pencere Yüksekliği */
+    int width;/**< Pencere Genişliği */
+    bool fullScreen; /**< Tam Ekran  */
 
     DWORD dwExStyle;
     DWORD dwStyle;
-    ///Senkronize olmak i�in Zaman
-    Ctime iTime;
 
-    ///Aktif Kamera
-    Ccamera *camera;
+    Ctime iTime;/**< Zaman Senkronizasyonu */
+
+
+    Ccamera *camera;/**< Aktif Kamera */
 
      Cgreven();
      ~Cgreven();
@@ -84,6 +85,8 @@ class Cgreven {
      void peekMessage();
      void showMessage(char * message);
      void setCamera(Ccamera *camera);
+     void registerGameObject(CgameObject *gameObject);
+     void step(void);
 
      private:
      void releaseKeys(void);

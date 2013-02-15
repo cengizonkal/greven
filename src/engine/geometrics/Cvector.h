@@ -25,6 +25,11 @@ struct Cvector
 	    return v;
 	}
 
+	void operator /= (float a)
+	{
+		x /= a; y /= a;
+	}
+
 	/// Read from and indexed element.
 	float operator () (int i) const
 	{

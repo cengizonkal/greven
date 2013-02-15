@@ -29,6 +29,7 @@ public:
 	void step();
 	bool circleLine(Ccircle c, Cline l);
 	bool circleCircle(Ccircle c1, Ccircle c2);
+	void testSignal(void);
 
 };
 

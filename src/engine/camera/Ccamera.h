@@ -6,6 +6,7 @@
 #include "../gameObject/CgameObject.h"
 #include "../geometrics/Cvector.h"
 #include "../../def.h"
+#include "../../tools.h"
 
 
 
@@ -20,6 +21,8 @@ class Ccamera
     CgameObject *gameObject; ///<Link to sprite
     float seekTime;
     float deadZone;
+    Cvector speed;
+
 
 
 
@@ -28,7 +31,7 @@ class Ccamera
     ~Ccamera(void );
     void init(void );
     void setLink(CgameObject *go);
-    Cvector getPosition();
+    Cvector getPosition(double deltaTime, bool keys[500]);
 
 
 };

@@ -42,6 +42,13 @@
 #define CIRCLE 1
 #define LINE 2
 
+/*Oyun objesi tipleri*/
+#define PLAYER 1
+#define BOX 2
+#define WALL 3
+#define ENEMY 4
+
+
 
 
 

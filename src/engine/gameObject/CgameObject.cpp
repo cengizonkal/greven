@@ -15,6 +15,7 @@ void CgameObject::init(void) {
     this->type = 0;
     this->groupId = 0;
     this->id = Cstate::getId(); /**< Her objenin eşsiz bir id olacak  */
+    this->isInScreen = true;
 }
 void CgameObject::addCollideGroup(int groupId) {
     NoC++;
@@ -44,4 +45,5 @@ void CgameObject::setID(int ID) {
 int CgameObject::getID(void) {
     return this->id;
 }
+
 

@@ -1,15 +1,18 @@
 #ifndef Craziel_H
 #define Craziel_H
 
-#include "../engine/player/Cplayer.h"
+#include "../engine/gameObject/CgameObject.h"
+#include "../tools.h"
 
 
 
-class Craziel : public Cplayer
+class Craziel : public CgameObject
 {
     public:
     Craziel();
     ~Craziel();
+    void collide(int id, int type);
+    void cycle(void);
 
 
 };

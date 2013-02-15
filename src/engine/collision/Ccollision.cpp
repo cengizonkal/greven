@@ -13,6 +13,7 @@ void Ccollision::init() {
 	this->iTime = NULL;
 	lastTime = 0;
 	stepTime = 0.0001; /**< Birim saniye, Çalışma frekansı  */
+	this->NoO = 0;
 }
 
 
@@ -78,6 +79,12 @@ bool Ccollision::circleLine(Ccircle c, Cline l) {
 		return false;
 
 
+}
+
+void Ccollision::testSignal(void) {
+    for(int i = 0; i < this->NoO; i++) {
+        gameObjects[i]->collide(1, 2);
+    }
 }
 
 

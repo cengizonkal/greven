@@ -203,22 +203,7 @@ void Cgraphic::draw3DModels()
 
 void Cgraphic::drawLevel()
 {
-    //if(debug)
-    {
 
-        //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-        glColor3f(1,1,1);
-        for(int i=0;i<(this->level->NoG);i++)
-        {
-            glBegin(GL_LINES);
-            glVertex3f(level->grounds[i].pointA.x,level->grounds[i].pointA.y,0);
-            glVertex3f(level->grounds[i].pointB.x,level->grounds[i].pointB.y,0);
-            glEnd();
-            //writeError("%f,%f",level->grounds[i].pointA.x,level->grounds[i].pointA.y);
-            //writeError("%f,%f",level->grounds[i].pointB.x,level->grounds[i].pointB.y);
-        }
-        //exit(0);
-    }
 };
 void Cgraphic::linkTime(Ctime * t)
 {

@@ -2,5 +2,6 @@
 <textures>
 	<texture>res/red.bmp</texture>
 	<texture>res/black.bmp</texture>
+	<texture>res/kosbmp.bmp</texture>
 </textures>
 </xml>

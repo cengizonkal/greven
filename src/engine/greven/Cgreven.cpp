@@ -1,6 +1,7 @@
 #include "Cgreven.h"
 
-bool Cgreven::keys[500] = {NULL};
+
+
 
 Cgreven::Cgreven()
 {
@@ -102,8 +103,7 @@ void Cgreven::EnableOpenGL()
 
     /*set scene*/
 
-//    glOrtho(0,width,0,height,-20,20);
-//    glViewport(0,0,100000,100000);
+
 
    glEnable(GL_DEPTH_TEST);
    glMatrixMode (GL_PROJECTION);
@@ -151,6 +151,8 @@ void Cgreven::DisableOpenGL()
         double deltaTime=0;
         deltaTime=iTime.getCurrTime()-lastTime;
         // TODO (Cengiz#1#): Camera getPosition a zaman gönderilecek ve camera moduna ve bağlı olduğu noktaya göre kendi posizyonunu hesaplayıp döndürecek
+
+        Cvector pos = camera->getPosition(deltaTime, this->keys);
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
@@ -206,3 +208,11 @@ Cgreven::~Cgreven()
  Cgreven::DisableOpenGL();
  Cgreven::destroy();
 };
+
+// TODO (Cengiz#1#): Bu fonksiyon tüm game objelerinin cycle methodunu çağıaracak ...
+void Cgreven::step(void) {
+    for(int i=0;i<this->NoO;i++) {
+
+    }
+
+}
