@@ -14,6 +14,8 @@ Cgreven::Cgreven()
     releaseKeys();
     camera=NULL;
     lastTime=0;
+    this->NoO = 0;
+    this->gameObjects = NULL;
 };
 
 void Cgreven::releaseKeys(void)
@@ -209,6 +211,12 @@ Cgreven::~Cgreven()
  Cgreven::destroy();
 };
 
+void Cgreven::registerGameObject(CgameObject *gameObject) {
+    this->NoO++;
+    this->gameObjects=(CgameObject**)realloc(gameObjects, NoO*(sizeof(CgameObject*)));
+    this->gameObjects[NoO-1] = gameObject;
+
+}
 // TODO (Cengiz#1#): Bu fonksiyon tüm game objelerinin cycle methodunu çağıaracak ...
 void Cgreven::step(void) {
     for(int i=0;i<this->NoO;i++) {

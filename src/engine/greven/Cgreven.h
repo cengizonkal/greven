@@ -64,6 +64,8 @@ class Cgreven {
     int height;/**< Pencere Yüksekliği */
     int width;/**< Pencere Genişliği */
     bool fullScreen; /**< Tam Ekran  */
+    int NoO; /**< GameObject sayısı */
+    CgameObject **gameObjects; /**< GameObjelerini Tutan Pointer dizisi*/
 
     DWORD dwExStyle;
     DWORD dwStyle;
