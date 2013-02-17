@@ -23,6 +23,7 @@ class Ccamera
     float seekTime;
     float deadZone;
     Cvector speed;
+    float speedA;
 
 
 

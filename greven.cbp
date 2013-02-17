@@ -37,6 +37,8 @@
 		<Unit filename="src/engine/geometrics/Cpoint.h" />
 		<Unit filename="src/engine/geometrics/Cvector.cpp" />
 		<Unit filename="src/engine/geometrics/Cvector.h" />
+		<Unit filename="src/engine/globals/globals.cpp" />
+		<Unit filename="src/engine/globals/globals.h" />
 		<Unit filename="src/engine/graphics/C3Dmodel.cpp" />
 		<Unit filename="src/engine/graphics/C3Dmodel.h" />
 		<Unit filename="src/engine/graphics/C3DmodelLoader.cpp" />
