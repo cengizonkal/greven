@@ -46,8 +46,7 @@ class Cgreven {
 // TODO (Cengiz#1#): Burdaki değişkenler globals.cpp ye aktarılacak
 
     //bool keys[500]; /**< Tuşlar */
-    float mouseX;/**< Mouse X */
-    float mouseY;/**< Mouse Y */
+
 
     bool end; /**< Oyun bitti */
 
