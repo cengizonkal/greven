@@ -154,7 +154,7 @@ void Cgreven::DisableOpenGL()
         deltaTime=iTime.getCurrTime()-lastTime;
         // TODO (Cengiz#1#): Camera getPosition a zaman gönderilecek ve camera moduna ve bağlı olduğu noktaya göre kendi posizyonunu hesaplayıp döndürecek
 
-        Cvector pos = camera->getPosition(deltaTime, this->keys);
+        Cvector pos = camera->getPosition(deltaTime);
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();

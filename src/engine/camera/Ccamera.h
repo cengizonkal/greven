@@ -5,6 +5,7 @@
 
 #include "../gameObject/CgameObject.h"
 #include "../geometrics/Cvector.h"
+#include "../globals/globals.h"
 #include "../../def.h"
 #include "../../tools.h"
 
@@ -31,7 +32,7 @@ class Ccamera
     ~Ccamera(void );
     void init(void );
     void setLink(CgameObject *go);
-    Cvector getPosition(double deltaTime, bool keys[500]);
+    Cvector getPosition(double deltaTime);
 
 
 };

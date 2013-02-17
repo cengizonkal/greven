@@ -12,4 +12,5 @@
 #include "level/Clevel.h"
 #include "collision/Ccollision.h"
 #include "greven/Cgreven.h"
+#include "globals/globals.h"
 #endif

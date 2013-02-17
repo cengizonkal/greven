@@ -22,7 +22,7 @@ void Ccamera::setLink(CgameObject *gj) {
 	this->mode = CAM_FOLLOW; /**< Camera modunu değiştir */
 
 }
-Cvector  Ccamera::getPosition(double deltaTime, bool keys[500]) {
+Cvector  Ccamera::getPosition(double deltaTime) {
     //delta time * speed * target
 
     speed.SetZero();

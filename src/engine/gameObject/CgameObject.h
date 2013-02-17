@@ -33,6 +33,14 @@ public:
      *
      */
     virtual void collide(int id, int type) = 0;
+
+    /** \brief Sürekli olarak çalışmasını istediğin kodu buraya yaz
+     *Bu fonksiyon greven tarafından her döngü sonrasında çağrılacak.
+     *tüm kayıtlı objeler için elbette
+     * \param void
+     * \return void
+     *
+     */
     virtual void cycle(void) = 0;
 
 	void addCollideGroup(int groupId);

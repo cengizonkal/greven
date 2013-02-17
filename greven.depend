@@ -1851,7 +1851,7 @@
 	<string.h>
 	"simplexml.h"
 
-1358451790 d:\projects\c++\greven\src\engine\engine.h
+1361104147 d:\projects\c++\greven\src\engine\engine.h
 	"graphics/Cgraphic.h"
 	"graphics/Canimation.h"
 	"graphics/Csprite.h"
@@ -1862,6 +1862,7 @@
 	"level/Clevel.h"
 	"collision/Ccollision.h"
 	"greven/Cgreven.h"
+	"globals/globals.h"
 
 1359907387 d:\projects\c++\greven\src\engine\graphics\cgraphic.h
 	"Canimation.h"
@@ -1951,13 +1952,14 @@
 	"Cpoint.h"
 	"Ccircle.h"
 
-1360004764 d:\projects\c++\greven\src\engine\camera\ccamera.h
+1361104293 d:\projects\c++\greven\src\engine\camera\ccamera.h
 	"../gameObject/CgameObject.h"
 	"../geometrics/Cvector.h"
+	"../globals/globals.h"
 	"../../def.h"
 	"../../tools.h"
 
-1360875164 d:\projects\c++\greven\src\engine\gameobject\cgameobject.h
+1361103454 d:\projects\c++\greven\src\engine\gameobject\cgameobject.h
 	"../geometrics/Cline.h"
 	"../geometrics/Ccircle.h"
 	"../state/Cstate.h"
@@ -1994,7 +1996,7 @@
 	"../engine/gameObject/CgameObject.h"
 	"../tools.h"
 
-1360957504 d:\projects\c++\greven\src\engine\greven\cgreven.h
+1361104226 d:\projects\c++\greven\src\engine\greven\cgreven.h
 	<windows.h>
 	<gl/gl.h>
 	<stdio.h>
@@ -2005,6 +2007,7 @@
 	"../time/Ctime.h"
 	"../geometrics/Cvector.h"
 	"../camera/Ccamera.h"
+	"../globals/globals.h"
 
 1360874445 source:d:\projects\c++\greven\src\engine\camera\ccamera.cpp
 	"Ccamera.h"
@@ -2050,7 +2053,7 @@
 1338380825 source:d:\projects\c++\greven\src\engine\graphics\ctga.cpp
 	"Ctga.h"
 
-1360874920 source:d:\projects\c++\greven\src\engine\greven\cgreven.cpp
+1360957444 source:d:\projects\c++\greven\src\engine\greven\cgreven.cpp
 	"Cgreven.h"
 
 1338305731 source:d:\projects\c++\greven\src\engine\ground\cground.cpp
@@ -2119,4 +2122,8 @@
 
 1359066328 source:d:\projects\c++\greven\src\engine\state\cstate.cpp
 	"Cstate.h"
+
+1361104082 d:\projects\c++\greven\src\engine\globals\globals.h
+
+1361104088 source:d:\projects\c++\greven\src\engine\globals\globals.cpp
 
