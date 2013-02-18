@@ -89,6 +89,7 @@ class Cgreven {
      void setCamera(Ccamera *camera);
      void registerGameObject(CgameObject *gameObject);
      void step(void);
+     void dumpKeys(void);
 
      private:
      void releaseKeys(void);

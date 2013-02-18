@@ -28,19 +28,19 @@ Cvector  Ccamera::getPosition(double deltaTime) {
 
     speed.SetZero();
     if(this->mode == CAM_FREE) {
-        if(keys['W']) {
+        if(keys[38]) {
             speed.y=speedA*-1;
         }
-        if(keys['A']) {
+        if(keys[37]) {
             speed.x=speedA;
         }
-        if(keys['S']) {
+        if(keys[40]) {
             speed.y=speedA;
         }
-        if(keys['D']) {
+        if(keys[39]) {
             speed.x=speedA*-1;
         }
-        if(keys['D'] || keys['S'] ||keys['W']||keys['A']) {
+        if(keys[37] || keys[38] ||keys[39]||keys[40]) {
             speed.Normalize();
             speed*=speedA;
             this->position.x+= speed.x*METERTOPIXEL*deltaTime;
@@ -49,8 +49,11 @@ Cvector  Ccamera::getPosition(double deltaTime) {
 
     }
     else if(this->mode == CAM_MOUSE) {
-        this->position.x = mouseX*-1;
-        this->position.y = mouseY*-1;
+        {
+            this->position.x = mouseX*-1;
+            this->position.y = mouseY*-1;
+        }
+
 
     }
     return this->position;

@@ -188,6 +188,19 @@ void Cgreven::clearCanvas()
                     case WM_MOUSEMOVE:
                         mouseX=LOWORD(msg.lParam);
                         mouseY=height - HIWORD(msg.lParam);
+                        break;
+                    case WM_LBUTTONDOWN:
+                        keys[msg.wParam]=true;
+                        break;
+                    case WM_LBUTTONUP:
+                        keys[1]=false;
+                        break;
+                    case WM_RBUTTONDOWN:
+                        keys[msg.wParam]=true;
+                        break;
+                    case WM_RBUTTONUP:
+                        keys[2]=false;
+                        break;
 
                     default:
                         TranslateMessage (&msg);
@@ -220,7 +233,18 @@ void Cgreven::registerGameObject(CgameObject *gameObject) {
 // TODO (Cengiz#1#): Bu fonksiyon tüm game objelerinin cycle methodunu çağıaracak ...
 void Cgreven::step(void) {
     for(int i=0;i<this->NoO;i++) {
-
+        this->gameObjects[i]->cycle();
     }
 
+    //this->dumpKeys();
+
+
+}
+void Cgreven::dumpKeys(void)
+{
+    for(int i=0;i<500;i++) {
+        if(keys[i]==true) {
+            trace("%i ",i);
+        }
+    }
 }

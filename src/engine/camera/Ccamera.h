@@ -1,7 +1,7 @@
 #ifndef _CCAMERA_H
 #define _CCAMERA_H
 
-
+#include <windows.h>
 
 #include "../gameObject/CgameObject.h"
 #include "../geometrics/Cvector.h"

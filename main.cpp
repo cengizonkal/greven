@@ -80,7 +80,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     {
 
         greven.peekMessage(); /**< Tuşları oku */
-        //if(greven.keys['W']) trace("\n W");
+        greven.step();
         greven.clearCanvas();/**< Ekranı temizle */
         gr.drawAnimations();
         gr.animate();
