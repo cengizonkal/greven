@@ -152,7 +152,6 @@ void Cgreven::DisableOpenGL()
     {
         double deltaTime=0;
         deltaTime=iTime.getCurrTime()-lastTime;
-        // TODO (Cengiz#1#): Camera getPosition a zaman gönderilecek ve camera moduna ve bağlı olduğu noktaya göre kendi posizyonunu hesaplayıp döndürecek
 
         Cvector pos = camera->getPosition(deltaTime);
 
@@ -230,7 +229,7 @@ void Cgreven::registerGameObject(CgameObject *gameObject) {
     this->gameObjects[NoO-1] = gameObject;
 
 }
-// TODO (Cengiz#1#): Bu fonksiyon tüm game objelerinin cycle methodunu çağıaracak ...
+
 void Cgreven::step(void) {
     for(int i=0;i<this->NoO;i++) {
         this->gameObjects[i]->cycle();

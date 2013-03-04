@@ -10,34 +10,39 @@ CgameObject::~CgameObject()
     //dtor
 }
 void CgameObject::init(void) {
-    this->NoC = 0;
+    this->NoG = 0;
     this->collideWith = NULL;
     this->type = 0;
     this->groupId = 0;
     this->id = Cstate::getId(); /**< Her objenin eşsiz bir id olacak  */
     this->isInScreen = true;
+    this->collisionType = CIRCLE;
+    this->lines = NULL;
+    this->circles = NULL;
 }
 void CgameObject::addCollideGroup(int groupId) {
-    NoC++;
-    collideWith = (int*) malloc(sizeof(int)*NoC);
-    collideWith[NoC-1] = groupId;
+    NoG++;
+    collideWith = (int*) realloc(collideWith, sizeof(int)*NoG);
+    collideWith[NoG-1] = groupId;
 }
-void CgameObject::setCircle(Ccircle circle) {
-    this->circle = circle;
+void CgameObject::addCircle(Ccircle circle) {
+    this->NoC++;
+    this->circles =(Ccircle*) realloc(circles, sizeof(Ccircle)*this->NoC);
+    this->circles[this->NoC-1] = circle;
 }
-void CgameObject::setLine(Cline line) {
-    this->line = line;
+void CgameObject::addLine(Cline line) {
+    this->NoL++;
+    this->lines =(Cline*) realloc(lines, sizeof(Cline)*this->NoL);
+    this->lines[this->NoL-1] = line;
 }
-void CgameObject::setCircle(float x, float y, float r) {
-    this->circle.x = x;
-    this->circle.y = y;
-    this->circle.r = r;
+
+// TODO (Cengiz#1#): game objesi için yardımcı fonksiyonlar yazılacak ...
+//setter getter
+void CgameObject::addCircle(float x, float y, float r) {
+
 }
-void CgameObject::setLine(float x, float y, float w, float h) {
-    this->line.x = x;
-    this->line.y = y;
-    this->line.h = h;
-    this->line.w = w;
+void CgameObject::addLine(float x, float y, float w, float h) {
+
 }
 void CgameObject::setID(int ID) {
     this->id = ID;

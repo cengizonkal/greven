@@ -43,9 +43,6 @@ inline LRESULT CALLBACK   WndProc (HWND hWnd, UINT message,WPARAM wParam, LPARAM
     }
 class Cgreven {
   public:
-// TODO (Cengiz#1#): Burdaki değişkenler globals.cpp ye aktarılacak
-
-    //bool keys[500]; /**< Tuşlar */
 
 
     bool end; /**< Oyun bitti */

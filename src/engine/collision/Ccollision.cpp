@@ -33,17 +33,7 @@ void Ccollision::step(void) {
 		for(int i = 0; i < this->NoO-1; i++) {
             for(int j=i; j < this->NoO; j++) {
                 if(inArray(gameObjects[i]->collideWith, gameObjects[i]->NoC, gameObjects[i]->groupId)) {
-                    if((gameObjects[i]->type == LINE) && (gameObjects[j]->type == CIRCLE)) {
-                        if(this->circleLine(gameObjects[j]->circle, gameObjects[i]->line)) {
-                            gameObjects[i]->collide(gameObjects[j]->id, gameObjects[j]->groupId);
-                            gameObjects[j]->collide(gameObjects[i]->id, gameObjects[i]->groupId);
-                        }
-                    }else if((gameObjects[j]->type == LINE) && (gameObjects[i]->type == CIRCLE)) {
-                        if(this->circleLine(gameObjects[i]->circle, gameObjects[j]->line)) {
-                            gameObjects[i]->collide(gameObjects[j]->id, gameObjects[j]->groupId);
-                            gameObjects[j]->collide(gameObjects[i]->id, gameObjects[i]->groupId);
-                        }
-                    }
+
                 }
             }
         }
@@ -51,33 +41,21 @@ void Ccollision::step(void) {
     lastTime = iTime->getCurrTime();
 }
 
-bool Ccollision::circleLine(Ccircle c, Cline l) {
-	float x1;
-	float x2;
-	float y;
-
-
-	if(l.x > l.w) {
-		x1 = l.x;
-		x2 = l.w;
-
-	} else {
-		x1 = l.w;
-		x2 = l.x;
-
-	}
-
-	//y all the same
-	y = l.y;
-
-	if(((c.x + c.r) > x2)
-        && ((c.x - c.r) < x1)
-        && ((c.y - c.r) <= y
-        && (c.y + c.r) > y)) {
-		return true;
-	} else
-		return false;
-
+bool Ccollision::circleLine(Ccircle circle, Cline line) {
+    double vx = line.w - line.x;
+    double vy = line.h - line.y;
+    double xdiff = line.x - circle.x;
+    double ydiff = line.y - circle.y;
+    double a = pow(vx, 2) + pow(vy, 2);
+    double b = 2 * ((vx * xdiff) + (vy * ydiff));
+    double c = pow(xdiff, 2) + pow(ydiff, 2) - pow(circle.r, 2);
+    double quad = pow(b, 2) - (4 * a * c);
+    if (quad >= 0)
+    {
+        // An infinite collision is happening, but let's not stop here
+       return true;
+    }
+    return false;
 
 }
 

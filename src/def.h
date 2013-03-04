@@ -1,4 +1,4 @@
-//projede kullan�lacak olan sabit de�erler
+//projede kullanýlacak olan sabit deðerler
 
 #ifndef GL_BGR
 #define GL_BGR 0x80E0
@@ -50,6 +50,11 @@
 #define WALL 3
 #define ENEMY 4
 
+/**
+ Çarpışma tipleri
+*/
+#define CIRCLE 1
+#define LINE 2
 
 
 

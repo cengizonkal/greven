@@ -4,6 +4,7 @@
 #include "../geometrics/Ccircle.h"
 #include "../state/Cstate.h"
 #include "../graphics/Canimation.h"
+#include "../../def.h"
 
 /** \brief Oyun objesi
  * Oyunda kullanılacak olan tüm sınıflar bu sınıftan türemelidir.
@@ -17,12 +18,16 @@ public:
 	~CgameObject();
 	int id;/**< Çarpışma sonrasında bu bilgi diğer objeye gönderilecek */
 	int type; /**< Bu obje çizgi mi, Daire mi : 1, 0 */
+	int collisionType; /**<Çarpışma testinde çizgi 1, daire 2  */
 	int groupId; /**< Bu obje hangi gruba ait, böylece birbirinden farklı gruplar arasında çarpışma tesi yapılabilir */
 
-	Cline line;/**<Çizgi Bilgisi */
-	Ccircle circle;/**< ´Daire bilgisi */
+	Cline *lines;/**<Çizgi Bilgisi */
+	Ccircle *circles;/**< ´Daire bilgisi */
 	int *collideWith;/**< Hangi grouplar ile çarpışma testi yapılması gerektiğini belirler */
-    int NoC; /**< Kaç grup ile çarpışma testi yapılacak  */
+    int NoG; /**< Kaç grup ile çarpışma testi yapılacak  */
+    int NoC; /**< Daire Sayısı */
+    int NoL; /**< Çizgi Sayısı */
+
     bool isInScreen; /**< Ekranda olup olmadığını gösterecek böylece performas artışı sağlanabilir */
 
     /** \brief çarpışma sonrasında child sınıfına collide methodunu çağırmasını söyleyecek
@@ -46,10 +51,10 @@ public:
 	void addCollideGroup(int groupId);
 	void setID(int ID);
 	int getID(void);
-	void setLine(float x, float y, float h, float w);
-	void setLine(Cline line);
-	void setCircle(float x, float y, float r);
-	void setCircle(Ccircle circle);
+	void addLine(float x, float y, float h, float w);
+	void addLine(Cline line);
+	void addCircle(float x, float y, float r);
+	void addCircle(Ccircle circle);
 	void init(void);
 
 protected:
