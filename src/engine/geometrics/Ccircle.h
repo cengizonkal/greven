@@ -8,7 +8,7 @@ class Ccircle {
 
     double y;
 
-    double r;
+    double r; /**< Yarı çap */
 
     Ccircle(void );
     ~Ccircle(void );

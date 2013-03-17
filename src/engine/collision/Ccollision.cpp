@@ -52,7 +52,6 @@ bool Ccollision::circleLine(Ccircle circle, Cline line) {
     double quad = pow(b, 2) - (4 * a * c);
     if (quad >= 0)
     {
-        // An infinite collision is happening, but let's not stop here
        return true;
     }
     return false;
@@ -63,6 +62,16 @@ void Ccollision::testSignal(void) {
     for(int i = 0; i < this->NoO; i++) {
         gameObjects[i]->collide(1, 2);
     }
+}
+bool Ccollision::circleCircle(Ccircle c1, Ccircle c2) {
+    double distX = c1.x - c2.x;
+    double distY = c1.y - c2.y;
+    double dist = sqrt((distX*distX ) + (distY*distY));
+
+    if(dist <= (c1.r + c2.r))
+        return true;
+    else
+        return false;
 }
 
 
