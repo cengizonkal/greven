@@ -27,9 +27,12 @@ public:
 	void registerGameObject(CgameObject *obj);
 	void linkTime(Ctime *time);
 	void step();
-	bool circleLine(Ccircle c, Cline l);
-	bool circleCircle(Ccircle c1, Ccircle c2);
+	bool circleLine(Ccircle *c, Cline *l);
+	bool circleCircle(Ccircle *c1, Ccircle *c2);
+    // TODO (Cengiz#1#): Line-line çarpışma testi
+	bool lineLine(Cline *l1, Cline *l2);
 	void testSignal(void);
+	bool objectObject(CgameObject *g1, CgameObject *g2);
 
 };
 

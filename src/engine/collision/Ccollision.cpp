@@ -13,7 +13,7 @@ void Ccollision::init() {
 	this->iTime = NULL;
 	lastTime = 0;
 	stepTime = 0.0001; /**< Birim saniye, Çalışma frekansı  */
-	this->NoO = 0;
+	this->NoO = 0;/**< Obje sayısı */
 }
 
 
@@ -41,14 +41,14 @@ void Ccollision::step(void) {
     lastTime = iTime->getCurrTime();
 }
 
-bool Ccollision::circleLine(Ccircle circle, Cline line) {
-    double vx = line.w - line.x;
-    double vy = line.h - line.y;
-    double xdiff = line.x - circle.x;
-    double ydiff = line.y - circle.y;
+bool Ccollision::circleLine(Ccircle *circle, Cline *line) {
+    double vx = line->w - line->x;
+    double vy = line->h - line->y;
+    double xdiff = line->x - circle->x;
+    double ydiff = line->y - circle->y;
     double a = pow(vx, 2) + pow(vy, 2);
     double b = 2 * ((vx * xdiff) + (vy * ydiff));
-    double c = pow(xdiff, 2) + pow(ydiff, 2) - pow(circle.r, 2);
+    double c = pow(xdiff, 2) + pow(ydiff, 2) - pow(circle->r, 2);
     double quad = pow(b, 2) - (4 * a * c);
     if (quad >= 0)
     {
@@ -63,15 +63,57 @@ void Ccollision::testSignal(void) {
         gameObjects[i]->collide(1, 2);
     }
 }
-bool Ccollision::circleCircle(Ccircle c1, Ccircle c2) {
-    double distX = c1.x - c2.x;
-    double distY = c1.y - c2.y;
+bool Ccollision::circleCircle(Ccircle *c1, Ccircle *c2) {
+    double distX = c1->x - c2->x;
+    double distY = c1->y - c2->y;
     double dist = sqrt((distX*distX ) + (distY*distY));
 
-    if(dist <= (c1.r + c2.r))
+    if(dist <= (c1->r + c2->r))
         return true;
     else
         return false;
+}
+
+bool Ccollision::lineLine(Cline *l1, Cline *l2) {
+    return false;
+}
+
+bool Ccollision::objectObject(CgameObject *g1, CgameObject *g2) {
+    for(int i = 0; i<(g1->NoC + g1->NoL); i++) {
+        for(int j = 0; j<(g2->NoC + g2->NoL);j++) {
+            //circle
+            if(i<g1->NoC) {
+                //circle
+                if(j<g2->NoC) {
+                   if(circleCircle(&g1->circles[i], &g2->circles[j])){
+                        return true;
+                   }
+                }
+                //line
+                if(j>=g2->NoC) {
+                    if(circleLine(&g1->circles[i], &g2->lines[j])) {
+                        return true;
+                    }
+                }
+            }
+            //line
+            if(i>=g1->NoC) {
+                //circle
+                if(j<g2->NoC) {
+                   if(circleLine(&g2->circles[j], &g1->lines[i])){
+                        return true;
+                   }
+                }
+                //line
+                if(j>=g2->NoC) {
+                    if(lineLine(&g1->lines[i], &g2->lines[j])) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
 }
 
 
