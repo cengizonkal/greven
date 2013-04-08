@@ -329,7 +329,7 @@ void Cgraphic::loadTGA(char *fileName) {
     }
 }
 
-void Cgraphic::setCamera(Ccamera *c)
+void Cgraphic::setCamera(engine::Ccamera *c)
 {
      this->camera=c;
 };

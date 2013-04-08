@@ -72,7 +72,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
 
 
-    Ccamera camera;
+    engine::Ccamera camera;
     greven.setCamera(&camera);
 
     gr.loadResources("res/resources.xml");

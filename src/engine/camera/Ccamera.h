@@ -10,7 +10,7 @@
 #include "../../tools.h"
 
 
-
+namespace engine{
 
 class Ccamera
 {
@@ -37,4 +37,5 @@ class Ccamera
 
 
 };
+}
 #endif

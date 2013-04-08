@@ -15,17 +15,13 @@ void Clevel::addGround(Cground ground) {
 	grounds[NoG - 1] = ground;
 }
 
-void Clevel::addWall(Cwall wall) {
-	NoW++;
-	this->walls = (Cwall*)realloc(walls, NoW * (sizeof(Cwall)));
-	walls[NoW - 1] = wall;
-}
+
 
 void Clevel::init(void) {
 	this->NoG = 0;
 	this->NoW = 0;
 	grounds = (Cground*)malloc(1 * (sizeof(Cground)));
-	walls = (Cwall*)malloc(1 * (sizeof(Cwall)));
+
 	this->currentLevel = 1;
 
 }

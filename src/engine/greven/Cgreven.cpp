@@ -212,7 +212,7 @@ void Cgreven::showMessage(char * message)
 {
     MessageBox(hWnd,message,"Greven",0);
 };
-void Cgreven::setCamera(Ccamera *camera)
+void Cgreven::setCamera(engine::Ccamera *camera)
 {
     camera->position.SetZero();
     this->camera=camera;

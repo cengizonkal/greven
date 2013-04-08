@@ -70,7 +70,7 @@ class Cgreven {
     Ctime iTime;/**< Zaman Senkronizasyonu */
 
 
-    Ccamera *camera;/**< Aktif Kamera */
+    engine::Ccamera *camera;/**< Aktif Kamera */
 
      Cgreven();
      ~Cgreven();
@@ -83,7 +83,7 @@ class Cgreven {
      void clearCanvas();
      void peekMessage();
      void showMessage(char * message);
-     void setCamera(Ccamera *camera);
+     void setCamera(engine::Ccamera *camera);
      void registerGameObject(CgameObject *gameObject);
      void step(void);
      void dumpKeys(void);

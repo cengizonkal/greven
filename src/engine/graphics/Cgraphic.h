@@ -34,7 +34,7 @@ public:
 	Cgeo geo;
 	C3DmodelLoader modelLoader;
 	//kamera
-	Ccamera *camera;
+	engine::Ccamera *camera;
 
 	//level register
 	Clevel *level;
@@ -56,7 +56,7 @@ public:
 	void animateSprites(void );
 	//void load3DModels(void );
 	//void loadTextures(void );
-	void setCamera(Ccamera *c);
+	void setCamera(engine::Ccamera *c);
 	void registerAnimation(Canimation *a);
 	void loadResources(char *fileName);
 	void dump(void);

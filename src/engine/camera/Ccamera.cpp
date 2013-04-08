@@ -1,5 +1,5 @@
 #include "Ccamera.h"
-
+namespace engine{
 Ccamera::Ccamera(void ) {
 	init();
 
@@ -57,4 +57,5 @@ Cvector  Ccamera::getPosition(double deltaTime) {
 
     }
     return this->position;
+}
 }
