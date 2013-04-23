@@ -1,6 +1,6 @@
 
 #include "Csprite.h"
-
+namespace engine { namespace graphics{
 Csprite::Csprite(void )
 {
 
@@ -41,7 +41,7 @@ void Csprite::limitFrames(int from,int to)
     fromFrame=from;
     toFrame=to;
 }
-Cvector Csprite::getPosition()
+engine::geometrics::Cvector Csprite::getPosition()
 {
     return this->core.position;
 }
@@ -68,4 +68,4 @@ void Csprite::init()
 
 
 }
-
+}}

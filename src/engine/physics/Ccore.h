@@ -8,13 +8,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+namespace engine { namespace physics {
 
 class Ccore {
   public:
 
-    Cvector velocity;
-    Cvector force;
-    Cvector position;
+    engine::geometrics::Cvector velocity;
+    engine::geometrics::Cvector force;
+    engine::geometrics::Cvector position;
     double mass;
     bool hasGravity;
     bool movable;
@@ -22,7 +23,9 @@ class Ccore {
 
     Ccore(void );
     void init(void);
-    void addForce(Cvector force);
+    void addForce(engine::geometrics::Cvector force);
 
 };
+}
+}
 #endif

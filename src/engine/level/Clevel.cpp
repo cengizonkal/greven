@@ -1,32 +1,20 @@
 #include "Clevel.h"
 #include "../../tools.h"
 #include "../xml/simplexml.h"
-
+namespace engine { namespace level {
 Clevel::Clevel(void) {
 	init();
 }
 Clevel::~Clevel(void) {
 
 }
-void Clevel::addGround(Cground ground) {
-
-	NoG++;
-	this->grounds = (Cground*)realloc(grounds, NoG * (sizeof(Cground)));
-	grounds[NoG - 1] = ground;
-}
-
-
 
 void Clevel::init(void) {
-	this->NoG = 0;
-	this->NoW = 0;
-	grounds = (Cground*)malloc(1 * (sizeof(Cground)));
-
 	this->currentLevel = 1;
-
 }
+
 void Clevel::loadLevel() {
-	FILE *fp;
+	/*FILE *fp;
 	char fileName[255];
 	char xmlFile[4096];
 	simplexml *root;
@@ -48,12 +36,6 @@ void Clevel::loadLevel() {
 		for(int i = 0; i < ground; i++) {
 			ptr = root->child("grounds")->child("ground", i);
 
-			/*writeError("\n%d",atoi(ptr->child("pointA")->child("x")->value()));
-			writeError("\n%d",atoi(ptr->child("pointA")->child("y")->value()));
-			writeError("\n%d",atoi(ptr->child("pointB")->child("x")->value()));
-			writeError("\n%d",atoi(ptr->child("pointB")->child("y")->value()));
-			*/
-
 			float ax;
 			float ay;
 			float bx;
@@ -72,10 +54,10 @@ void Clevel::loadLevel() {
 
 		}
 
-	}
+	}*/
 
 
 }
-
-
+}
+}
 

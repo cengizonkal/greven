@@ -41,6 +41,7 @@ inline LRESULT CALLBACK   WndProc (HWND hWnd, UINT message,WPARAM wParam, LPARAM
             return DefWindowProc (hWnd, message, wParam, lParam);
         }
     }
+namespace engine { namespace greven {
 class Cgreven {
   public:
 
@@ -62,15 +63,15 @@ class Cgreven {
     int width;/**< Pencere Genişliği */
     bool fullScreen; /**< Tam Ekran  */
     int NoO; /**< GameObject sayısı */
-    CgameObject **gameObjects; /**< GameObjelerini Tutan Pointer dizisi*/
+    engine::gameobject::CgameObject **gameObjects; /**< GameObjelerini Tutan Pointer dizisi*/
 
     DWORD dwExStyle;
     DWORD dwStyle;
 
-    Ctime iTime;/**< Zaman Senkronizasyonu */
+    engine::time::Ctime iTime;/**< Zaman Senkronizasyonu */
 
 
-    engine::Ccamera *camera;/**< Aktif Kamera */
+    engine::camera::Ccamera *camera;/**< Aktif Kamera */
 
      Cgreven();
      ~Cgreven();
@@ -83,8 +84,8 @@ class Cgreven {
      void clearCanvas();
      void peekMessage();
      void showMessage(char * message);
-     void setCamera(engine::Ccamera *camera);
-     void registerGameObject(CgameObject *gameObject);
+     void setCamera(engine::camera::Ccamera *camera);
+     void registerGameObject(engine::gameobject::CgameObject *gameObject);
      void step(void);
      void dumpKeys(void);
 
@@ -92,4 +93,6 @@ class Cgreven {
      void releaseKeys(void);
      double lastTime;
 };
+}
+}
 #endif

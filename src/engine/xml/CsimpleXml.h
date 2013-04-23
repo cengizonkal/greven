@@ -33,13 +33,13 @@ typedef struct keyvalue {
   struct keyvalue *next;
 
 } keyvalue_rec;
-
-class simplexml {
+namespace engine { namespace xml {
+class CsimpleXml {
 public:
-	simplexml(const char *encoded, const simplexml *parent=NULL);
-	~simplexml(void);
+	CsimpleXml(const char *encoded, const CsimpleXml *parent=NULL);
+	~CsimpleXml(void);
 
-	const simplexml *parent(void);
+	const CsimpleXml *parent(void);
 
 	const char *key(void);
 	const char *value(void);
@@ -49,11 +49,11 @@ public:
 	const char *property(const char *key, int iter=0);
 
 	int number_of_children(void);
-	simplexml *child(int child_number);
-	simplexml *child(const char *key, int iter=0);
+	CsimpleXml *child(int child_number);
+	CsimpleXml *child(const char *key, int iter=0);
 
 private:
-	const simplexml *_parent;
+	const CsimpleXml *_parent;
 
 	char *_key;
 	char *_value;
@@ -61,10 +61,12 @@ private:
 	keyvalue_rec *_properties;
 	keyvalue_rec *_children;
 };
+    long ntotok(const char *str, const char *tokens);
+    long nskiptok(const char *str, const char *tokens);
+    const char *stristr(const char *haystack, const char *needle);
+}
+}
 
-long ntotok(const char *str, const char *tokens);
-long nskiptok(const char *str, const char *tokens);
-const char *stristr(const char *haystack, const char *needle);
 
 
 #endif /* SIMPLEXML_H */

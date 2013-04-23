@@ -10,19 +10,19 @@
 #include "../../tools.h"
 
 
-namespace engine{
+namespace engine{ namespace camera{
 
 class Ccamera
 {
   public:
-    Cvector position;
+    engine::geometrics::Cvector position;
     float zoom;
     float radius;
     int mode;
-    CgameObject *gameObject; ///<Link to sprite
+    engine::gameobject::CgameObject *gameObject; ///<Link to sprite
     float seekTime;
     float deadZone;
-    Cvector speed;
+    engine::geometrics::Cvector speed;
     float speedA;
 
 
@@ -32,10 +32,11 @@ class Ccamera
     Ccamera(void );
     ~Ccamera(void );
     void init(void );
-    void setLink(CgameObject *go);
-    Cvector getPosition(double deltaTime);
+    void setLink(engine::gameobject::CgameObject *go);
+    engine::geometrics::Cvector getPosition(double deltaTime);
 
 
 };
+}
 }
 #endif

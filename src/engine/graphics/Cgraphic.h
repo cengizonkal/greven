@@ -18,26 +18,26 @@
 #include "../../tools.h"
 
 
-
+namespace engine { namespace graphics{
 class Cgraphic {
 public:
 
 	int NoA;
-	Canimation **animations;
+	engine::graphics::Canimation **animations;
 	bool debug;
 
 	int No3D;
-	C3Dmodel * models;
-	Ctexture * textures;
+	engine::graphics::C3Dmodel * models;
+	engine::graphics::Ctexture * textures;
 	int NoT;
 	//geometrik iþlemler için
-	Cgeo geo;
-	C3DmodelLoader modelLoader;
+	engine::geometrics::Cgeo geo;
+	engine::graphics::C3DmodelLoader modelLoader;
 	//kamera
-	engine::Ccamera *camera;
+	engine::camera::Ccamera *camera;
 
 	//level register
-	Clevel *level;
+	engine::level::Clevel *level;
 
 
 	Cgraphic(void );
@@ -51,12 +51,12 @@ public:
 	void drawLevel();
 
 
-	void linkTime(Ctime * t);
+	void linkTime(engine::time::Ctime * t);
 	void animate(void );
 	void animateSprites(void );
 	//void load3DModels(void );
 	//void loadTextures(void );
-	void setCamera(engine::Ccamera *c);
+	void setCamera(engine::camera::Ccamera *c);
 	void registerAnimation(Canimation *a);
 	void loadResources(char *fileName);
 	void dump(void);
@@ -65,12 +65,13 @@ public:
 
 
 private:
-	Ctime * iTime;
+	engine::time::Ctime * iTime;
 	double lastTime;
 	void loadTexture(char * fileName);
 	void loadBMP(char *fileName);
 	void loadTGA(char *fileName);
 
 };
+}}
 #endif
 

@@ -6,8 +6,6 @@ class Cwall
 public:
     Cwall(void );
     ~Cwall(void );
-private:
-    short pack[4][4];
 
 
 };

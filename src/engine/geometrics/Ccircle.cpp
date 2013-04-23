@@ -1,5 +1,6 @@
 
 #include "Ccircle.h"
+namespace engine { namespace geometrics{
 
 Ccircle::Ccircle(void )
 {
@@ -18,3 +19,5 @@ void Ccircle::init(void )
     r=0;
 }
 
+}
+}

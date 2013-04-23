@@ -1,5 +1,5 @@
 #include "Ccollision.h"
-
+namespace engine{ namespace collision {
 Ccollision::Ccollision() {
 	init();
 }
@@ -17,13 +17,13 @@ void Ccollision::init() {
 }
 
 
-void Ccollision::registerGameObject(CgameObject *gameObject) {
+void Ccollision::registerGameObject(engine::gameobject::CgameObject *gameObject) {
 	this->NoO++;
-    this->gameObjects=(CgameObject**)realloc(gameObjects, NoO*(sizeof(CgameObject*)));
+    this->gameObjects=(engine::gameobject::CgameObject**)realloc(gameObjects, NoO*(sizeof(engine::gameobject::CgameObject*)));
 	this->gameObjects[NoO-1] = gameObject;
 }
 
-void Ccollision::linkTime(Ctime *time) {
+void Ccollision::linkTime(engine::time::Ctime *time) {
 	this->iTime = time;
 }
 void Ccollision::step(void) {
@@ -41,7 +41,7 @@ void Ccollision::step(void) {
     lastTime = iTime->getCurrTime();
 }
 
-bool Ccollision::circleLine(Ccircle *circle, Cline *line) {
+bool Ccollision::circleLine(engine::geometrics::Ccircle *circle, engine::geometrics::Cline *line) {
     double vx = line->w - line->x;
     double vy = line->h - line->y;
     double xdiff = line->x - circle->x;
@@ -63,7 +63,7 @@ void Ccollision::testSignal(void) {
         gameObjects[i]->collide(1, 2);
     }
 }
-bool Ccollision::circleCircle(Ccircle *c1, Ccircle *c2) {
+bool Ccollision::circleCircle(engine::geometrics::Ccircle *c1, engine::geometrics::Ccircle *c2) {
     double distX = c1->x - c2->x;
     double distY = c1->y - c2->y;
     double dist = sqrt((distX*distX ) + (distY*distY));
@@ -74,11 +74,11 @@ bool Ccollision::circleCircle(Ccircle *c1, Ccircle *c2) {
         return false;
 }
 
-bool Ccollision::lineLine(Cline *l1, Cline *l2) {
+bool Ccollision::lineLine(engine::geometrics::Cline *l1, engine::geometrics::Cline *l2) {
     return false;
 }
 
-bool Ccollision::objectObject(CgameObject *g1, CgameObject *g2) {
+bool Ccollision::objectObject(engine::gameobject::CgameObject *g1, engine::gameobject::CgameObject *g2) {
     for(int i = 0; i<(g1->NoC + g1->NoL); i++) {
         for(int j = 0; j<(g2->NoC + g2->NoL);j++) {
             //circle
@@ -117,3 +117,5 @@ bool Ccollision::objectObject(CgameObject *g1, CgameObject *g2) {
 }
 
 
+}
+}

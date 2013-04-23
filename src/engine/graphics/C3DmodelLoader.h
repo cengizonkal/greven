@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 
-
+namespace engine { namespace graphics{
 class C3DmodelLoader {
 
   public:
@@ -18,4 +18,5 @@ class C3DmodelLoader {
 
 
 };
+}}
 #endif

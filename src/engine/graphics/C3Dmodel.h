@@ -1,10 +1,10 @@
 #ifndef _C3DMODEL_H
 #define _C3DMODEL_H
-#include <stdio.h> 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <gl/gl.h>
-
+namespace engine { namespace graphics{
 class C3Dmodel {
   public:
     int id;
@@ -14,13 +14,13 @@ class C3Dmodel {
     GLfloat * normalList;
 
     GLfloat * textureList;
-    
+
     unsigned short * vindices;
 
     unsigned short * nindices;
 
     unsigned short * tindices;
-    
+
         //dosya ismi
     char fileName[15];
 
@@ -52,4 +52,5 @@ class C3Dmodel {
     void init(void );
 
 };
+}}
 #endif

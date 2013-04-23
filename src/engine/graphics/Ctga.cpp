@@ -1,4 +1,5 @@
 #include "Ctga.h"
+namespace engine { namespace graphics{
 Ctga::Ctga()
 {
 
@@ -65,4 +66,5 @@ void Ctga::Free()
 {
     free(pixel);
 };
+}}
 

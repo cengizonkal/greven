@@ -1,12 +1,15 @@
 # include "Ctime.h"
-Ctime::Ctime() 
+namespace engine { namespace time{
+Ctime::Ctime()
 {
     QueryPerformanceFrequency( &frequency ) ;
     currTime.QuadPart=0;
 };
 
-double Ctime::getCurrTime() 
+double Ctime::getCurrTime()
 {
     QueryPerformanceCounter(&currTime);
     return ((double)currTime.QuadPart /(double)frequency.QuadPart);
 };
+}
+}

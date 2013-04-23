@@ -1,32 +1,11 @@
-/*****************************************************************************
-
-    This file is part of SimpleXML, a simplified C++ tree based parser
-    of XML 1.0 documents.
-    Copyright (C) 2003 by Brian Ecker.
-
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Library General Public
-    License as published by the Free Software Foundation; either
-    version 2 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Library General Public License for more details.
-
-    You should have received a copy of the GNU Library General Public
-    License along with this library; if not, write to the Free
-    Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-
-*****************************************************************************/
 
 #include <ctype.h>
 #include <string.h>
 
-#include "simplexml.h"
+#include "CsimpleXml.h"
 
-
-simplexml::simplexml(const char *encoded, const simplexml *parent)
+namespace engine { namespace xml{
+CsimpleXml::CsimpleXml(const char *encoded, const CsimpleXml *parent)
 {
 	const char *sptr, *tptr, *uptr;
 	char *buf, *end, lastc;
@@ -150,7 +129,7 @@ simplexml::simplexml(const char *encoded, const simplexml *parent)
 			ptr->key = new char[len+1];
 			strncpy(ptr->key,tptr,len);
 			ptr->key[len] = 0;
-			ptr->value = new simplexml(sptr,this);
+			ptr->value = new CsimpleXml(sptr,this);
 
 			end = new char[len + 4]; // 4 => "</>\0"
 			sprintf(end,"</%s>",ptr->key);
@@ -230,7 +209,7 @@ const char *stristr(const char *haystack, const char *needle)
         return NULL;
 }
 
-simplexml::~simplexml(void)
+CsimpleXml::~CsimpleXml(void)
 {
 	keyvalue_rec *ptr,*last;
 
@@ -260,31 +239,31 @@ simplexml::~simplexml(void)
 			ptr!=NULL;
 				last=ptr, ptr=ptr->next) {
 			delete[] last->key;
-			delete (simplexml *) last->value;
+			delete (CsimpleXml *) last->value;
 			delete last;
 		}
 		delete[] last->key;
-		delete (simplexml *) last->value;
+		delete (CsimpleXml *) last->value;
 		delete last;
 	}
 }
 
-const simplexml *simplexml::parent(void)
+const CsimpleXml *CsimpleXml::parent(void)
 {
-	return((const simplexml *) _parent);
+	return((const CsimpleXml *) _parent);
 }
 
-const char *simplexml::key(void)
+const char *CsimpleXml::key(void)
 {
 	return((const char *) _key);
 }
 
-const char *simplexml::value(void)
+const char *CsimpleXml::value(void)
 {
 	return((const char*) _value);
 }
 
-int simplexml::number_of_properties(void)
+int CsimpleXml::number_of_properties(void)
 {
 	int i;
 	keyvalue_rec *ptr;
@@ -294,7 +273,7 @@ int simplexml::number_of_properties(void)
 	return i;
 }
 
-const char *simplexml::property(int property_number)
+const char *CsimpleXml::property(int property_number)
 {
 	int i;
 	keyvalue_rec *ptr;
@@ -309,7 +288,7 @@ const char *simplexml::property(int property_number)
 		return NULL;
 }
 
-const char *simplexml::property(const char *key, int iter)
+const char *CsimpleXml::property(const char *key, int iter)
 {
 	int i;
 	keyvalue_rec *ptr;
@@ -326,7 +305,7 @@ const char *simplexml::property(const char *key, int iter)
 	return NULL;
 }
 
-int simplexml::number_of_children(void)
+int CsimpleXml::number_of_children(void)
 {
 	int i;
 	keyvalue_rec *ptr;
@@ -336,7 +315,7 @@ int simplexml::number_of_children(void)
 	return i;
 }
 
-simplexml *simplexml::child(int child_number)
+CsimpleXml *CsimpleXml::child(int child_number)
 {
 	int i;
 	keyvalue_rec *ptr;
@@ -346,12 +325,12 @@ simplexml *simplexml::child(int child_number)
 			i++, ptr=ptr->next);
 
 	if (ptr)
-		return (simplexml *) ptr->value;
+		return (CsimpleXml *) ptr->value;
 	else
 		return NULL;
 }
 
-simplexml *simplexml::child(const char *key, int iter)
+CsimpleXml *CsimpleXml::child(const char *key, int iter)
 {
 	int i;
 	keyvalue_rec *ptr;
@@ -360,10 +339,12 @@ simplexml *simplexml::child(const char *key, int iter)
 		if (strcmp(ptr->key,key)==0) {
 			for (i=0; i<iter && ptr!=NULL; i++, ptr=ptr->next);
 			if (ptr)
-				return (simplexml *) ptr->value;
+				return (CsimpleXml *) ptr->value;
 			else
 				return NULL;
 		}
 	}
 	return NULL;
+}
+}
 }

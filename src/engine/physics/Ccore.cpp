@@ -1,7 +1,7 @@
 
 #include "Ccore.h"
 
-
+namespace engine { namespace physics {
 Ccore::Ccore(void )
 {
     init();
@@ -19,10 +19,10 @@ void Ccore::init(void )
 
 
 }
-void Ccore::addForce(Cvector force)
+void Ccore::addForce(engine::geometrics::Cvector force)
 {
     this->force+=force;
 }
 
-
-
+}
+}

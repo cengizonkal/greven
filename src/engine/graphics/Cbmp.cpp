@@ -1,6 +1,6 @@
 
 #include "Cbmp.h"
-
+namespace engine { namespace graphics{
 void Cbmp::Dump() {
     trace("\nFile name:%s",fileName);
 	trace("\nHeight:%d",h);
@@ -49,3 +49,4 @@ void Cbmp::Free() {
 	free(pixel);
 }
 
+}}

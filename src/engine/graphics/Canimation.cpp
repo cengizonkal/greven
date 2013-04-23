@@ -1,6 +1,6 @@
 
 #include "Canimation.h"
-
+namespace engine { namespace graphics{
 Canimation::Canimation(void ) {
 	init();
 }
@@ -57,7 +57,7 @@ void Canimation::limitFrames(int from,int to)
     this->fromFrame=from;
     this->toFrame=to;
 }
-Cvector Canimation::getPosition()
+engine::geometrics::Cvector Canimation::getPosition()
 {
     return this->position;
 }
@@ -78,3 +78,4 @@ void Canimation::init() {
 
 }
 
+}}

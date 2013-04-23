@@ -1,6 +1,6 @@
 
 #include "C3DmodelLoader.h"
-
+namespace engine { namespace graphics{
 C3DmodelLoader::C3DmodelLoader()
 {
  init();
@@ -202,4 +202,5 @@ void C3DmodelLoader::load3DModel(C3Dmodel *model)
 
   //model->dump(strcat(model->fileName,".txt"));
 }
+}}
 

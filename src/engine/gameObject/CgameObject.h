@@ -11,8 +11,8 @@
  *
  *
  */
-
-class CgameObject : public Canimation {
+namespace engine { namespace gameobject {
+class CgameObject : public engine::graphics::Canimation {
 public:
 	CgameObject();
 	~CgameObject();
@@ -21,8 +21,8 @@ public:
 	int collisionType; /**<Çarpışma testinde çizgi 1, daire 2  */
 	int groupId; /**< Bu obje hangi gruba ait, böylece birbirinden farklı gruplar arasında çarpışma tesi yapılabilir */
 
-	Cline *lines;/**<Çizgi Bilgisi */
-	Ccircle *circles;/**< ´Daire bilgisi */
+	engine::geometrics::Cline *lines;/**<Çizgi Bilgisi */
+	engine::geometrics::Ccircle *circles;/**< ´Daire bilgisi */
 	int *collideWith;/**< Hangi grouplar ile çarpışma testi yapılması gerektiğini belirler */
     int NoG; /**< Kaç grup ile çarpışma testi yapılacak  */
     int NoC; /**< Daire Sayısı */
@@ -52,13 +52,14 @@ public:
 	void setID(int ID);
 	int getID(void);
 	void addLine(float x, float y, float h, float w);
-	void addLine(Cline line);
+	void addLine(engine::geometrics::Cline line);
 	void addCircle(float x, float y, float r);
-	void addCircle(Ccircle circle);
+	void addCircle(engine::geometrics::Ccircle circle);
 	void init(void);
 
 protected:
 private:
 };
-
+}
+}
 #endif

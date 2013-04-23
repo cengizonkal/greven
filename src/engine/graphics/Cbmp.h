@@ -5,6 +5,7 @@
 #include "../../tools.h"
 
 //#include "tools.h"
+namespace engine { namespace graphics{
 class Cbmp {
   public:
 
@@ -18,4 +19,5 @@ class Cbmp {
     void Free();
 
 };
+}}
 #endif

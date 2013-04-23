@@ -1,7 +1,7 @@
 #ifndef CSTATE_H
 #define CSTATE_H
 
-
+namespace engine { namespace state {
 class Cstate {
 public:
 	Cstate();
@@ -11,5 +11,6 @@ public:
 	static int getId(void);
 
 };
-
+}
+}
 #endif // CSTATE_H

@@ -1,5 +1,5 @@
 #include "Cgraphic.h"
-
+namespace engine { namespace graphics{
 Cgraphic::Cgraphic(void )
 {
  init();
@@ -54,7 +54,7 @@ void Cgraphic::registerAnimation(Canimation *a)
 
 void Cgraphic::drawAnimations(void )
 {
-    Cvector pos;
+    engine::geometrics::Cvector pos;
     float angle;
 
     for(int i=0;i<NoA;i++)
@@ -205,7 +205,7 @@ void Cgraphic::drawLevel()
 {
 
 };
-void Cgraphic::linkTime(Ctime * t)
+void Cgraphic::linkTime(engine::time::Ctime * t)
 {
     iTime=t;
     lastTime=iTime-> getCurrTime();
@@ -246,8 +246,8 @@ void Cgraphic::animate(void ){
 void Cgraphic::loadResources(char *fileName) {
     FILE *fp;
 	char xmlFile[4096];
-	simplexml *root;
-	simplexml *ptr;
+	engine::xml::CsimpleXml *root;
+	engine::xml::CsimpleXml *ptr;
 	char fName[255];
 	fp = fopen(fileName, "r"); /**< Dosyayı okumak için aç */
 
@@ -255,7 +255,7 @@ void Cgraphic::loadResources(char *fileName) {
 		writeError("Dosya bulunamadı: %s", fileName);
 	} else {
 		fread(xmlFile, 1, 4000, fp);
-		root = new simplexml(xmlFile);
+		root = new engine::xml::CsimpleXml(xmlFile);
 		/*Textures*/
 		int childNumber = root->child("textures")->number_of_children();
 		for(int i = 0; i < childNumber; i++) {
@@ -329,7 +329,7 @@ void Cgraphic::loadTGA(char *fileName) {
     }
 }
 
-void Cgraphic::setCamera(engine::Ccamera *c)
+void Cgraphic::setCamera(engine::camera::Ccamera *c)
 {
      this->camera=c;
 };
@@ -376,3 +376,4 @@ void Cgraphic::test(void) {
     glEnd ();
 
 }
+}}

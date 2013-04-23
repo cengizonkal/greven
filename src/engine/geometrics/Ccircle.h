@@ -1,7 +1,7 @@
 #ifndef _CCIRCLE_H
 #define _CCIRCLE_H
 
-
+namespace engine { namespace geometrics{
 class Ccircle {
   public:
     double x;
@@ -15,4 +15,6 @@ class Ccircle {
     void init(void );
 
 };
+}
+}
 #endif

@@ -5,7 +5,7 @@
 #include <conio.h>
 #include <string>
 #include "../../tools.h"
-
+namespace engine { namespace graphics{
 class Ctga
 {
   public:
@@ -29,4 +29,5 @@ class Ctga
     bool LoadTga(char fName[255]);
     void Free();
 };
+}}
 #endif

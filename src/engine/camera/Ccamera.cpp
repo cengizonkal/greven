@@ -1,5 +1,5 @@
 #include "Ccamera.h"
-namespace engine{
+namespace engine{ namespace camera {
 Ccamera::Ccamera(void ) {
 	init();
 
@@ -18,12 +18,12 @@ void Ccamera::init(void) {
 	this->speed.SetZero();
 	this->speedA=20;
 }
-void Ccamera::setLink(CgameObject *gj) {
+void Ccamera::setLink(engine::gameobject::CgameObject *gj) {
 	this->gameObject = gj; /**< Bir obejeye bağla */
 	this->mode = CAM_FOLLOW; /**< Camera modunu değiştir */
 
 }
-Cvector  Ccamera::getPosition(double deltaTime) {
+engine::geometrics::Cvector  Ccamera::getPosition(double deltaTime) {
     //delta time * speed * target
 
     speed.SetZero();
@@ -57,5 +57,6 @@ Cvector  Ccamera::getPosition(double deltaTime) {
 
     }
     return this->position;
+}
 }
 }

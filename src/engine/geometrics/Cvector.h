@@ -2,6 +2,7 @@
 #define _H_VECTOR
 
 # include <math.h>
+namespace engine { namespace geometrics{
 struct Cvector
 {
 	/// Default constructor does nothing (for performance).
@@ -123,4 +124,5 @@ inline bool operator == (const Cvector& a, const Cvector& b)
 {
 	return a.x == b.x && a.y == b.y;
 }
+}}
 #endif

@@ -6,7 +6,7 @@
 
 
 
-class Craziel : public CgameObject
+class Craziel : public engine::gameobject::CgameObject
 {
     public:
     Craziel();

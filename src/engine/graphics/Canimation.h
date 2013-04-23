@@ -6,8 +6,8 @@
 #include <gl/glu.h>
 #include "../physics/Ccore.h"
 
-
-class Canimation : public Ccore {
+namespace engine { namespace graphics{
+class Canimation : public engine::physics::Ccore {
   public:
     bool debug;/**< Çizgileri göster */
     int textId; /**<texture bağlamak için gereken id  */
@@ -36,8 +36,9 @@ class Canimation : public Ccore {
     void setPassive();
     void setFPS(int fps);
     void limitFrames(int from,int to);
-    Cvector getPosition();
+    engine::geometrics::Cvector getPosition();
     void init();
 
 };
+}}
 #endif

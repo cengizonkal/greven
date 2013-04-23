@@ -7,7 +7,7 @@
 #include "../geometrics/Ccircle.h"
 #include "../geometrics/Cvector.h"
 #include "../physics/Ccore.h"
-
+namespace engine { namespace graphics{
 class Csprite {
   public:
 
@@ -15,8 +15,8 @@ class Csprite {
     b2BodyDef bodyDef;
     b2PolygonShape shape;
     b2FixtureDef fixtureDef;*/
-    Ccore core;
-    Ccircle circle;
+    engine::physics::Ccore core;
+    engine::geometrics::Ccircle circle;
     bool debug;/**< Çizgileri göster */
     int id; /**< Hangi Sprite ? */
     int textId; /**< texture bağlamak için gereken id*/
@@ -53,8 +53,9 @@ class Csprite {
     void setActive();
     void setPassive();
     void limitFrames(int from,int to);
-    Cvector getPosition();
+    engine::geometrics::Cvector getPosition();
     void init();
 
 };
+}}
 #endif

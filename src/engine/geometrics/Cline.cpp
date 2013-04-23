@@ -1,4 +1,5 @@
 #include "Cline.h"
+namespace engine { namespace geometrics{
 Cline::Cline(void) {
 	this->init();
 }
@@ -10,5 +11,7 @@ void Cline::init(void) {
 }
 
 Cline::~Cline(void) {
+}
+}
 }
 

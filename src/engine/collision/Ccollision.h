@@ -10,30 +10,32 @@
 /** \brief Çarpışma testi sınıfı
  *
  */
-
+namespace engine {
+namespace collision {
 class Ccollision {
 private:
 public:
 	Ccollision();
 	~Ccollision();
-	CgameObject **gameObjects; /**< Sadece oyun objelerini kaydet */
+	engine::gameobject::CgameObject **gameObjects; /**< Sadece oyun objelerini kaydet */
 	int NoO; /**< Obje sayısı */
 
-    Ctime *iTime; /**< Genel zamana bağla */
+	engine::time::Ctime *iTime; /**< Genel zamana bağla */
 	double lastTime;
 	float stepTime; /**< Çalışma frekansı */
 	void init();
 
-	void registerGameObject(CgameObject *obj);
-	void linkTime(Ctime *time);
+	void registerGameObject(engine::gameobject::CgameObject *obj);
+	void linkTime(engine::time::Ctime *time);
 	void step();
-	bool circleLine(Ccircle *c, Cline *l);
-	bool circleCircle(Ccircle *c1, Ccircle *c2);
-    // TODO (Cengiz#1#): Line-line çarpışma testi
-	bool lineLine(Cline *l1, Cline *l2);
+	bool circleLine(engine::geometrics::Ccircle *c, engine::geometrics::Cline *l);
+	bool circleCircle(engine::geometrics::Ccircle *c1, engine::geometrics::Ccircle *c2);
+	// TODO (Cengiz#1#): Line-line çarpışma testi
+	bool lineLine(engine::geometrics::Cline *l1, engine::geometrics::Cline *l2);
 	void testSignal(void);
-	bool objectObject(CgameObject *g1, CgameObject *g2);
+	bool objectObject(engine::gameobject::CgameObject *g1, engine::gameobject::CgameObject *g2);
 
 };
-
+}
+}
 #endif // CCOLLISION_H

@@ -2,7 +2,7 @@
 #define _CTEXTURE_H
 #include <gl/gl.h>
 #include <gl/glu.h>
-
+namespace engine { namespace graphics{
 class Ctexture {
   public:
     float h;
@@ -10,4 +10,5 @@ class Ctexture {
     GLuint id;
 
 };
+}}
 #endif

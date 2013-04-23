@@ -71,8 +71,6 @@
 		<Unit filename="src/engine/state/Cstate.h" />
 		<Unit filename="src/engine/time/Ctime.cpp" />
 		<Unit filename="src/engine/time/Ctime.h" />
-		<Unit filename="src/engine/wall/Cwall.cpp" />
-		<Unit filename="src/engine/wall/Cwall.h" />
 		<Unit filename="src/engine/xml/simplexml.cc" />
 		<Unit filename="src/engine/xml/simplexml.h" />
 		<Unit filename="src/game/CbackPack.cpp" />
@@ -81,6 +79,8 @@
 		<Unit filename="src/game/Cguard.h" />
 		<Unit filename="src/game/Craziel.cpp" />
 		<Unit filename="src/game/Craziel.h" />
+		<Unit filename="src/game/Cwall.cpp" />
+		<Unit filename="src/game/Cwall.h" />
 		<Unit filename="src/tools.h" />
 		<Unit filename="version.h" />
 		<Extensions>

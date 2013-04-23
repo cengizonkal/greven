@@ -2,7 +2,7 @@
 
 
 
-
+namespace engine { namespace greven {
 Cgreven::Cgreven()
 {
     height=600;
@@ -153,7 +153,7 @@ void Cgreven::DisableOpenGL()
         double deltaTime=0;
         deltaTime=iTime.getCurrTime()-lastTime;
 
-        Cvector pos = camera->getPosition(deltaTime);
+        engine::geometrics::Cvector pos = camera->getPosition(deltaTime);
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
@@ -212,7 +212,7 @@ void Cgreven::showMessage(char * message)
 {
     MessageBox(hWnd,message,"Greven",0);
 };
-void Cgreven::setCamera(engine::Ccamera *camera)
+void Cgreven::setCamera(engine::camera::Ccamera *camera)
 {
     camera->position.SetZero();
     this->camera=camera;
@@ -223,9 +223,9 @@ Cgreven::~Cgreven()
  Cgreven::destroy();
 };
 
-void Cgreven::registerGameObject(CgameObject *gameObject) {
+void Cgreven::registerGameObject(engine::gameobject::CgameObject *gameObject) {
     this->NoO++;
-    this->gameObjects=(CgameObject**)realloc(gameObjects, NoO*(sizeof(CgameObject*)));
+    this->gameObjects=(engine::gameobject::CgameObject**)realloc(gameObjects, NoO*(sizeof(engine::gameobject::CgameObject*)));
     this->gameObjects[NoO-1] = gameObject;
 
 }
@@ -246,4 +246,6 @@ void Cgreven::dumpKeys(void)
             trace("%i ",i);
         }
     }
+}
+}
 }

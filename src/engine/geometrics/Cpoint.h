@@ -7,6 +7,7 @@
 /***
    geometrik iþlemler için class
 **/
+namespace engine { namespace geometrics{
 class Cpoint
 {
   public:
@@ -21,4 +22,5 @@ class Cpoint
 
 
 };
+}}
 #endif

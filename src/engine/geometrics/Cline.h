@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "Cpoint.h"
-
+namespace engine { namespace geometrics{
 class Cline {
 public:
 	float x , y;
@@ -18,4 +18,5 @@ public:
 
 
 };
+}}
 #endif

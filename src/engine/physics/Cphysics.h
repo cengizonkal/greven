@@ -11,19 +11,19 @@
 
 
 
-
+namespace engine { namespace physics {
 class Cphysics
 {
     public:
 
-    Ctime * iTime;/**< Common time */
+    engine::time::Ctime * iTime;/**< Common time */
     Ccore **cores;/**< Objeler */
 
 
     int NoC;/**< obje sayısı */
 
 
-    Cvector gravity;/**< Bu dünyadaki yerçekimi */
+    engine::geometrics::Cvector gravity;/**< Bu dünyadaki yerçekimi */
     double lastTime;
     float freeMove; /**< 1 saniye kay */
 
@@ -34,11 +34,12 @@ class Cphysics
     ~Cphysics();
 
     void registerCore(Ccore *c);
-    void linkTime(Ctime * t);
+    void linkTime(engine::time::Ctime * t);
     void step(void);
     void init(void);
 
 
 };
-
+}
+}
 #endif

@@ -1,5 +1,6 @@
 #include "Cphysics.h"
 #include "../../def.h"
+namespace engine { namespace physics{
 Cphysics::Cphysics()
 {
     init();
@@ -25,7 +26,7 @@ void Cphysics::registerCore(Ccore *c)
 
 };
 
-void Cphysics::linkTime(Ctime * t)
+void Cphysics::linkTime(engine::time::Ctime * t)
 {
     iTime=t;
     lastTime=iTime->getCurrTime();
@@ -38,8 +39,8 @@ void Cphysics::step()
     for(int i=0;i<NoC;i++)
     {
 
-        Cvector distance;
-        Cvector deltaVelocity;
+        engine::geometrics::Cvector distance;
+        engine::geometrics::Cvector deltaVelocity;
         deltaVelocity.SetZero();
         distance.SetZero();
 
@@ -60,11 +61,12 @@ void Cphysics::step()
 };
 void Cphysics::init()
 {
-    cores=(Ccore**)malloc(1*(sizeof(Ccore*)));
+    cores=(engine::physics::Ccore**)malloc(1*(sizeof(Ccore*)));
     NoC=0;
     gravity.Set(0,-10);
     freeMove=0.2;
 };
-
+}
+}
 
 

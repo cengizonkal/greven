@@ -5,20 +5,21 @@
 #define PI 3.14159
 #endif
 
-#include <stdio.h> 
-#include <stdlib.h> 
-#include <math.h> 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "Cpoint.h"
 #include "Ccircle.h"
 
 /***
    geometrik iþlemler için class
 **/
+namespace engine { namespace geometrics{
 class Cgeo
 {
   public:
-    
-         
+
+
     Cgeo(void );
     ~Cgeo(void );
     void init(void);
@@ -29,4 +30,5 @@ class Cgeo
     void rotateCircle(Ccircle *crc,Ccircle pPnt,double angle);
 
 };
+}}
 #endif
