@@ -13,7 +13,7 @@
 #include "../camera/Ccamera.h"
 #include "../level/Clevel.h"
 #include "../gameObject/CgameObject.h"
-#include "../xml/simplexml.h"
+#include "../xml/Csimplexml.h"
 #include "../../def.h"
 #include "../../tools.h"
 

@@ -2,8 +2,8 @@
 
 Craziel::Craziel()
 {
-
-
+    this->inAir = false;
+    this->jumpForce = 1;
 
 }
 
@@ -16,7 +16,20 @@ void  Craziel::collide(int id, int type) {
     trace("\nPlayer id:%d", this->id);
 }
 void Craziel::cycle(void) {
-    //update işlemleri
-    //movement
-    //check s
+ if(keys[VK_SPACE]){
+    this->jump();
+ }
+}
+void Craziel::jump()
+{
+    engine::geometrics::Cvector gravity;
+    engine::geometrics::Cvector velocity;
+    velocity.Set(0, jumpForce);
+    gravity.Set(0, GRAVITY);
+    this->velocity+=velocity;
+    this->addForce(gravity);
+    this->inAir=true;
+    this->setFPS(2);
+    //trace("jump");
+
 }

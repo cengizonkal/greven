@@ -1610,7 +1610,7 @@
 
 1344434384 d:\dev\c++\greven\src\controller\cguard.h
 
-1366743830 source:d:\projects\c++\greven\main.cpp
+1368038811 source:d:\projects\c++\greven\main.cpp
 	<windows.h>
 	<gl/gl.h>
 	<gl/glu.h>
@@ -1863,7 +1863,7 @@
 	"greven/Cgreven.h"
 	"globals/globals.h"
 
-1366742838 d:\projects\c++\greven\src\engine\graphics\cgraphic.h
+1368032835 d:\projects\c++\greven\src\engine\graphics\cgraphic.h
 	"Canimation.h"
 	"../time/Ctime.h"
 	"C3Dmodel.h"
@@ -1876,7 +1876,7 @@
 	"../camera/Ccamera.h"
 	"../level/Clevel.h"
 	"../gameObject/CgameObject.h"
-	"../xml/simplexml.h"
+	"../xml/Csimplexml.h"
 	"../../def.h"
 	"../../tools.h"
 
@@ -1991,9 +1991,12 @@
 	"../../def.h"
 	"../gameObject/CgameObject.h"
 
-1366743650 d:\projects\c++\greven\src\game\craziel.h
+1368038680 d:\projects\c++\greven\src\game\craziel.h
 	"../engine/gameObject/CgameObject.h"
 	"../tools.h"
+	"../engine/geometrics/Cvector.h"
+	"../engine/globals/globals.h"
+	<windows.h>
 
 1366743584 d:\projects\c++\greven\src\engine\greven\cgreven.h
 	<windows.h>
@@ -2096,7 +2099,7 @@
 
 1344437984 d:\projects\c++\greven\src\game\cguard.h
 
-1360878830 source:d:\projects\c++\greven\src\game\craziel.cpp
+1368038999 source:d:\projects\c++\greven\src\game\craziel.cpp
 	"Craziel.h"
 
 1365449240 d:\projects\c++\greven\src\engine\player\cplayer.h
@@ -2131,4 +2134,12 @@
 
 1366728581 d:\projects\c++\greven\src\game\cwall.h
 	"../def.h"
+
+1366745271 source:d:\projects\c++\greven\src\engine\xml\csimplexml.cc
+	<ctype.h>
+	<string.h>
+	"CsimpleXml.h"
+
+1366745189 d:\projects\c++\greven\src\engine\xml\csimplexml.h
+	<stdio.h>
 

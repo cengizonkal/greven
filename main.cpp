@@ -30,14 +30,22 @@ int WINAPI WinMain (HINSTANCE hInstance,
     a.setActive();
 
     Craziel raziel;
+    raziel.setTextureMap(2); /**< Bu kısmın level dosyasından alınması gerekiyor */
+    raziel.setFrameSize(156,128);
+    raziel.setFPS(15);
+    raziel.setSize(156,128);
+    raziel.setActive();
+
     collision.registerGameObject(&raziel);
     collision.testSignal();
 
 
 
 
-    gr.registerAnimation(&a);
-    gr.dump();
+    //gr.registerAnimation(&a);
+    gr.registerAnimation(&raziel);
+    greven.registerGameObject(&raziel);
+
 
 
 
