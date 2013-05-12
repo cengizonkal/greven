@@ -4,4 +4,7 @@
 	<texture>res/black.bmp</texture>
 	<texture>res/kosbmp.bmp</texture>
 </textures>
+<models>
+	<model>res/cube.obj</model>
+</models>
 </xml>

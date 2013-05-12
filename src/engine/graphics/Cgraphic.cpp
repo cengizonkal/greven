@@ -12,7 +12,7 @@ void Cgraphic::init(void )
     textures=NULL;
     iTime=NULL;
     models=NULL;
-    No3D=0;
+    No3D = 0;
     modelLoader.init();
     geo.init();
     debug=false;
@@ -264,6 +264,12 @@ void Cgraphic::loadResources(char *fileName) {
 			this->loadTexture(fName);
 		}
 		/*3d Models*/
+		childNumber = root->child("models")->number_of_children();
+		for(int i = 0; i < childNumber; i++) {
+			ptr = root->child("models")->child("model", i);
+			strcpy(fName, ptr->value());
+			this->loadModel(fName);
+		}
 	}
 
 };
@@ -334,10 +340,215 @@ void Cgraphic::setCamera(engine::camera::Ccamera *c)
      this->camera=c;
 };
 
+void Cgraphic::loadModel(char *fileName) {
+    char ext[10];
+    extractFileExtension(fileName,ext);
+    if(strcmp(ext,"obj")==0){
+        try{
+            this->No3D++;
+            this->loadObj(fileName);
+        }
+        catch(int e) {
+            writeError("Exception occurred while loading %s", fileName);
+            this->No3D--;
+        }
+
+    }
+
+
+}
+
+void Cgraphic::loadObj(char *fileName) {
+
+
+    this->models = (engine::graphics::C3Dmodel*) realloc (this->models, No3D * sizeof(engine::graphics::C3Dmodel));
+    engine::graphics::C3Dmodel *model;
+    model = &this->models[No3D-1];
+    model->init();
+    char buf[255];
+    FILE *fp;
+    unsigned short intNormal=0;
+    unsigned short intVertex=0;
+    unsigned short intTexture=0;
+    unsigned short intTest=0;
+
+    //buf=(char*)malloc(255);
+    fp=fopen(fileName,"rb");
+    if(fp==NULL)
+    {
+     writeError("%s","Obj Dosyası Açılamıyor ");
+     exit(0);
+    }
+
+
+
+
+    while(fscanf(fp, "%s", buf) != EOF)
+    {
+        switch(buf[0])
+        {
+            case '#':
+                fgets(buf, 255, fp);
+            break;
+
+
+            case 'v':
+                if (buf[1]== '\0')
+                {
+                    model->NoV++;
+                    model->vertexList=(float*)realloc(
+                                                model->vertexList
+                                                ,model->NoV*sizeof(float)*3);
+                    fscanf(fp, "%f", &model->vertexList[(model->NoV-1)*3]);
+                    fscanf(fp, "%f", &model->vertexList[(model->NoV-1)*3+1]);
+                    fscanf(fp, "%f", &model->vertexList[(model->NoV-1)*3+2]);
+                }
+
+                if(buf[1]=='n')
+                {
+                    model->NoN++;
+                    model->normalList=(float*)realloc(
+                        model->normalList
+                        ,model->NoN*sizeof(float)*3);
+
+                    fscanf(fp, "%f", &model->normalList[(model->NoN-1)*3]);
+                    fscanf(fp, "%f", &model->normalList[(model->NoN-1)*3]+1);
+                    fscanf(fp, "%f", &model->normalList[(model->NoN-1)*3+2]);
+                }
+
+                if(buf[1]=='t')
+                {
+                    model->NoT++;
+                    model->textureList=(float*)realloc(
+                    model->textureList
+                    ,model->NoT*sizeof(float)*2);
+                    fscanf(fp, "%f",&model->textureList[(model->NoT-1)*2]);
+                    fscanf(fp, "%f",&model->textureList[(model->NoT-1)*2+1]);
+                }
+            break;
+            case 't':
+            //
+            break;
+            case 'f':
+
+
+
+                fscanf(fp, "%s", buf);
+                if (strstr(buf, "//"))
+                {
+                    model->NoVi++;
+                    model->NoNi++;
+
+                    model->vindices=(unsigned short*)realloc(
+                        model->vindices
+                        ,model->NoVi*sizeof(unsigned short)*3);
+
+                    model->nindices=(unsigned short*)realloc(
+                        model->nindices
+                        ,model->NoNi*sizeof(unsigned short)*3);
+
+                    sscanf(buf, "%hu//%hu", &intVertex,&intNormal);
+                    model->vindices[(model->NoVi-1)*3] = intVertex;
+                    model->nindices[(model->NoNi-1)*3] = intNormal;
+
+                    fscanf(fp, "%hu//%hu", &intVertex, &intNormal);
+                    model->vindices[(model->NoVi-1)*3+1] = intVertex;
+                    model->nindices[(model->NoNi-1)*3+1] = intNormal;
+
+                    fscanf(fp, "%hu//%hu", &intVertex, &intNormal);
+                    model->vindices[(model->NoVi-1)*3+2] = intVertex;
+                    model->nindices[(model->NoNi-1)*3+2] = intNormal;
+
+                }
+                else if (sscanf(buf, "%hu/%hu/%hu", &intVertex, &intTexture, &intNormal) == 3)
+                {
+                    model->NoVi++;
+                    model->NoNi++;
+                    model->NoTi++;
+
+                    model->vindices=(unsigned short*)realloc(
+                        model->vindices
+                        ,model->NoVi*sizeof(unsigned short)*3);
+
+                    model->nindices=(unsigned short*)realloc(
+                        model->nindices
+                        ,model->NoNi*sizeof(unsigned short)*3);
+
+                    model->tindices=(unsigned short*)realloc(
+                        model->tindices
+                        ,model->NoTi*sizeof(unsigned short)*3);
+
+                    model->vindices[(model->NoVi-1)*3] = intVertex;
+                    model->tindices[(model->NoTi-1)*3]= intTexture;
+                    model->nindices[(model->NoNi-1)*3] = intNormal;
+                    fscanf(fp, "%hu/%hu/%hu", &intVertex, &intTexture, &intNormal);
+                    model->vindices[(model->NoVi-1)*3+1] = intVertex;
+                    model->tindices[(model->NoTi-1)*3+1]= intTexture;
+                    model->nindices[(model->NoNi-1)*3+1] = intNormal;
+                    fscanf(fp, "%hu/%hu/%hu", &intVertex, &intTexture, &intNormal);
+                    model->vindices[(model->NoVi-1)*3+2] = intVertex;
+                    model->tindices[(model->NoTi-1)*3+2]= intTexture;
+                    model->nindices[(model->NoNi-1)*3+2] = intNormal;
+                }
+                else if (sscanf(buf, "%hu/%hu", &intVertex, &intTexture) == 2)
+                {
+                    model->NoVi++;
+                    model->NoTi++;
+
+                    model->vindices=(unsigned short*)realloc(
+                        model->vindices
+                        ,model->NoVi*sizeof(unsigned short)*3);
+
+
+                    model->tindices=(unsigned short*)realloc(
+                        model->tindices
+                        ,model->NoTi*sizeof(unsigned short)*3);
+
+                    sscanf(buf, "%hu/%hu"
+                                ,&model->vindices[(model->NoVi-1)*3]
+                                ,&model->tindices[(model->NoTi-1)*3]);
+                    fscanf(fp, "%hu/%hu"
+                               ,&model->vindices[(model->NoVi-1)*3+1]
+                               ,&model->tindices[(model->NoTi-1)*3+1]);
+
+                    fscanf(fp, "%hu/%hu"
+                               ,&model->vindices[(model->NoVi-1)*3+2]
+                               ,&model->tindices[(model->NoTi-1)*3+2]);
+
+                }
+                else
+                {
+                    model->NoVi++;
+
+
+                    model->vindices=(unsigned short*)realloc(
+                        model->vindices
+                        ,model->NoVi*sizeof(unsigned short)*3);
+
+                    sscanf(buf, "%hu", &intVertex);
+                    model->vindices[(model->NoVi-1)*3] = intVertex;
+                    fscanf(fp, "%hu", &intVertex);
+                    model->vindices[(model->NoVi-1)*3+1] = intVertex;
+                    fscanf(fp, "%hu", &intVertex);
+                    model->vindices[(model->NoVi-1)*3+2] = intVertex;
+                }
+
+            break;
+
+            default:
+            // eat up rest of line
+            fgets(buf, sizeof(buf), fp);
+            break;
+        }
+
+    }
+
+}
+
 void Cgraphic::dump(void) {
-  trace("\nGrafik sınıfı dökümü alınıyor...");
+  /*trace("\nGrafik sınıfı dökümü alınıyor...");
   trace("\nAnimasyon sayısı %d",this->NoA);
-  trace("\nTexture sayısı %d",this->NoT);
+  trace("\nTexture sayısı %d",this->NoT);*/
 
 };
 
@@ -376,4 +587,11 @@ void Cgraphic::test(void) {
     glEnd ();
 
 }
+
+void Cgraphic::step() {
+    this->animate();
+    this->drawAnimations();
+
+}
+
 }}

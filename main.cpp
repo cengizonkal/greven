@@ -15,26 +15,20 @@ int WINAPI WinMain (HINSTANCE hInstance,
     engine::greven::Cgreven greven;
     engine::graphics::Cgraphic gr;
     engine::collision::Ccollision collision;
+    engine::physics::Cphysics ph;
 
     greven.createWindow(); /**< GL burda aktivite ediliyor bu yüzden grafik işlemlerinden önce olmalı */
-
+    ph.linkTime(&greven.iTime);
     gr.linkTime(&greven.iTime);
+    collision.linkTime(&greven.iTime);
     gr.loadResources("res/resources.xml");
 
-    engine::graphics::Canimation a;
 
-    a.setTextureMap(2); /**< Bu kısmın level dosyasından alınması gerekiyor */
-    a.setFrameSize(156,128);
-    a.setFPS(15);
-    a.setSize(156,128);
-    a.setActive();
+
+
 
     Craziel raziel;
-    raziel.setTextureMap(2); /**< Bu kısmın level dosyasından alınması gerekiyor */
-    raziel.setFrameSize(156,128);
-    raziel.setFPS(15);
-    raziel.setSize(156,128);
-    raziel.setActive();
+
 
     collision.registerGameObject(&raziel);
     collision.testSignal();
@@ -45,6 +39,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     //gr.registerAnimation(&a);
     gr.registerAnimation(&raziel);
     greven.registerGameObject(&raziel);
+    ph.registerCore(&raziel);
 
 
 
@@ -58,10 +53,13 @@ int WINAPI WinMain (HINSTANCE hInstance,
     {
 
         greven.peekMessage(); /**< Tuşları oku */
-        greven.step();
         greven.clearCanvas();/**< Ekranı temizle */
-        gr.drawAnimations();
-        gr.animate();
+
+        greven.step();
+        ph.step();
+        collision.step();
+        gr.step();
+
         //gr.test();
         greven.drawCanvas();/**<  */
     }

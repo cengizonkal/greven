@@ -3,8 +3,12 @@
 Craziel::Craziel()
 {
     this->inAir = false;
-    this->jumpForce = 1;
-
+    this->jumpForce = 0.01;
+    this->setTextureMap(2); /**< Bu kısmın level dosyasından alınması gerekiyor */
+    this->setFrameSize(156,128);
+    this->setFPS(15);
+    this->setSize(156,128);
+    this->setActive();
 }
 
 Craziel::~Craziel()
@@ -25,7 +29,7 @@ void Craziel::jump()
     engine::geometrics::Cvector gravity;
     engine::geometrics::Cvector velocity;
     velocity.Set(0, jumpForce);
-    gravity.Set(0, GRAVITY);
+    //gravity.Set(0, GRAVITY);
     this->velocity+=velocity;
     this->addForce(gravity);
     this->inAir=true;

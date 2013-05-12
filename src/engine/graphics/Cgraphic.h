@@ -62,6 +62,8 @@ public:
 	void dump(void);
 	void test(void);
 	void testLoadTexture(void);
+	void step(void);
+	void loadModel(char *fileName);
 
 
 private:
@@ -70,6 +72,7 @@ private:
 	void loadTexture(char * fileName);
 	void loadBMP(char *fileName);
 	void loadTGA(char *fileName);
+	void loadObj(char *fileName);
 
 };
 }}
