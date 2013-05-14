@@ -4,6 +4,7 @@
 
 #include "src/engine/engine.h"
 #include "src/game/Craziel.h"
+#include "src/game/Cfloor.h"
 
 int WINAPI WinMain (HINSTANCE hInstance,
                     HINSTANCE hPrevInstance,
@@ -11,7 +12,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
                     int iCmdShow)
 {
 
-    trace("\n\nProgram Başı.");
+//    trace("\n\nProgram Başı.");
     engine::greven::Cgreven greven;
     engine::graphics::Cgraphic gr;
     engine::collision::Ccollision collision;
@@ -28,10 +29,12 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
 
     Craziel raziel;
+    Cfloor floor;
 
 
     collision.registerGameObject(&raziel);
-    collision.testSignal();
+    collision.registerGameObject(&floor);
+    //collision.testSignal();
 
 
 
@@ -65,7 +68,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     }
     greven.destroy();
 
-    trace("\nProgram sonu.");
+    //trace("\nProgram sonu.");
     return 0;
 }
 

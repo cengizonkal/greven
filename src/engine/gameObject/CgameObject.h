@@ -49,6 +49,7 @@ public:
     virtual void cycle(void) = 0;
 
 	void addCollideGroup(int groupId);
+	void setGroup(int groupId);
 	void setID(int ID);
 	int getID(void);
 	void addLine(float x, float y, float h, float w);

@@ -38,22 +38,24 @@ void Cphysics::step()
     deltaTime=iTime->getCurrTime()-lastTime;
     for(int i=0;i<NoC;i++)
     {
+        if(cores[i]->movable) {
+            engine::geometrics::Cvector distance;
+            engine::geometrics::Cvector deltaVelocity;
+            deltaVelocity.SetZero();
+            distance.SetZero();
 
-        engine::geometrics::Cvector distance;
-        engine::geometrics::Cvector deltaVelocity;
-        deltaVelocity.SetZero();
-        distance.SetZero();
-
-        cores[i]->velocity+=deltaTime*cores[i]->force;
-        distance=deltaTime*cores[i]->velocity;
-        distance*=METERTOPIXEL;
-        cores[i]->position+=distance;
-        //velocity faints
-        if(abs(cores[i]->velocity.x)<0.5)
-        {
-            cores[i]->velocity.x=0;
+            cores[i]->velocity+=deltaTime*cores[i]->force;
+            distance=deltaTime*cores[i]->velocity;
+            distance*=METERTOPIXEL;
+            cores[i]->position+=distance;
+            //velocity faints
+            if(abs(cores[i]->velocity.x)<0.5)
+            {
+                cores[i]->velocity.x=0;
+            }
+            cores[i]->velocity.x-=cores[i]->velocity.x*deltaTime/freeMove;
         }
-        cores[i]->velocity.x-=cores[i]->velocity.x*deltaTime/freeMove;
+
 
     }
     lastTime=iTime->getCurrTime();

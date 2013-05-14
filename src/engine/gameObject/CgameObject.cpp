@@ -46,8 +46,13 @@ void CgameObject::addLine(float x, float y, float w, float h) {
 void CgameObject::setID(int ID) {
 	this->id = ID;
 }
+
 int CgameObject::getID(void) {
 	return this->id;
+}
+
+void CgameObject::setGroup(int groupId) {
+    this->groupId = groupId;
 }
 
 

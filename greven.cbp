@@ -71,12 +71,12 @@
 		<Unit filename="src/engine/xml/CsimpleXml.h" />
 		<Unit filename="src/game/CbackPack.cpp" />
 		<Unit filename="src/game/CbackPack.h" />
+		<Unit filename="src/game/Cfloor.cpp" />
+		<Unit filename="src/game/Cfloor.h" />
 		<Unit filename="src/game/Cguard.cpp" />
 		<Unit filename="src/game/Cguard.h" />
 		<Unit filename="src/game/Craziel.cpp" />
 		<Unit filename="src/game/Craziel.h" />
-		<Unit filename="src/game/Cwall.cpp" />
-		<Unit filename="src/game/Cwall.h" />
 		<Unit filename="src/tools.h" />
 		<Unit filename="version.h" />
 		<Extensions>

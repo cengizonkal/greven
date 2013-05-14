@@ -46,9 +46,8 @@
 
 /*Oyun objesi tipleri*/
 #define PLAYER 1
-#define BOX 2
-#define WALL 3
-#define ENEMY 4
+#define FLOOR 2
+
 
 /**
  Çarpışma tipleri

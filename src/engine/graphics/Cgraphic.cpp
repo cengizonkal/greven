@@ -295,7 +295,7 @@ void Cgraphic::loadBMP(char *fileName) {
     Cbmp bmp;
     if(bmp.LoadBmp(fileName))
     {
-        bmp.Dump();
+        //bmp.Dump();
         this->textures = (Ctexture*) realloc (textures, NoT * sizeof(Ctexture));
         this->textures[this->NoT-1].w=bmp.w;
         this->textures[this->NoT-1].h=bmp.h;

@@ -8,6 +8,9 @@ Craziel::Craziel()
     this->setFrameSize(64,64);
     this->setFPS(15);
     this->setSize(128,128);
+    this->addCircle(0, 0, 128);
+    this->addCollideGroup(FLOOR);
+    this->setGroup(PLAYER);
     this->fc = 0;
     //this->setPassive();
 
