@@ -1,6 +1,6 @@
 #include "Clevel.h"
 #include "../../tools.h"
-#include "../xml/simplexml.h"
+#include "../xml/Csimplexml.h"
 namespace engine { namespace level {
 Clevel::Clevel(void) {
 	init();

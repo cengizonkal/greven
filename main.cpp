@@ -36,10 +36,10 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
 
 
-    //gr.registerAnimation(&a);
-    gr.registerAnimation(&raziel);
+    //gr.registerGameObject(&a);
+    gr.registerGameObject(&raziel);
     greven.registerGameObject(&raziel);
-    ph.registerCore(&raziel);
+    ph.registerGameObject(&raziel);
 
 
 

@@ -57,7 +57,7 @@ public:
 	//void load3DModels(void );
 	//void loadTextures(void );
 	void setCamera(engine::camera::Ccamera *c);
-	void registerAnimation(Canimation *a);
+	void registerGameObject(Canimation *a);
 	void loadResources(char *fileName);
 	void dump(void);
 	void test(void);

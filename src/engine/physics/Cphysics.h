@@ -33,7 +33,7 @@ class Cphysics
     Cphysics();
     ~Cphysics();
 
-    void registerCore(Ccore *c);
+    void registerGameObject(Ccore *c);
     void linkTime(engine::time::Ctime * t);
     void step(void);
     void init(void);

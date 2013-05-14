@@ -4,11 +4,13 @@ Craziel::Craziel()
 {
     this->inAir = false;
     this->jumpForce = 0.01;
-    this->setTextureMap(2); /**< Bu kısmın level dosyasından alınması gerekiyor */
-    this->setFrameSize(156,128);
+    this->setTextureMap(0); /**< Bu kısmın level dosyasından alınması gerekiyor */
+    this->setFrameSize(64,64);
     this->setFPS(15);
-    this->setSize(156,128);
-    this->setActive();
+    this->setSize(128,128);
+    this->fc = 0;
+    //this->setPassive();
+
 }
 
 Craziel::~Craziel()

@@ -12,8 +12,9 @@ class Canimation : public engine::physics::Ccore {
     bool debug;/**< Çizgileri göster */
     int textId; /**<texture bağlamak için gereken id  */
     double fps; /**< animasyon hızı, frame per second */
-    float w;
-    float h;
+    float w;/**< .ekran üzerindeki boyutu */
+    float h;/**< .ekran üzerindeki boyutu */
+
     float fh;/**< texture üzerindeki frame boyutu */
     float fw;/**< texture üzerindeki frame boyutu */
 

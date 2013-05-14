@@ -36,7 +36,7 @@ Cgraphic::~Cgraphic(void )
 
 
 
-void Cgraphic::registerAnimation(Canimation *a)
+void Cgraphic::registerGameObject(Canimation *a)
 {
     this->NoA++;
     this->animations=(Canimation**)realloc(animations, NoA*(sizeof(Canimation*)));
@@ -108,13 +108,13 @@ void Cgraphic::drawAnimations(void )
             glTranslatef( pos.x, pos.y, 0 );
             glBegin (GL_QUADS);
                 glTexCoord2f(x1,y1);
-                glVertex3f (-(animations[i]->w/2),-(animations[i]->h/2),0);
+                glVertex3f (-(animations[i]->w/2), -(animations[i]->h/2), 0);
                 glTexCoord2f(x1,y2);
-                glVertex3f (-(animations[i]->w/2),(animations[i]->h/2),0);
+                glVertex3f (-(animations[i]->w/2), (animations[i]->h/2), 0);
                 glTexCoord2f(x2,y2);
-                glVertex3f ((animations[i]->w/2),(animations[i]->h/2),0);
+                glVertex3f ((animations[i]->w/2), (animations[i]->h/2), 0);
                 glTexCoord2f(x2,y1);
-                glVertex3f ((animations[i]->w/2),-(animations[i]->h/2),0);
+                glVertex3f ((animations[i]->w/2), -(animations[i]->h/2), 0);
             glEnd ();
             glPopMatrix();
             glDisable(GL_TEXTURE_2D);
@@ -219,9 +219,9 @@ void Cgraphic::animate(void ){
         ///eğer animasyon aktif ise
         if(animations[i]->isPlaying)
         {
-            animations[i]->fc+=deltaTime*animations[i]->fps;
-            if(animations[i]->fc>animations[i]->toFrame)
-             animations[i]->fc=animations[i]->fromFrame;
+            animations[i]->fc+= deltaTime*animations[i]->fps;
+            if(animations[i]->fc > animations[i]->toFrame)
+             animations[i]->fc = animations[i]->fromFrame;
         }
 
     }
@@ -591,6 +591,7 @@ void Cgraphic::test(void) {
 void Cgraphic::step() {
     this->animate();
     this->drawAnimations();
+
 
 }
 

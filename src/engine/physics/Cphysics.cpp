@@ -14,7 +14,7 @@ Cphysics::~Cphysics()
 
 
 
-void Cphysics::registerCore(Ccore *c)
+void Cphysics::registerGameObject(Ccore *c)
 {
     NoC++;
     cores=(Ccore**)realloc(cores,NoC*(sizeof(Ccore*)));
