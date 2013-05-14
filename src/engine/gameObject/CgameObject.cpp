@@ -10,6 +10,8 @@ CgameObject::~CgameObject() {
 }
 void CgameObject::init(void) {
 	this->NoG = 0;
+	this->NoC = 0;
+	this->NoL = 0;
 	this->collideWith = NULL;
 	this->type = 0;
 	this->groupId = 0;
@@ -38,9 +40,24 @@ void CgameObject::addLine(engine::geometrics::Cline line) {
 // TODO (Cengiz#1#): game objesi için yardımcı fonksiyonlar yazılacak ...
 //setter getter
 void CgameObject::addCircle(float x, float y, float r) {
+    engine::geometrics::Ccircle circle;
+    circle.x =  x;
+    circle.y =  y;
+    circle.r =  r;
+    this->NoC++;
+	this->circles = (engine::geometrics::Ccircle*) realloc(circles, sizeof(engine::geometrics::Ccircle) * this->NoC);
+	this->circles[this->NoC - 1] = circle;
 
 }
-void CgameObject::addLine(float x, float y, float w, float h) {
+void CgameObject::addLine(float x1, float y1, float x2, float y2) {
+    engine::geometrics::Cline line;
+    line.x1 = x1;
+    line.x2 = x2;
+    line.y1 = y1;
+    line.y2 = y2;
+    this->NoL++;
+	this->lines = (engine::geometrics::Cline*) realloc(lines, sizeof(engine::geometrics::Cline) * this->NoL);
+	this->lines[this->NoL - 1] = line;
 
 }
 void CgameObject::setID(int ID) {

@@ -4,10 +4,10 @@ Cline::Cline(void) {
 	this->init();
 }
 void Cline::init(void) {
-	this->x = 0;
-	this->y = 0;
-	this->w = 0;
-	this->h = 0;
+	this->x1 = 0;
+	this->y1 = 0;
+	this->x2 = 0;
+	this->y2 = 0;
 }
 
 Cline::~Cline(void) {

@@ -7,8 +7,8 @@
 namespace engine { namespace geometrics{
 class Cline {
 public:
-	float x , y;
-	float w , h;
+	float x1 , y1;
+	float x2 , y2;
 
 	Cline(void );
 	~Cline(void );

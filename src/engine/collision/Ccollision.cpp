@@ -32,8 +32,13 @@ void Ccollision::step(void) {
 	if(deltaTime > stepTime) {
 		for(int i = 0; i < this->NoO-1; i++) {
             for(int j=i; j < this->NoO; j++) {
-                if(inArray(gameObjects[i]->collideWith, gameObjects[i]->NoC, gameObjects[i]->groupId)) {
 
+                if(inArray(gameObjects[i]->collideWith, gameObjects[i]->NoG, gameObjects[j]->groupId)) {
+                    if(objectObject(gameObjects[i], gameObjects[j])) {
+
+                        gameObjects[i]->collide(gameObjects[j]->id, gameObjects[j]->groupId);
+                        gameObjects[j]->collide(gameObjects[i]->id, gameObjects[i]->groupId);
+                    }
                 }
             }
         }
@@ -42,10 +47,10 @@ void Ccollision::step(void) {
 }
 
 bool Ccollision::circleLine(engine::geometrics::Ccircle *circle, engine::geometrics::Cline *line) {
-    double vx = line->w - line->x;
-    double vy = line->h - line->y;
-    double xdiff = line->x - circle->x;
-    double ydiff = line->y - circle->y;
+    double vx = line->x2 - line->x1;
+    double vy = line->y2 - line->y1;
+    double xdiff = line->x1 - circle->x;
+    double ydiff = line->y1 - circle->y;
     double a = pow(vx, 2) + pow(vy, 2);
     double b = 2 * ((vx * xdiff) + (vy * ydiff));
     double c = pow(xdiff, 2) + pow(ydiff, 2) - pow(circle->r, 2);
@@ -79,7 +84,13 @@ bool Ccollision::lineLine(engine::geometrics::Cline *l1, engine::geometrics::Cli
 }
 
 bool Ccollision::objectObject(engine::gameobject::CgameObject *g1, engine::gameobject::CgameObject *g2) {
+    trace("g1->NoL->%d\n",  g1->NoL);
+    trace("g1->NoC->%d\n",  g1->NoC);
+    trace("g2->NoL->%d\n",  g2->NoL);
+    trace("g2->NoC->%d\n",  g2->NoC);
+    exit(1);
     for(int i = 0; i<(g1->NoC + g1->NoL); i++) {
+
         for(int j = 0; j<(g2->NoC + g2->NoL);j++) {
             //circle
             if(i<g1->NoC) {

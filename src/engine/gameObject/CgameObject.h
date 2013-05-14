@@ -52,7 +52,7 @@ public:
 	void setGroup(int groupId);
 	void setID(int ID);
 	int getID(void);
-	void addLine(float x, float y, float h, float w);
+	void addLine(float x1, float y1, float x2, float y2);
 	void addLine(engine::geometrics::Cline line);
 	void addCircle(float x, float y, float r);
 	void addCircle(engine::geometrics::Ccircle circle);
