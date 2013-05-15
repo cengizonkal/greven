@@ -3,7 +3,7 @@
 Cfloor::Cfloor()
 {
     this->movable = false;
-    this->addLine(0, 0, 1024, 0);
+    this->addLine(-1024, 0, 1024, 0);
     this->setGroup(FLOOR);
 }
 

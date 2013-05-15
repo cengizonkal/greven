@@ -19,10 +19,7 @@ void Cphysics::registerGameObject(Ccore *c)
     NoC++;
     cores=(Ccore**)realloc(cores,NoC*(sizeof(Ccore*)));
     cores[NoC-1]=c;
-    if(c->hasGravity)
-    {
-        cores[NoC-1]->addForce(gravity);
-    }
+
 
 };
 
@@ -44,7 +41,13 @@ void Cphysics::step()
             deltaVelocity.SetZero();
             distance.SetZero();
 
-            cores[i]->velocity+=deltaTime*cores[i]->force;
+            cores[i]->velocity.x+=(deltaTime*cores[i]->force.x);
+            cores[i]->velocity.y+=(deltaTime*cores[i]->force.y);
+            if(cores[i]->hasGravity) {
+                cores[i]->velocity+=(deltaTime*gravity);
+            }
+
+
             distance=deltaTime*cores[i]->velocity;
             distance*=METERTOPIXEL;
             cores[i]->position+=distance;

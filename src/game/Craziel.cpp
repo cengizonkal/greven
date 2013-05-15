@@ -12,7 +12,10 @@ Craziel::Craziel()
     this->addCollideGroup(FLOOR);
     this->setGroup(PLAYER);
     this->fc = 0;
-    //this->setPassive();
+
+    this->force.SetZero();
+    this->velocity.SetZero();
+    this->hasGravity = true;
 
 }
 
@@ -21,24 +24,28 @@ Craziel::~Craziel()
     //dtor
 }
 void  Craziel::collide(int id, int type) {
-    trace("\nplayer recived collide %d %d",id,type);
-    trace("\nPlayer id:%d", this->id);
+
+
+    if(type == FLOOR) {
+        trace("on the floor\n");
+        this->velocity.y = 0 ;
+        this->hasGravity = false;
+    }
 }
 void Craziel::cycle(void) {
  if(keys[VK_SPACE]){
     this->jump();
+    trace("in the air\n");
  }
 }
 void Craziel::jump()
 {
     engine::geometrics::Cvector gravity;
     engine::geometrics::Cvector velocity;
-    velocity.Set(0, jumpForce);
-    //gravity.Set(0, GRAVITY);
-    this->velocity+=velocity;
-    this->addForce(gravity);
-    this->inAir=true;
-    this->setFPS(2);
-    //trace("jump");
+    velocity.Set(0, 1);
+    this->velocity=velocity;
+    this->hasGravity = true;
+    this->toFrame = 32;
+    this->fromFrame = 16;
 
 }

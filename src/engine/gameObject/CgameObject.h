@@ -57,6 +57,7 @@ public:
 	void addCircle(float x, float y, float r);
 	void addCircle(engine::geometrics::Ccircle circle);
 	void init(void);
+	void moveColliders(void);
 
 protected:
 private:

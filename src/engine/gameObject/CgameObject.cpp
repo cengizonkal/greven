@@ -72,6 +72,10 @@ void CgameObject::setGroup(int groupId) {
     this->groupId = groupId;
 }
 
+void CgameObject::moveColliders(void){
+
+}
+
 
 }
 }
