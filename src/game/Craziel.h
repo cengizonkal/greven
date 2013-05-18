@@ -16,9 +16,12 @@ class Craziel : public engine::gameobject::CgameObject
     ~Craziel();
     float jumpForce;
     bool inAir;
+    float speed;
+    float inAirSpeed;
     void collide(int id, int type);
     void cycle(void);
     void jump();
+    void run();
 
 
 };

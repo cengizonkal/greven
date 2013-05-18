@@ -12,7 +12,7 @@ void Ccamera::init(void) {
 	this->position.Set(0, 0);
 	this->zoom = 1;
 	this->mode = CAM_FREE; /**< Kamera öncelik olarak serbest halde */
-	this->seekTime = 0.5; //bir saniye içinde
+	this->seekTime = 0.5; //bir saniye içinde hedefe git
 	this->deadZone = 5; //5 pxelden küçükse hareket etme
 	this->gameObject = NULL;
 	this->speed.SetZero();
@@ -56,7 +56,13 @@ engine::geometrics::Cvector  Ccamera::getPosition(double deltaTime) {
 
 
     }
+    else if(this->mode == CAM_FIXED) {
+        return this->position;
+    }
     return this->position;
+}
+void Ccamera::setPosition(float x, float y){
+    this->position.Set(x, y);
 }
 }
 }

@@ -217,11 +217,17 @@ void Cgraphic::animate(void ){
     {
         deltaTime=iTime->getCurrTime()-lastTime;
         ///eğer animasyon aktif ise
-        if(animations[i]->isPlaying)
+        if((animations[i]->loop == -1) || ((animations[i]->isPlaying) && (animations[i]->loop>0)))
         {
             animations[i]->fc+= deltaTime*animations[i]->fps;
-            if(animations[i]->fc > animations[i]->toFrame)
-             animations[i]->fc = animations[i]->fromFrame;
+            if(animations[i]->fc > animations[i]->toFrame) {
+                animations[i]->fc = animations[i]->fromFrame;
+                /**< Bir tur bitti */
+                if(animations[i]->loop > 0) {
+                    animations[i]->loop--;
+                }
+            }
+
         }
 
     }

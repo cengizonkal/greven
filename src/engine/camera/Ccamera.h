@@ -34,6 +34,7 @@ class Ccamera
     void init(void );
     void setLink(engine::gameobject::CgameObject *go);
     engine::geometrics::Cvector getPosition(double deltaTime);
+    void setPosition(float x, float y);
 
 
 };

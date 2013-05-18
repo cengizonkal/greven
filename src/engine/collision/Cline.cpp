@@ -5,10 +5,11 @@ Cline::Cline(void) {
 }
 void Cline::init(void) {
 
-    this->relativePosition.SetZero();
-    this->position.SetZero();
-    this->w = 0;
-    this->h = 0;
+    this->relativePoint1.SetZero();
+    this->relativePoint2.SetZero();
+    this->point1.SetZero();
+    this->point2.SetZero();
+
 
 }
 

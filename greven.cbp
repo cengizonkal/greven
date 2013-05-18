@@ -22,8 +22,12 @@
 		<Unit filename="src/def.h" />
 		<Unit filename="src/engine/camera/Ccamera.cpp" />
 		<Unit filename="src/engine/camera/Ccamera.h" />
+		<Unit filename="src/engine/collision/Ccircle.cpp" />
+		<Unit filename="src/engine/collision/Ccircle.h" />
 		<Unit filename="src/engine/collision/Ccollision.cpp" />
 		<Unit filename="src/engine/collision/Ccollision.h" />
+		<Unit filename="src/engine/collision/Cline.cpp" />
+		<Unit filename="src/engine/collision/Cline.h" />
 		<Unit filename="src/engine/engine.h" />
 		<Unit filename="src/engine/gameObject/CgameObject.cpp" />
 		<Unit filename="src/engine/gameObject/CgameObject.h" />

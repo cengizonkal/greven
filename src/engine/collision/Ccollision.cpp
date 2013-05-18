@@ -33,12 +33,15 @@ void Ccollision::step(void) {
 		for(int i = 0; i < this->NoO-1; i++) {
             for(int j=i; j < this->NoO; j++) {
 
-                if(inArray(gameObjects[i]->collideWith, gameObjects[i]->NoG, gameObjects[j]->groupId)) {
+                if(gameObjects[i]->hasCollision && gameObjects[j]->hasCollision) {
+                    if(inArray(gameObjects[i]->collideWith, gameObjects[i]->NoG, gameObjects[j]->groupId)) {
+                        gameObjects[i]->moveColliders();
+                        gameObjects[j]->moveColliders();
+                        if(objectObject(gameObjects[i], gameObjects[j])) {
 
-                    if(objectObject(gameObjects[i], gameObjects[j])) {
-
-                        gameObjects[i]->collide(gameObjects[j]->id, gameObjects[j]->groupId);
-                        gameObjects[j]->collide(gameObjects[i]->id, gameObjects[i]->groupId);
+                            gameObjects[i]->collide(gameObjects[j]->id, gameObjects[j]->groupId);
+                            gameObjects[j]->collide(gameObjects[i]->id, gameObjects[i]->groupId);
+                        }
                     }
                 }
             }
@@ -47,12 +50,12 @@ void Ccollision::step(void) {
     lastTime = iTime->getCurrTime();
 }
 
-bool Ccollision::circleLine(engine::geometrics::Ccircle *circle, engine::geometrics::Cline *line) {
+bool Ccollision::circleLine(engine::collision::Ccircle *circle, engine::collision::Cline *line) {
 
-    double vx = line->x2 - line->x1;
-    double vy = line->y2 - line->y1;
-    double xdiff = line->x1 - circle->x;
-    double ydiff = line->y1 - circle->y;
+    double vx = line->point2.x - line->point1.x;
+    double vy = line->point2.y - line->point1.y;
+    double xdiff = line->point1.x - circle->position.x;
+    double ydiff = line->point1.y - circle->position.y;
     double a = pow(vx, 2) + pow(vy, 2);
     double b = 2 * ((vx * xdiff) + (vy * ydiff));
     double c = pow(xdiff, 2) + pow(ydiff, 2) - pow(circle->r, 2);
@@ -70,9 +73,9 @@ void Ccollision::testSignal(void) {
         gameObjects[i]->collide(1, 2);
     }
 }
-bool Ccollision::circleCircle(engine::geometrics::Ccircle *c1, engine::geometrics::Ccircle *c2) {
-    double distX = c1->x - c2->x;
-    double distY = c1->y - c2->y;
+bool Ccollision::circleCircle(engine::collision::Ccircle *c1, engine::collision::Ccircle *c2) {
+    double distX = c1->position.x - c2->position.x;
+    double distY = c1->position.y - c2->position.y;
     double dist = sqrt((distX*distX ) + (distY*distY));
 
     if(dist <= (c1->r + c2->r))
@@ -81,7 +84,7 @@ bool Ccollision::circleCircle(engine::geometrics::Ccircle *c1, engine::geometric
         return false;
 }
 
-bool Ccollision::lineLine(engine::geometrics::Cline *l1, engine::geometrics::Cline *l2) {
+bool Ccollision::lineLine(engine::collision::Cline *l1, engine::collision::Cline *l2) {
     return false;
 }
 

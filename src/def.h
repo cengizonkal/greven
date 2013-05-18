@@ -25,6 +25,7 @@
 #define CAM_FOLLOW 2
 #define CAM_BOX_FOLLOW 3
 #define CAM_MOUSE 4
+#define CAM_FIXED 5
 
 
 

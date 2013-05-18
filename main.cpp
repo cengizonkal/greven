@@ -49,6 +49,9 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
 
     engine::camera::Ccamera camera;
+
+    camera.mode = CAM_FIXED;
+    camera.setPosition(0, 0);
     greven.setCamera(&camera);
 
     gr.loadResources("res/resources.xml");

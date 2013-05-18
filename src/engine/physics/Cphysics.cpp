@@ -51,11 +51,12 @@ void Cphysics::step()
             distance=deltaTime*cores[i]->velocity;
             distance*=METERTOPIXEL;
             cores[i]->position+=distance;
-            //velocity faints
+            //yatay hız 0.5 altında ise sıfır olarak kabul et
             if(abs(cores[i]->velocity.x)<0.5)
             {
                 cores[i]->velocity.x=0;
             }
+            //yatay hız azalır freemove oranında azalır
             cores[i]->velocity.x-=cores[i]->velocity.x*deltaTime/freeMove;
         }
 

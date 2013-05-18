@@ -101,4 +101,5 @@ inline bool inArray(int *arr, short sz, int needle) {
     }
     return false;
 }
+
 #endif

@@ -21,6 +21,7 @@ class Canimation : public engine::physics::Ccore {
     double fc;/**< şuan hangi frame de */
 
     bool isPlaying; /**< aktif mi  */
+    int loop; /**<Kaç defa donecek -1 sonsuz,  */
 
     char invert; /**<0,1 dikey,2 yatay  */
 
@@ -38,6 +39,13 @@ class Canimation : public engine::physics::Ccore {
     void setFPS(int fps);
     void limitFrames(int from,int to);
     engine::geometrics::Cvector getPosition();
+    void playAndStop(int from, int to);
+    void playAndLoop(int from, int to);
+    void playAndStop(void);
+    void playAndLoop(void);
+    void setActiveFrame(int frame); /**< Aktif frame i set eder */
+    void setFrames(int from, int to);
+
     void init();
 
 };

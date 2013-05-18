@@ -75,7 +75,39 @@ void Canimation::init() {
 	this->fromFrame = 0;
 	this->toFrame = 0;
 	this->debug = false;
+	this->loop = -1; /**< sonsuza kadar dön */
 
 }
+
+void Canimation::setActiveFrame(int frame) {
+    this->fc = frame;
+}
+void Canimation::playAndStop(void) {
+    this->setActiveFrame(this->fromFrame);
+    this->loop = 1;
+}
+
+void Canimation::playAndStop(int from, int to) {
+    this->setActiveFrame(from);
+    this->setFrames(from, to);
+    this->loop = 1;
+}
+
+void Canimation::playAndLoop(void) {
+    this->setActiveFrame(this->fromFrame);
+    this->loop = -1;
+}
+
+void Canimation::playAndLoop(int from, int to) {
+    this->setActiveFrame(from);
+    this->setFrames(from, to);
+    this->loop = -1;
+}
+
+void Canimation::setFrames(int from, int to) {
+    this->fromFrame = from;
+    this->toFrame = to;
+}
+
 
 }}

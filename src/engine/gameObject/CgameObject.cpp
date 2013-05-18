@@ -20,43 +20,53 @@ void CgameObject::init(void) {
 	this->collisionType = CIRCLE;
 	this->lines = NULL;
 	this->circles = NULL;
+	this->hasCollision = true;
 }
+
 void CgameObject::addCollideGroup(int groupId) {
 	NoG++;
 	collideWith = (int*) realloc(collideWith, sizeof(int) * NoG);
 	collideWith[NoG - 1] = groupId;
 }
-void CgameObject::addCircle(engine::geometrics::Ccircle circle) {
+
+//TODO şüpheli
+void CgameObject::removeCollideGroup(int groupId) {
+	for(int i = 0; i < this->NoG; i++) {
+        if(this->collideWith[i] == groupId){
+            free(&this->collideWith[i]);
+        }
+	}
+	this->NoG--;
+}
+
+void CgameObject::addCircleCollider(engine::collision::Ccircle circle) {
 	this->NoC++;
-	this->circles = (engine::geometrics::Ccircle*) realloc(circles, sizeof(engine::geometrics::Ccircle) * this->NoC);
+	this->circles = (engine::collision::Ccircle*) realloc(circles, sizeof(engine::collision::Ccircle) * this->NoC);
 	this->circles[this->NoC - 1] = circle;
 }
-void CgameObject::addLine(engine::geometrics::Cline line) {
+void CgameObject::addLineCollider(engine::collision::Cline line) {
 	this->NoL++;
-	this->lines = (engine::geometrics::Cline*) realloc(lines, sizeof(engine::geometrics::Cline) * this->NoL);
+	this->lines = (engine::collision::Cline*) realloc(lines, sizeof(engine::collision::Cline) * this->NoL);
 	this->lines[this->NoL - 1] = line;
 }
 
 // TODO (Cengiz#1#): game objesi için yardımcı fonksiyonlar yazılacak ...
 //setter getter
-void CgameObject::addCircle(float x, float y, float r) {
-    engine::geometrics::Ccircle circle;
-    circle.x =  x;
-    circle.y =  y;
-    circle.r =  r;
+void CgameObject::addCircleCollider(float relativeX, float relativeY, float r) {
+    engine::collision::Ccircle circle;
+    circle.relativePosition.Set(relativeX, relativeY);
+    circle.r = r;
     this->NoC++;
-	this->circles = (engine::geometrics::Ccircle*) realloc(circles, sizeof(engine::geometrics::Ccircle) * this->NoC);
+	this->circles = (engine::collision::Ccircle*) realloc(circles, sizeof(engine::collision::Ccircle) * this->NoC);
 	this->circles[this->NoC - 1] = circle;
 
 }
-void CgameObject::addLine(float x1, float y1, float x2, float y2) {
-    engine::geometrics::Cline line;
-    line.x1 = x1;
-    line.x2 = x2;
-    line.y1 = y1;
-    line.y2 = y2;
+void CgameObject::addLineCollider(float x1, float y1, float x2, float y2) {
+    engine::collision::Cline line;
+    line.relativePoint1.Set(x1, y1);
+    line.relativePoint2.Set(x2, y2);
     this->NoL++;
-	this->lines = (engine::geometrics::Cline*) realloc(lines, sizeof(engine::geometrics::Cline) * this->NoL);
+	this->lines = (engine::collision::Cline*) realloc(lines, sizeof(engine::collision::Cline) * this->NoL);
 	this->lines[this->NoL - 1] = line;
 
 }
@@ -74,6 +84,19 @@ void CgameObject::setGroup(int groupId) {
 
 void CgameObject::moveColliders(void){
 
+    for(int i=0; i<this->NoL; i++) {
+        this->lines[i].point1 = this->lines[i].relativePoint1 + this->position;
+        this->lines[i].point2 = this->lines[i].relativePoint2 + this->position;
+    }
+
+    for(int i=0; i<this->NoC; i++) {
+        this->circles[i].position = this->circles[i].relativePosition + this->position;
+    }
+
+
+}
+void CgameObject::setPosition(float x, float y) {
+    this->position.Set(x, y);
 }
 
 
