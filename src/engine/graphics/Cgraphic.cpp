@@ -105,7 +105,7 @@ void Cgraphic::drawAnimations(void )
             glEnable(GL_TEXTURE_2D);
             glBindTexture(GL_TEXTURE_2D,textures[animations[i]->textId].id);
             glPushMatrix();
-            glTranslatef( pos.x, pos.y, 0 );
+            glTranslatef( pos.x*METERTOPIXEL, pos.y*METERTOPIXEL, 0 );
             glBegin (GL_QUADS);
                 glTexCoord2f(x1,y1);
                 glVertex3f (-(animations[i]->w/2), -(animations[i]->h/2), 0);

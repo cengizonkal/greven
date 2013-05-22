@@ -41,7 +41,7 @@
 
 /**< 100 metre 1 pixel */
 
-#define METERTOPIXEL 100
+#define METERTOPIXEL 10
 #define CIRCLE 1
 #define LINE 2
 

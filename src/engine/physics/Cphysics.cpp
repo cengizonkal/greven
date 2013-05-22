@@ -49,7 +49,6 @@ void Cphysics::step()
 
 
             distance=deltaTime*cores[i]->velocity;
-            distance*=METERTOPIXEL;
             cores[i]->position+=distance;
             //yatay hız 0.5 altında ise sıfır olarak kabul et
             if(abs(cores[i]->velocity.x)<0.5)

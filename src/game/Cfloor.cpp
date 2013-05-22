@@ -4,8 +4,8 @@ Cfloor::Cfloor()
 {
     this->movable = false;
 
-    this->addLineCollider(-1024, 0, 1024, 0);
-    this->setPosition(0, -100);
+    this->addLineCollider(-100, 0, 100, 0);
+    this->setPosition(0, -10);
     this->setGroup(FLOOR);
 }
 
