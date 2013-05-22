@@ -79,6 +79,8 @@
 		<Unit filename="src/game/Cfloor.h" />
 		<Unit filename="src/game/Cguard.cpp" />
 		<Unit filename="src/game/Cguard.h" />
+		<Unit filename="src/game/Clevel.cpp" />
+		<Unit filename="src/game/Clevel.h" />
 		<Unit filename="src/game/Craziel.cpp" />
 		<Unit filename="src/game/Craziel.h" />
 		<Unit filename="src/tools.h" />
