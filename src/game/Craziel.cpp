@@ -3,14 +3,15 @@
 Craziel::Craziel() {
 	this->inAir = false;
 	this->jumpForce = 0.01;
+
 	this->setTextureMap(0); /**< Bu kısmın level dosyasından alınması gerekiyor */
 	this->setFrameSize(64, 64);
 	this->setFPS(5);
-	this->setSize(128, 128);
-	this->addCircleCollider(0, 0, 10);
+	this->setSize(100, 100);
+	this->addCircleCollider(0, 0, .5);
 	this->addCollideGroup(FLOOR);
 	this->setGroup(PLAYER);
-	this->fc = 0;
+	this->setActiveFrame(0);
 
 	this->force.SetZero();
 	this->velocity.SetZero();

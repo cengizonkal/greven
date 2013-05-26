@@ -41,6 +41,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
     //gr.registerGameObject(&a);
     gr.registerGameObject(&raziel);
+    gr.registerGameObject(&floor);
     greven.registerGameObject(&raziel);
     ph.registerGameObject(&raziel);
 
