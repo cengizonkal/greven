@@ -43,8 +43,8 @@ engine::geometrics::Cvector  Ccamera::getPosition(double deltaTime) {
         if(keys[37] || keys[38] ||keys[39]||keys[40]) {
             speed.Normalize();
             speed*=speedA;
-            this->position.x+= speed.x*METERTOPIXEL*deltaTime;
-            this->position.y+= speed.y*METERTOPIXEL*deltaTime;
+            this->position.x+= speed.x*UNITTOPIXEL*deltaTime;
+            this->position.y+= speed.y*UNITTOPIXEL*deltaTime;
         }
 
     }

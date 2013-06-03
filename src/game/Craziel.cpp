@@ -7,7 +7,7 @@ Craziel::Craziel() {
 	this->setTextureMap(0); /**< Bu kısmın level dosyasından alınması gerekiyor */
 	this->setFrameSize(64, 64);
 	this->setFPS(5);
-	this->setSize(100, 100);
+	this->setSize(1, 1);
 	this->addCircleCollider(0, 0, .5);
 	this->addCollideGroup(FLOOR);
 	this->setGroup(PLAYER);

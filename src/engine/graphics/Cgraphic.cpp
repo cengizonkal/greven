@@ -88,10 +88,10 @@ void Cgraphic::drawAnimations(void )
             //glRotatef( angle * RADTODEG, 0, 0, 1 );//OpenGL uses degrees here
 
             glBegin (GL_QUADS);
-                glVertex3f (-(animations[i]->w/2),-(animations[i]->h/2),0);
-                glVertex3f (-(animations[i]->w/2),(animations[i]->h/2),0);
-                glVertex3f ((animations[i]->w/2),(animations[i]->h/2),0);
-                glVertex3f ((animations[i]->w/2),-(animations[i]->h/2),0);
+                glVertex3f (-(animations[i]->w * UNITTOPIXEL / 2),-(animations[i]->h * UNITTOPIXEL/2),0);
+                glVertex3f (-(animations[i]->w * UNITTOPIXEL / 2),(animations[i]->h * UNITTOPIXEL/2),0);
+                glVertex3f ((animations[i]->w * UNITTOPIXEL / 2),(animations[i]->h * UNITTOPIXEL/2),0);
+                glVertex3f ((animations[i]->w* UNITTOPIXEL / 2),-(animations[i]->h * UNITTOPIXEL/2),0);
             glEnd ();
             glPopMatrix();
 
@@ -105,16 +105,16 @@ void Cgraphic::drawAnimations(void )
             glEnable(GL_TEXTURE_2D);
             glBindTexture(GL_TEXTURE_2D,textures[animations[i]->textId].id);
             glPushMatrix();
-            glTranslatef( pos.x*METERTOPIXEL, pos.y*METERTOPIXEL, 0 );
+            glTranslatef( pos.x*UNITTOPIXEL, pos.y*UNITTOPIXEL, 0 );
             glBegin (GL_QUADS);
                 glTexCoord2f(x1,y1);
-                glVertex3f (-(animations[i]->w/2), -(animations[i]->h/2), 0);
+                glVertex3f (-(animations[i]->w * UNITTOPIXEL/2), -(animations[i]->h * UNITTOPIXEL/2), 0);
                 glTexCoord2f(x1,y2);
-                glVertex3f (-(animations[i]->w/2), (animations[i]->h/2), 0);
+                glVertex3f (-(animations[i]->w * UNITTOPIXEL/2), (animations[i]->h * UNITTOPIXEL/2), 0);
                 glTexCoord2f(x2,y2);
-                glVertex3f ((animations[i]->w/2), (animations[i]->h/2), 0);
+                glVertex3f ((animations[i]->w * UNITTOPIXEL/2), (animations[i]->h * UNITTOPIXEL/2), 0);
                 glTexCoord2f(x2,y1);
-                glVertex3f ((animations[i]->w/2), -(animations[i]->h/2), 0);
+                glVertex3f ((animations[i]->w * UNITTOPIXEL /2), -(animations[i]->h * UNITTOPIXEL/2), 0);
             glEnd ();
             glPopMatrix();
             glDisable(GL_TEXTURE_2D);
@@ -139,7 +139,7 @@ void Cgraphic::draw3DModels()
                 for(int i=0;i<models[j].NoVi;i++)
                 {
                     glPushMatrix();
-                    glScalef(METERTOPIXEL,METERTOPIXEL,METERTOPIXEL);
+                    glScalef(UNITTOPIXEL,UNITTOPIXEL,UNITTOPIXEL);
                     glBegin(GL_TRIANGLES);
 
 
@@ -171,7 +171,7 @@ void Cgraphic::draw3DModels()
                 for(int i=0;i<models[j].NoVi;i++)
                 {
                     glPushMatrix();
-                    glScalef(METERTOPIXEL,METERTOPIXEL,METERTOPIXEL);
+                    glScalef(UNITTOPIXEL,UNITTOPIXEL,UNITTOPIXEL);
                     glBegin(GL_TRIANGLES);
 
                     glTexCoord2f(models[j].textureList[(models[j].tindices[i*2]-1)*2],models[j].textureList[(models[j].tindices[i*2]-1)*2+1]);

@@ -6,13 +6,14 @@ Cfloor::Cfloor()
 
 
     this->setPosition(0, -3);
-    this->addLineCollider(-100, .32, 100, .32);
+    this->setSize(20,1);
+    this->addLineCollider(-100, .5, 100, .5);
 
     this->setGroup(FLOOR);
 
     this->setTextureMap(0); /**< Bu kısmın level dosyasından alınması gerekiyor */
     this->setFrameSize(1024, 64);
-	this->setSize(1024,64);
+
 	this->setFPS(0);
 
 	this->setActiveFrame(0);
