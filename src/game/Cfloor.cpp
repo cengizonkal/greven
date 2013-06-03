@@ -7,7 +7,7 @@ Cfloor::Cfloor()
 
     this->setPosition(0, -3);
     this->setSize(20,1);
-    this->addLineCollider(-100, .5, 100, .5);
+    this->addLineCollider(1, .5, -1, .5);
 
     this->setGroup(FLOOR);
 

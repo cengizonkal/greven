@@ -120,6 +120,11 @@ inline Cvector operator * (float s, const Cvector& a)
 	return Cvector(s * a.x, s * a.y);
 }
 
+inline Cvector operator / (float s, const Cvector& a)
+{
+	return Cvector(a.x / s, a.y /s);
+}
+
 inline bool operator == (const Cvector& a, const Cvector& b)
 {
 	return a.x == b.x && a.y == b.y;

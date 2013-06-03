@@ -150,14 +150,14 @@ void Cgreven::DisableOpenGL()
 
  void Cgreven::drawCanvas()
     {
-        double deltaTime=0;
-        deltaTime=iTime.getCurrTime()-lastTime;
+        double deltaTime = 0;
+        deltaTime = iTime.getCurrTime() - lastTime;
 
         engine::geometrics::Cvector pos = camera->getPosition(deltaTime);
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        gluLookAt (camera->position.x, camera->position.y, 400.0, camera->position.x, camera->position.y, 0.0, 0.0, 1, 0.0);
+        gluLookAt (camera->position.x * UNITTOPIXEL, camera->position.y * UNITTOPIXEL, 400.0, camera->position.x * UNITTOPIXEL , camera->position.y * UNITTOPIXEL , 0.0, 0.0, 1, 0.0);
         SwapBuffers (hDC);
 
         lastTime=iTime.getCurrTime();

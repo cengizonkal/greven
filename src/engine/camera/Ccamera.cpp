@@ -18,8 +18,8 @@ void Ccamera::init(void) {
 	this->speed.SetZero();
 	this->speedA=20;
 }
-void Ccamera::setLink(engine::gameobject::CgameObject *gj) {
-	this->gameObject = gj; /**< Bir obejeye bağla */
+void Ccamera::setLink(engine::gameobject::CgameObject *go) {
+	this->gameObject = go; /**< Bir obejeye bağla */
 	this->mode = CAM_FOLLOW; /**< Camera modunu değiştir */
 
 }
@@ -58,6 +58,16 @@ engine::geometrics::Cvector  Ccamera::getPosition(double deltaTime) {
     }
     else if(this->mode == CAM_FIXED) {
         return this->position;
+    }
+    else if(this->mode == CAM_FOLLOW) {
+        engine::geometrics::Cvector deltaDistance = gameObject->position - this->position;
+        engine::geometrics::Cvector speed;
+
+        speed.x = deltaDistance.x / 1000;
+        speed.y = deltaDistance.y / 1000;
+
+        this->position.x+= speed.x;
+        this->position.y+= speed.y;
     }
     return this->position;
 }

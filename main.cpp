@@ -51,8 +51,10 @@ int WINAPI WinMain (HINSTANCE hInstance,
 
     engine::camera::Ccamera camera;
 
-    camera.mode = CAM_FIXED;
-    camera.setPosition(0, 0);
+    /*camera.mode = CAM_FIXED;
+    camera.setPosition(0, 0);*/
+    camera.setLink(&raziel);
+    camera.mode = CAM_FOLLOW;
     greven.setCamera(&camera);
 
     gr.loadResources("res/resources.xml");
